@@ -23,7 +23,7 @@ _PUBLIC void wdt_int_task(void (*int_task)(void))
 
 void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler)
 {
-	DISABLE_INTERRUPTS;
+	ENABLE_PROTECTION();
 	
 	wdt_reset();										/* reset the watchdog*/
 	switch(lub_watchdog_mode)
@@ -45,6 +45,6 @@ void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_pres
 			}
 	}
 	WDTCSR|=lub_wdt_prescaler;							/* set up timer prescaler */
-	ENABLE_INTERRUPTS;
+	DISABLE_PROTECTION();
 	
 }

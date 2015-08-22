@@ -17,9 +17,28 @@
 #define STDTYPES_H_
 #include "compiler.h"
 
+#ifndef ENTER_PROTECTED_SECTION()
+#define ENTER_PROTECTED_SECTION() DISABLE_INTERRUPTS
+#endif
+
+#ifndef LEAVE_PROTECTED_SECTION()
+#define LEAVE_PROTECTED_SECTION() ENABLE_INTERRUPTS
+#endif
+
+
 /// \defgroup CommonMacros Library Macros
 /// These Macros allow you to implement basic logical operations and also to "encapsulate" functions and variables.
 /// @{
+
+/// Defines macro that should be called before doing operations on shared variables
+#ifndef ENABLE_PROTECTION()
+#define ENABLE_PROTECTION() DISABLE_INTERRUPTS
+#endif
+
+/// Defines macro that should be called after doing operations on shared variables
+#ifndef DISABLE_PROTECTION()
+#define DISABLE_PROTECTION() ENABLE_INTERRUPTS
+#endif
 
 /// Defines the "_PRIVATE" type that can be added to a function or a global variable
 #ifndef _PRIVATE
@@ -226,36 +245,36 @@ typedef unsigned long long int* P_UQWORD;
 /// Defines BYTE bitfield in LSB order
 typedef struct
 {
-	unsigned char bit0:1; ///< bit0
-	unsigned char bit1:1; ///< bit1
-	unsigned char bit2:1; ///< bit2
-	unsigned char bit3:1; ///< bit3
-	unsigned char bit4:1; ///< bit4
-	unsigned char bit5:1; ///< bit5
-	unsigned char bit6:1; ///< bit6
-	unsigned char bit7:1; ///< bit7
+	unsigned int bit0:1; ///< bit0
+	unsigned int bit1:1; ///< bit1
+	unsigned int bit2:1; ///< bit2
+	unsigned int bit3:1; ///< bit3
+	unsigned int bit4:1; ///< bit4
+	unsigned int bit5:1; ///< bit5
+	unsigned int bit6:1; ///< bit6
+	unsigned int bit7:1; ///< bit7
 	
 }BYTE_BITFIELD;
 
 /// Defines WORD bitfield in LSB order
 typedef struct
 {
-	unsigned char bit0:1; ///< bit0
-	unsigned char bit1:1; ///< bit1
-	unsigned char bit2:1; ///< bit2
-	unsigned char bit3:1; ///< bit3
-	unsigned char bit4:1; ///< bit4
-	unsigned char bit5:1; ///< bit5
-	unsigned char bit6:1; ///< bit6
-	unsigned char bit7:1; ///< bit7
-	unsigned char bit8:1; ///< bit8
-	unsigned char bit9:1; ///< bit9
-	unsigned char bit10:1; ///< bit10
-	unsigned char bit11:1; ///< bit11
-	unsigned char bit12:1; ///< bit12
-	unsigned char bit13:1; ///< bit13
-	unsigned char bit14:1; ///< bit14
-	unsigned char bit15:1; ///< bit15
+	unsigned int bit0:1; ///< bit0
+	unsigned int bit1:1; ///< bit1
+	unsigned int bit2:1; ///< bit2
+	unsigned int bit3:1; ///< bit3
+	unsigned int bit4:1; ///< bit4
+	unsigned int bit5:1; ///< bit5
+	unsigned int bit6:1; ///< bit6
+	unsigned int bit7:1; ///< bit7
+	unsigned int bit8:1; ///< bit8
+	unsigned int bit9:1; ///< bit9
+	unsigned int bit10:1; ///< bit10
+	unsigned int bit11:1; ///< bit11
+	unsigned int bit12:1; ///< bit12
+	unsigned int bit13:1; ///< bit13
+	unsigned int bit14:1; ///< bit14
+	unsigned int bit15:1; ///< bit15
 }WORD_BITFIELD;
 
 

@@ -9,6 +9,7 @@
 #ifndef COMPILER_H_
 #define COMPILER_H_
 #include "avr/interrupt.h"
+
 #if defined (__AVR__)
 
 	#define DISABLE_INTERRUPTS cli()

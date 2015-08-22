@@ -6,4 +6,47 @@
  */ 
 
 #include "../../stdtypes.h"
+#include "../../errorcode.h"
+#include "../scheduler/scheduler.h"
+
 #include "task_manager.h"
+
+
+_PUBLIC UBYTE push(S_Tasks_Struct ls_task)
+{
+	UBYTE lub_errno=SUCCESS;
+	
+	if(rub_task_stack_top==MAX_TASK_NUMBER-1)
+	{
+		lub_errno=TSOF;
+		
+	}
+	else
+	{
+		ENABLE_PROTECTION();
+		rub_task_stack_top++;
+		rs_task_stack[rub_task_stack_top]=ls_task;
+		DISABLE_PROTECTION();
+	}
+	return_errorcode:
+	{
+		return lub_errno;
+	}
+}
+
+_PUBLIC UBYTE pop()
+{
+	UBYTE lub_errno=SUCCESS;
+	if(rub_task_stack_top==-1)
+	{
+		lub_errno=TSE;
+	}
+	else
+	{
+		ENABLE_PROTECTION();
+		rub_task_stack_top--;
+		DISABLE_PROTECTION();
+	}
+	return lub_errno;
+
+}

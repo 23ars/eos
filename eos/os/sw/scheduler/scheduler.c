@@ -13,37 +13,68 @@
 
 ISR(TIMER0_OVF_vect)
 {
-	DISABLE_INTERRUPTS;
+	
+	ENABLE_PROTECTION();
 	rub_schd_counter++;
-	ENABLE_INTERRUPTS;
-	if(Task_1ms!=0)
+	DISABLE_PROTECTION();
+	if(rub_schd_counter%E_Task_5ms==0)
 	{
-		(*Task_1ms)();	
+		execute_task(E_Task_5ms);
 	}
-	if(rub_schd_counter%E_Task_5ms==0 && Task_5ms!=0)
+	if(rub_schd_counter%E_Task_10ms==0 )
 	{
-		(*Task_5ms)();
+		execute_task(E_Task_10ms);
 	}
-	if(rub_schd_counter%E_Task_10ms==0 && Task_10ms!=0)
+	if(rub_schd_counter%E_Task_20ms==0 )
 	{
-		(*Task_10ms)();
+		execute_task(E_Task_20ms);
 	}
-	if(rub_schd_counter%E_Task_20ms==0 && Task_20ms!=0)
-	{
-		(*Task_20ms)();
-	}
+
 	
 }
 
-_PUBLIC void init(void (*sc_1ms_task)(void),void (*sc_5ms_task)(void),void (*sc_10ms_task)(void),void (*sc_20ms_task)(void))
+void execute_task(E_AvailableTasks task_scheduler)
+{
+	_PRIVATE UBYTE stack_index=MAX_TASK_NUMBER;	
+	_PRIVATE S_Tasks_Struct ls_task;
+	while(stack_index>=0)
+	{
+		ls_task=rs_task_stack[stack_index];
+		if(ls_task.task==0)
+		{
+			stack_index--;
+			continue;
+		}
+		if(ls_task.rub_Task_Schedule!=task_scheduler)
+		{
+			stack_index--;
+			continue;
+		}
+		switch(ls_task.rub_Task_Priority)
+		{
+			case TASK_HIGH_PRIO:
+				high_prio_task=ls_task.task;break;
+			case TASK_MEDIUM_PRIO:
+				medium_prio_task=ls_task.task;break;
+			case TASK_LOW_PRIO:
+				low_prio_task=ls_task.task;break;
+		}
+		stack_index--;
+	}
+	(*high_prio_task)();	
+	(*medium_prio_task)();	
+	(*low_prio_task)();	
+}
+
+
+_PUBLIC void init()
 {
 
-	DISABLE_INTERRUPTS;
-	Task_1ms=sc_1ms_task;
-	Task_5ms=sc_5ms_task;
-	Task_10ms=sc_10ms_task;
-	Task_20ms=sc_20ms_task;
-	
+	ENABLE_PROTECTION();
+	if(rub_task_stack_top!=-1)
+	{
+		rub_task_stack_top=-1;
+	}
 	/*
 	 Timer resolution=(1 / (Input Frequency / Prescale))=0.000004
 	 Timer resolution*255= 0.00102=1.02 ms
@@ -55,7 +86,7 @@ _PUBLIC void init(void (*sc_1ms_task)(void),void (*sc_5ms_task)(void),void (*sc_
 	//enable timer0 overflow interrupt
 
 	DDRB=0xFF;
-	ENABLE_INTERRUPTS;
+	DISABLE_PROTECTION();
 	
 }
 //extern void Task_1ms

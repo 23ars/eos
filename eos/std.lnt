@@ -5,6 +5,8 @@
 
 
 options.lnt au-misra2.lnt -si2 -spN2 -spF4
--i"d:\Development\Git\eos\eos\eos.c"
+-I"os"
+-i"eos.c"
+
 
 
