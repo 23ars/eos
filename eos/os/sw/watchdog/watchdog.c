@@ -1,0 +1,50 @@
+/*
+ * watchdog.c
+ *
+ * Created: 8/9/2015 11:27:53 AM
+ *  Author: Mihai
+ */ 
+#include "../../stdtypes.h"
+#include "avr/wdt.h"
+#include <avr/interrupt.h>
+#include "watchdog.h"
+
+ISR(WDT_vect)
+{
+	(*wdt_task)();	
+	
+}
+
+_PUBLIC void wdt_int_task(void (*int_task)(void))
+{
+	wdt_task=int_task;
+}
+
+
+void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler)
+{
+	DISABLE_INTERRUPTS;
+	
+	wdt_reset();										/* reset the watchdog*/
+	switch(lub_watchdog_mode)
+	{
+		case WATCHDOG_INTERRUPT_MODE:
+			WDTCSR|=(1<<WDIE);
+		break;
+		case WATCHDOG_RESET_MODE:
+			WDTCSR|=(1<<WDE);
+			break;
+		case WATCHDOG_INTERRUPT_RESET:
+			WDTCSR|=(1<<WDE)|(1<<WDIE);					/* set up int & reset mode */
+			break;
+		default:
+			{
+				BIT_CLEAR(WDTCSR,WDE);
+				BIT_CLEAR(WDTCSR,WDIE);
+				break;
+			}
+	}
+	WDTCSR|=lub_wdt_prescaler;							/* set up timer prescaler */
+	ENABLE_INTERRUPTS;
+	
+}
