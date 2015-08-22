@@ -1,0 +1,23 @@
+
+=== Indirect: std.lnt, consumed 28,092 bytes
+
+    === Indirect: co-gcc.lnt, consumed 28,092 bytes
+co-gcc.lnt  88  Warning 686: Option '+cpp(.cc,.C)' is suspicious because of
+    'Upper case characters within extension '.C'; these will match lower case
+    when +fff is on; try -fff'
+
+    === Indirect: options.lnt, consumed 38,016 bytes
+
+--- Module:   eos.c (C++), consumed 38,320 bytes
+           _
+    while(1)
+eos.c  13  Info 716: while(1) ... 
+    _
+}
+
+eos.c  17  Info 783: Line does not end with new-line
+
+    --- Wrap-up for Module: eos.c
+
+Info 766: Header file 'd:\Tools\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h'
+    not used in module 'eos.c'
