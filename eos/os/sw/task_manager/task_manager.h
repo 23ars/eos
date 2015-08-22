@@ -9,10 +9,10 @@
 #ifndef TASK_MANAGER_H_
 #define TASK_MANAGER_H_
 
+#include "task_stack.h"
+_PUBLIC UBYTE task_push(S_Tasks_Struct ls_task);
 
-_PUBLIC UBYTE push(S_Tasks_Struct ls_task);
-
-_PUBLIC UBYTE pop();
+_PUBLIC UBYTE task_pop();
 
 
 

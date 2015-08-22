@@ -20,12 +20,12 @@
 /************************************************************************/
 /* AVR ASSEMBLY OPS                                                     */
 /************************************************************************/
-	#define NO_OPERATION asm volatile("NOP")
+	#define NO_OPERATION() asm volatile("NOP")
 
 #else if defined (__XC8)
 	#define DISABLE_INTERRUPTS
 	#define ENABLE_INTERRUPTS
-	#define  NO_OPERATION	
+	#define  NO_OPERATION()	
 	
 #endif
 

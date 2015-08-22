@@ -7,12 +7,11 @@
 
 #include "../../stdtypes.h"
 #include "../../errorcode.h"
-#include "../scheduler/scheduler.h"
-
+#include "task_stack.h"
 #include "task_manager.h"
 
 
-_PUBLIC UBYTE push(S_Tasks_Struct ls_task)
+_PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)
 {
 	UBYTE lub_errno=SUCCESS;
 	
@@ -28,13 +27,11 @@ _PUBLIC UBYTE push(S_Tasks_Struct ls_task)
 		rs_task_stack[rub_task_stack_top]=ls_task;
 		DISABLE_PROTECTION();
 	}
-	return_errorcode:
-	{
-		return lub_errno;
-	}
+	return lub_errno;
+	
 }
 
-_PUBLIC UBYTE pop()
+_PUBLIC UBYTE task_pop()
 {
 	UBYTE lub_errno=SUCCESS;
 	if(rub_task_stack_top==-1)
