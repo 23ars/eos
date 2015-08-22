@@ -31,7 +31,7 @@ _PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)
 	
 }
 
-_PUBLIC UBYTE task_pop()
+_PUBLIC UBYTE task_pop(void)
 {
 	UBYTE lub_errno=SUCCESS;
 	if(rub_task_stack_top==-1)

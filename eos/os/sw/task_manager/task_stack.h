@@ -9,6 +9,11 @@
 #ifndef TASK_STACK_H_
 #define TASK_STACK_H_
 
+/// \defgroup task_stack
+/// Definition of the stack that is used for holding tasks
+/// @{
+
+
 /// Maximum number of tasks. By default it will be 20, 5 task for each time interval
 #ifndef MAX_TASK_NUMBER
 #define MAX_TASK_NUMBER 15
@@ -43,5 +48,5 @@ typedef struct
 volatile S_Tasks_Struct rs_task_stack[MAX_TASK_NUMBER];
 volatile BYTE rub_task_stack_top;
 
-
+/// @} //end of task_stack
 #endif /* TASK_STACK_H_ */

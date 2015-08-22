@@ -33,10 +33,7 @@ _PRIVATE void (*medium_prio_task)(void)=0;   //in c code use Task_10ms = &my_int
 _PRIVATE void (*low_prio_task)(void)=0;
 
 /// Init function
-/// \param[in] (*sc_1ms_task)(void) Pointer to the function that will be run on 1ms task, or 0
-/// \param[in] (*sc_5ms_task)(void) Pointer to the function that will be run on 5ms task or 0
-/// \param[in] (*sc_10ms_task)(void) Pointer to the function that will be run on 10ms task or 0
-/// \param[in] (*sc_20ms_task)(void) Pointer to the function that will be run on 20ms task or 0
+/// \param[in] void
 /// \return void
 _PUBLIC void sched_init();
 
