@@ -5,9 +5,9 @@
 *  Author: Mihai
 */
 
-#include "../../stdtypes.h"
+#include "../../../stdtypes.h"
 
-#include "scheduler.h"
+#include "../include/scheduler.h"
 
 #include <avr/io.h>
 #include <avr/interrupt.h>

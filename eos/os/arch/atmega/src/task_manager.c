@@ -5,10 +5,10 @@
  *  Author: Mihai
  */ 
 
-#include "../../stdtypes.h"
-#include "../../errorcode.h"
-#include "task_stack.h"
-#include "task_manager.h"
+#include "../../../stdtypes.h"
+#include "../../../errorcode.h"
+#include "../include/task_stack.h"
+#include "../include/task_manager.h"
 
 
 _PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)

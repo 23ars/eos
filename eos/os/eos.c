@@ -10,8 +10,7 @@
 #include "errorcode.h"
 #include "stdtypes.h"
 
-#include "sw/task_manager/scheduler.h"
-#include "sw/task_manager/task_manager.h"
+#include "arch/architecture.h"
 #include "../app/test_item.h"
 
 

@@ -4,7 +4,7 @@
  * Created: 8/22/2015 1:49:39 PM
  *  Author: Mihai
  */ 
-#include "../../stdtypes.h"
+#include "../stdtypes.h"
 #include <stddef.h>
 #include "utils.h"
 
@@ -19,7 +19,7 @@ _PUBLIC void* memcopy(void *dest, const void *src, size_t n)
 _PUBLIC void* memmove(void *dest, const void *src, size_t n)
 {
 	P_UBYTE d=dest;
-	P_BYTE s=(P_UBYTE)src;
+	P_UBYTE s=(P_UBYTE)src;
 	if(s<dest)
 	{
 		for(d+=n;s+=n;n--)
@@ -114,7 +114,7 @@ UBYTE crc16(P_UBYTE data_p, UWORD length)
 _PUBLIC UDWORD crc32(P_UBYTE message)
 {
 	int j;
-	unsigned int byte, crc, mask, word;
+	UDWORD byte, crc, mask, word;
 	static unsigned int table[256];
 
 	/* Set up the table, if necessary. */
