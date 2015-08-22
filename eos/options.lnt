@@ -4,4 +4,8 @@
 //                for further details.
 -efile(322,avr\io.h)
 -efile(7,avr\io.h)
+
+-efile(322,avr\interrupt.h)
+-efile(7,avr\interrupt.h)
+
 -A(C99) +veis
