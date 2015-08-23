@@ -19,11 +19,6 @@
 
 
 
-/**
- * app_register_execute. This function is called from eos.c main function and executes application code.
- * \param[in] void
- * \return void
- */
 _PUBLIC void app_load();
 _PUBLIC void app_unload();
 
