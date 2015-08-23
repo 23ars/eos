@@ -8,7 +8,7 @@
 #include <stdlib.h>
 #include "../os/stdtypes.h"
 #include "../arch/architecture.h"
-#include "../os/app_register/app_register.h"
+#include "../os/app_register.h"
 #include "test_item.h"
 
 

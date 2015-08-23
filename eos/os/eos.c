@@ -12,7 +12,7 @@
 #include "stdtypes.h"
 
 #include "../arch/architecture.h"
-#include "app_register/app_register.h"
+#include "app_register.h"
 #include "../app/test_item.h"
 void init_os(void)
 {
