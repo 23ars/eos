@@ -5,8 +5,8 @@
  *  Author: Mihai
  */ 
 /**
-\mainpage  Library with basic needed modules for ATmega328p microcontroller
-* <p>The idea of this library came from the need of some common modules/functionalities in projects</p>
+\mainpage  eOS, an embedded Operating System
+* <p></p>
 * <p>Author: Mihai Seba <<b>23ars</b>></p>
 * <p>Version: 1.0</p>
 * <p>License: GPL</p>
