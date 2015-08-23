@@ -277,8 +277,8 @@
     <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ggad68ce9cf4cde4eb812758f27f1ed6ee2a4e1a206399bc88af9fdc5eb80a237dc3"><param name="Name" value="wdt_8s_prescaler"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga0dfbab70279669aa591a25ae61ff270e"><param name="Name" value="WDT_CLEAR"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gaacce411f227308b77982274cf9de38e6"><param name="Name" value="WDT_DISABLE"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gad0d7fe3294708be07138757c6f70bd0b"><param name="Name" value="wdt_init"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga05a5dc28efbdc305d0385e8cb044dbd8"><param name="Name" value="WDT_INIT"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gad0d7fe3294708be07138757c6f70bd0b"><param name="Name" value="wdt_init"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga680edb2de6555509a9916d88e203cb19"><param name="Name" value="wdt_int_task"></OBJECT>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga1533e325b3e557e437d616d4973189c3"><param name="Name" value="wdt_task"></OBJECT>
   </UL>
@@ -297,8 +297,8 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ggad68ce9cf4cde4eb812758f27f1ed6ee2a4e1a206399bc88af9fdc5eb80a237dc3"><param name="Name" value="wdt_8s_prescaler"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga0dfbab70279669aa591a25ae61ff270e"><param name="Name" value="WDT_CLEAR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gaacce411f227308b77982274cf9de38e6"><param name="Name" value="WDT_DISABLE"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gad0d7fe3294708be07138757c6f70bd0b"><param name="Name" value="wdt_init"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga05a5dc28efbdc305d0385e8cb044dbd8"><param name="Name" value="WDT_INIT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gad0d7fe3294708be07138757c6f70bd0b"><param name="Name" value="wdt_init"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga680edb2de6555509a9916d88e203cb19"><param name="Name" value="wdt_int_task"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga1533e325b3e557e437d616d4973189c3"><param name="Name" value="wdt_task"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__work__modes.html#ga8f5edda840f51ce49ac340b0ca3f8cbf"><param name="Name" value="wm_init"></OBJECT>

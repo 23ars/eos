@@ -42,7 +42,7 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_48a247e0b1068657ff1c99d9aa07e813.html">Development</a></li><li class="navelem"><a class="el" href="dir_0caf9898a3be82e83e6e0ac8672372d0.html">Git</a></li><li class="navelem"><a class="el" href="dir_716080fa04158fc9ba308739b8906f8e.html">eos</a></li><li class="navelem"><a class="el" href="dir_eadacd96fc5db1f556446f15c8bf076b.html">eos</a></li><li class="navelem"><a class="el" href="dir_053f6ffed38f494d77de5adff8081514.html">os</a></li><li class="navelem"><a class="el" href="dir_1e2cf0306e9e95064b0c23ceaa41eb25.html">sw</a></li><li class="navelem"><a class="el" href="dir_5e2fa5ce3ff9ffd00d4140bbab161f5a.html">task_manager</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_275089585c7fc1b5fd5d7d42c69cb1da.html">D:</a></li><li class="navelem"><a class="el" href="dir_48a247e0b1068657ff1c99d9aa07e813.html">Development</a></li><li class="navelem"><a class="el" href="dir_0caf9898a3be82e83e6e0ac8672372d0.html">Git</a></li><li class="navelem"><a class="el" href="dir_716080fa04158fc9ba308739b8906f8e.html">eos</a></li><li class="navelem"><a class="el" href="dir_eadacd96fc5db1f556446f15c8bf076b.html">eos</a></li><li class="navelem"><a class="el" href="dir_9032d47c0da77d29ee7b3ac38e1c69af.html">arch</a></li><li class="navelem"><a class="el" href="dir_891a9aff8b4a78a60948094afadcf1c0.html">atmega</a></li><li class="navelem"><a class="el" href="dir_96bc021b85fb4da489957a61b06ab3ef.html">include</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -61,34 +61,33 @@
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#ifndef SCHEDULER_H_</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define SCHEDULER_H_</span></div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#ifndef F_CPU</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="group__scheduler.html#ga43bafb28b29491ec7f871319b5a3b2f8">   18</a></span>&#160;<span class="preprocessor">#define F_CPU 16000000UL //16 MHz</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;task_stack.h&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#ifndef F_CPU</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno"><a class="line" href="group__scheduler.html#ga43bafb28b29491ec7f871319b5a3b2f8">   19</a></span>&#160;<span class="preprocessor">#define F_CPU 16000000UL </span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;task_stack.h&quot;</span></div>
 <div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
 <div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;</div>
 <div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;ISR(TIMER0_OVF_vect);</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> <span class="keyword">volatile</span> <a class="code" href="group__datatypes.html#ga122c4acf389c050379f00341fdcd5812">UBYTE</a> rub_schd_counter;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;ISR(TIMER0_OVF_vect);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> <span class="keyword">volatile</span> <a class="code" href="group__datatypes.html#ga122c4acf389c050379f00341fdcd5812">UBYTE</a> rub_schd_counter;</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> void (*high_prio_task)(void)=0;</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> void (*medium_prio_task)(void)=0;   <span class="comment">//in c code use Task_10ms = &amp;my_int_func;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> void (*low_prio_task)(void)=0;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<a class="code" href="group___common_macros.html#ga3dc033d5f1cdf4b4e2294e00bffcd639">_PUBLIC</a> <span class="keywordtype">void</span> <a class="code" href="group__scheduler.html#ga37cc8924ba9bd9768aa5e2e32079f811">sched_init</a>();</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> <span class="keywordtype">void</span> execute_task(<a class="code" href="group__task__stack.html#ga66661841e404b6d04d382c040bc7bd7b">E_AvailableTasks</a> task_scheduler);</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> void (*high_prio_task)(void)=0;</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> void (*medium_prio_task)(void)=0;  </div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> void (*low_prio_task)(void)=0;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<a class="code" href="group___common_macros.html#ga3dc033d5f1cdf4b4e2294e00bffcd639">_PUBLIC</a> <span class="keywordtype">void</span> <a class="code" href="group__scheduler.html#ga37cc8924ba9bd9768aa5e2e32079f811">sched_init</a>();</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SCHEDULER_H_ */</span><span class="preprocessor"></span></div>
-<div class="ttc" id="group__task__stack_html_ga66661841e404b6d04d382c040bc7bd7b"><div class="ttname"><a href="group__task__stack.html#ga66661841e404b6d04d382c040bc7bd7b">E_AvailableTasks</a></div><div class="ttdeci">E_AvailableTasks</div><div class="ttdoc">Available task. </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00023">task_stack.h:23</a></div></div>
-<div class="ttc" id="group__datatypes_html_ga122c4acf389c050379f00341fdcd5812"><div class="ttname"><a href="group__datatypes.html#ga122c4acf389c050379f00341fdcd5812">UBYTE</a></div><div class="ttdeci">unsigned char UBYTE</div><div class="ttdoc">Defines unsigned BYTE type. </div><div class="ttdef"><b>Definition:</b> <a href="stdtypes_8h_source.html#l00199">stdtypes.h:199</a></div></div>
-<div class="ttc" id="group___common_macros_html_ga3dc033d5f1cdf4b4e2294e00bffcd639"><div class="ttname"><a href="group___common_macros.html#ga3dc033d5f1cdf4b4e2294e00bffcd639">_PUBLIC</a></div><div class="ttdeci">#define _PUBLIC</div><div class="ttdoc">Defines the "_PUBLIC" type that can be added to a function or a global variable. </div><div class="ttdef"><b>Definition:</b> <a href="stdtypes_8h_source.html#l00050">stdtypes.h:50</a></div></div>
-<div class="ttc" id="group___common_macros_html_ga9611f32cdc6adf8996d86b217e099be8"><div class="ttname"><a href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a></div><div class="ttdeci">#define _PRIVATE</div><div class="ttdoc">Defines the "_PRIVATE" type that can be added to a function or a global variable. ...</div><div class="ttdef"><b>Definition:</b> <a href="stdtypes_8h_source.html#l00045">stdtypes.h:45</a></div></div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<a class="code" href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a> <span class="keywordtype">void</span> execute_task(<a class="code" href="group__task__stack.html#ga66661841e404b6d04d382c040bc7bd7b">E_AvailableTasks</a> task_scheduler);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* SCHEDULER_H_ */</span><span class="preprocessor"></span></div>
+<div class="ttc" id="group__task__stack_html_ga66661841e404b6d04d382c040bc7bd7b"><div class="ttname"><a href="group__task__stack.html#ga66661841e404b6d04d382c040bc7bd7b">E_AvailableTasks</a></div><div class="ttdeci">E_AvailableTasks</div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00026">task_stack.h:26</a></div></div>
+<div class="ttc" id="group__datatypes_html_ga122c4acf389c050379f00341fdcd5812"><div class="ttname"><a href="group__datatypes.html#ga122c4acf389c050379f00341fdcd5812">UBYTE</a></div><div class="ttdeci">unsigned char UBYTE</div><div class="ttdef"><b>Definition:</b> <a href="stdtypes_8h_source.html#l00231">stdtypes.h:231</a></div></div>
+<div class="ttc" id="group___common_macros_html_ga3dc033d5f1cdf4b4e2294e00bffcd639"><div class="ttname"><a href="group___common_macros.html#ga3dc033d5f1cdf4b4e2294e00bffcd639">_PUBLIC</a></div><div class="ttdeci">#define _PUBLIC</div><div class="ttdef"><b>Definition:</b> <a href="stdtypes_8h_source.html#l00055">stdtypes.h:55</a></div></div>
+<div class="ttc" id="group___common_macros_html_ga9611f32cdc6adf8996d86b217e099be8"><div class="ttname"><a href="group___common_macros.html#ga9611f32cdc6adf8996d86b217e099be8">_PRIVATE</a></div><div class="ttdeci">#define _PRIVATE</div><div class="ttdef"><b>Definition:</b> <a href="stdtypes_8h_source.html#l00049">stdtypes.h:49</a></div></div>
 <div class="ttc" id="group__scheduler_html_ga37cc8924ba9bd9768aa5e2e32079f811"><div class="ttname"><a href="group__scheduler.html#ga37cc8924ba9bd9768aa5e2e32079f811">sched_init</a></div><div class="ttdeci">_PUBLIC void sched_init()</div><div class="ttdef"><b>Definition:</b> <a href="scheduler_8c_source.html#l00102">scheduler.c:102</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

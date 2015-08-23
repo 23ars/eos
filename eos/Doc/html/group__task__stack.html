@@ -50,14 +50,11 @@
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Data Structures</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_s___tasks___struct.html">S_Tasks_Struct</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task structure.  <a href="struct_s___tasks___struct.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:gae424ca42d4937cbbb1735201d53427f5"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="gae424ca42d4937cbbb1735201d53427f5"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__task__stack.html#gae424ca42d4937cbbb1735201d53427f5">MAX_TASK_NUMBER</a>&#160;&#160;&#160;15</td></tr>
-<tr class="memdesc:gae424ca42d4937cbbb1735201d53427f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of tasks. By default it will be 20, 5 task for each time interval. <br /></td></tr>
+<tr class="memitem:gae424ca42d4937cbbb1735201d53427f5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__task__stack.html#gae424ca42d4937cbbb1735201d53427f5">MAX_TASK_NUMBER</a>&#160;&#160;&#160;15</td></tr>
 <tr class="separator:gae424ca42d4937cbbb1735201d53427f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -65,14 +62,12 @@ Enumerations</h2></td></tr>
 <tr class="memitem:ga66661841e404b6d04d382c040bc7bd7b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__task__stack.html#ga66661841e404b6d04d382c040bc7bd7b">E_AvailableTasks</a> { <a class="el" href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c">E_Task_20ms</a> =20, 
 <a class="el" href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7badd6165439cd6dfce3db50f1366999314">E_Task_10ms</a> =10, 
 <a class="el" href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7ba87372dde4ee0482a2c4a483dd591c699">E_Task_5ms</a> =5
- }<tr class="memdesc:ga66661841e404b6d04d382c040bc7bd7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Available task.  <a href="group__task__stack.html#ga66661841e404b6d04d382c040bc7bd7b">More...</a><br /></td></tr>
-<tr class="separator:ga66661841e404b6d04d382c040bc7bd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="separator:ga66661841e404b6d04d382c040bc7bd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
 <tr class="memitem:ga01f0a5b26dc76bf43d865191b5831082"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__task__stack.html#ga01f0a5b26dc76bf43d865191b5831082">E_task_priority</a> { <a class="el" href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb">TASK_HIGH_PRIO</a> =0x01, 
 <a class="el" href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082a3330b1b927b06d0259d665d4cd726117">TASK_MEDIUM_PRIO</a> =0x02, 
 <a class="el" href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082ac3129bbe51e8115eac94f4d5152cd264">TASK_LOW_PRIO</a> =0x03
- }<tr class="memdesc:ga01f0a5b26dc76bf43d865191b5831082"><td class="mdescLeft">&#160;</td><td class="mdescRight">Task priorities.  <a href="group__task__stack.html#ga01f0a5b26dc76bf43d865191b5831082">More...</a><br /></td></tr>
-<tr class="separator:ga01f0a5b26dc76bf43d865191b5831082"><td class="memSeparator" colspan="2">&#160;</td></tr>
+ }<tr class="separator:ga01f0a5b26dc76bf43d865191b5831082"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
@@ -86,6 +81,22 @@ volatile <a class="el" href="group__datatypes.html#gab82d0b857f61e3252a64662253b
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Definition of the stack that is used for holding tasks </p>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a class="anchor" id="gae424ca42d4937cbbb1735201d53427f5"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define MAX_TASK_NUMBER&#160;&#160;&#160;15</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Maximum number of tasks. By default it will be 20, 5 task for each time interval </p>
+
+<p>Definition at line <a class="el" href="task__stack_8h_source.html#l00021">21</a> of file <a class="el" href="task__stack_8h_source.html">task_stack.h</a>.</p>
+
+</div>
+</div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
 <a class="anchor" id="ga66661841e404b6d04d382c040bc7bd7b"></a>
 <div class="memitem">
@@ -96,8 +107,7 @@ volatile <a class="el" href="group__datatypes.html#gab82d0b857f61e3252a64662253b
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Available task. </p>
+<p>Available task </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c"></a>E_Task_20ms&#160;</td><td class="fielddoc">
 <p>20ms task that will be run every 20ms </p>
@@ -110,7 +120,7 @@ volatile <a class="el" href="group__datatypes.html#gab82d0b857f61e3252a64662253b
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="task__stack_8h_source.html#l00023">23</a> of file <a class="el" href="task__stack_8h_source.html">task_stack.h</a>.</p>
+<p>Definition at line <a class="el" href="task__stack_8h_source.html#l00026">26</a> of file <a class="el" href="task__stack_8h_source.html">task_stack.h</a>.</p>
 
 </div>
 </div>
@@ -123,21 +133,20 @@ volatile <a class="el" href="group__datatypes.html#gab82d0b857f61e3252a64662253b
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p>Task priorities. </p>
+<p>Task priorities </p>
 <table class="fieldtable">
 <tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a class="anchor" id="gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb"></a>TASK_HIGH_PRIO&#160;</td><td class="fielddoc">
-<p>High priority task. </p>
+<p>High priority task </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="gga01f0a5b26dc76bf43d865191b5831082a3330b1b927b06d0259d665d4cd726117"></a>TASK_MEDIUM_PRIO&#160;</td><td class="fielddoc">
-<p>Medium priority task. </p>
+<p>Medium priority task </p>
 </td></tr>
 <tr><td class="fieldname"><a class="anchor" id="gga01f0a5b26dc76bf43d865191b5831082ac3129bbe51e8115eac94f4d5152cd264"></a>TASK_LOW_PRIO&#160;</td><td class="fielddoc">
-<p>Low priority task. </p>
+<p>Low priority task </p>
 </td></tr>
 </table>
 
-<p>Definition at line <a class="el" href="task__stack_8h_source.html#l00032">32</a> of file <a class="el" href="task__stack_8h_source.html">task_stack.h</a>.</p>
+<p>Definition at line <a class="el" href="task__stack_8h_source.html#l00036">36</a> of file <a class="el" href="task__stack_8h_source.html">task_stack.h</a>.</p>
 
 </div>
 </div>

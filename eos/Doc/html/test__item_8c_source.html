@@ -58,40 +58,39 @@
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment"> */</span> </div>
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;../os/stdtypes.h&quot;</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor">#include &lt;avr/io.h&gt;</span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../os/sw/task_manager/scheduler.h&quot;</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;../os/sw/task_manager/task_manager.h&quot;</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#include &quot;test_item.h&quot;</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keywordtype">void</span> init_port()</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    DDRB=0xFF;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <a class="code" href="struct_s___tasks___struct.html">S_Tasks_Struct</a> task_20;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    task_20.<a class="code" href="struct_s___tasks___struct.html#a0fa289a70be5ce72895d0cca38a7e924">rub_Task_Priority</a>=<a class="code" href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb">TASK_HIGH_PRIO</a>;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    task_20.<a class="code" href="struct_s___tasks___struct.html#ac85f8657dc950e27a15fc2c01a4699dc">rub_Task_Schedule</a>=<a class="code" href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c">E_Task_20ms</a>;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    task_20.<a class="code" href="struct_s___tasks___struct.html#a02f54d3ce018e20d54727639f0f8dec7">task</a>=&amp;toggle_led;</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="group__taskmanager.html#ga27724c36e4282654c909cd4410af621c">task_push</a>(task_20)==0)</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    {</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;        PORTB|=(1&lt;&lt;PINB3);</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    }</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordflow">else</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    {</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        PORTB|=(1&lt;&lt;PINB4);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    </div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;}</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keywordtype">void</span> toggle_led()</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;{</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    PORTB^=(1&lt;&lt;PINB0);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="ttc" id="struct_s___tasks___struct_html_a0fa289a70be5ce72895d0cca38a7e924"><div class="ttname"><a href="struct_s___tasks___struct.html#a0fa289a70be5ce72895d0cca38a7e924">S_Tasks_Struct::rub_Task_Priority</a></div><div class="ttdeci">E_task_priority rub_Task_Priority</div><div class="ttdoc">Task priority. </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00042">task_stack.h:42</a></div></div>
-<div class="ttc" id="group__task__stack_html_gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c"><div class="ttname"><a href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c">E_Task_20ms</a></div><div class="ttdoc">20ms task that will be run every 20ms </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00025">task_stack.h:25</a></div></div>
-<div class="ttc" id="struct_s___tasks___struct_html"><div class="ttname"><a href="struct_s___tasks___struct.html">S_Tasks_Struct</a></div><div class="ttdoc">Task structure. </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00040">task_stack.h:40</a></div></div>
-<div class="ttc" id="struct_s___tasks___struct_html_a02f54d3ce018e20d54727639f0f8dec7"><div class="ttname"><a href="struct_s___tasks___struct.html#a02f54d3ce018e20d54727639f0f8dec7">S_Tasks_Struct::task</a></div><div class="ttdeci">void(* task)(void)</div><div class="ttdoc">Pointer to a function that will run on task. </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00044">task_stack.h:44</a></div></div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &quot;../arch/architecture.h&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#include &quot;test_item.h&quot;</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keywordtype">void</span> init_port()</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;{</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    DDRB=0xFF;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <a class="code" href="struct_s___tasks___struct.html">S_Tasks_Struct</a> task_20;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    task_20.<a class="code" href="struct_s___tasks___struct.html#a0fa289a70be5ce72895d0cca38a7e924">rub_Task_Priority</a>=<a class="code" href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb">TASK_HIGH_PRIO</a>;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    task_20.<a class="code" href="struct_s___tasks___struct.html#ac85f8657dc950e27a15fc2c01a4699dc">rub_Task_Schedule</a>=<a class="code" href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c">E_Task_20ms</a>;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    task_20.<a class="code" href="struct_s___tasks___struct.html#a02f54d3ce018e20d54727639f0f8dec7">task</a>=&amp;toggle_led;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordflow">if</span>(<a class="code" href="group__taskmanager.html#ga27724c36e4282654c909cd4410af621c">task_push</a>(task_20)==0)</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    {</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        PORTB|=(1&lt;&lt;PINB3);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    }</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordflow">else</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    {</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        PORTB|=(1&lt;&lt;PINB4);</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    }</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    </div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;}</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="keywordtype">void</span> toggle_led()</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    PORTB^=(1&lt;&lt;PINB0);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;}</div>
+<div class="ttc" id="struct_s___tasks___struct_html_a0fa289a70be5ce72895d0cca38a7e924"><div class="ttname"><a href="struct_s___tasks___struct.html#a0fa289a70be5ce72895d0cca38a7e924">S_Tasks_Struct::rub_Task_Priority</a></div><div class="ttdeci">E_task_priority rub_Task_Priority</div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00047">task_stack.h:47</a></div></div>
+<div class="ttc" id="group__task__stack_html_gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c"><div class="ttname"><a href="group__task__stack.html#gga66661841e404b6d04d382c040bc7bd7baab1f695620faee3d5354dea475d4876c">E_Task_20ms</a></div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00028">task_stack.h:28</a></div></div>
+<div class="ttc" id="struct_s___tasks___struct_html"><div class="ttname"><a href="struct_s___tasks___struct.html">S_Tasks_Struct</a></div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00045">task_stack.h:45</a></div></div>
+<div class="ttc" id="struct_s___tasks___struct_html_a02f54d3ce018e20d54727639f0f8dec7"><div class="ttname"><a href="struct_s___tasks___struct.html#a02f54d3ce018e20d54727639f0f8dec7">S_Tasks_Struct::task</a></div><div class="ttdeci">void(* task)(void)</div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00049">task_stack.h:49</a></div></div>
 <div class="ttc" id="group__taskmanager_html_ga27724c36e4282654c909cd4410af621c"><div class="ttname"><a href="group__taskmanager.html#ga27724c36e4282654c909cd4410af621c">task_push</a></div><div class="ttdeci">_PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)</div><div class="ttdef"><b>Definition:</b> <a href="task__manager_8c_source.html#l00014">task_manager.c:14</a></div></div>
-<div class="ttc" id="group__task__stack_html_gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb"><div class="ttname"><a href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb">TASK_HIGH_PRIO</a></div><div class="ttdoc">High priority task. </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00034">task_stack.h:34</a></div></div>
-<div class="ttc" id="struct_s___tasks___struct_html_ac85f8657dc950e27a15fc2c01a4699dc"><div class="ttname"><a href="struct_s___tasks___struct.html#ac85f8657dc950e27a15fc2c01a4699dc">S_Tasks_Struct::rub_Task_Schedule</a></div><div class="ttdeci">E_AvailableTasks rub_Task_Schedule</div><div class="ttdoc">Task scheduler. </div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00043">task_stack.h:43</a></div></div>
+<div class="ttc" id="group__task__stack_html_gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb"><div class="ttname"><a href="group__task__stack.html#gga01f0a5b26dc76bf43d865191b5831082a136a13f4e6d7a590c433687004de4aeb">TASK_HIGH_PRIO</a></div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00038">task_stack.h:38</a></div></div>
+<div class="ttc" id="struct_s___tasks___struct_html_ac85f8657dc950e27a15fc2c01a4699dc"><div class="ttname"><a href="struct_s___tasks___struct.html#ac85f8657dc950e27a15fc2c01a4699dc">S_Tasks_Struct::rub_Task_Schedule</a></div><div class="ttdeci">E_AvailableTasks rub_Task_Schedule</div><div class="ttdef"><b>Definition:</b> <a href="task__stack_8h_source.html#l00048">task_stack.h:48</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
