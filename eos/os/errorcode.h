@@ -14,10 +14,10 @@
  * @{
  */
 #define SUCCESS 0x00 /**< Code for Success execution */
-#define TSOF 0x01 /**< Tasks Stack Overflow */
-#define TSE  0x03 /**< Tasks Stack Empty */
-
-
+#define ETSOF 0x01 /**< Tasks Stack Overflow */
+#define ETSE  0x03 /**< Tasks Stack Empty */
+#define EOOM 0x04 /**< Out of memory error code */
+#define EAPL 0x05 /**< Application already loaded to list */
 
 /** @} //end of errorcodes
 */

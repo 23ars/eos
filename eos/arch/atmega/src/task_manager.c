@@ -17,7 +17,7 @@ _PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)
 	
 	if(rub_task_stack_top==MAX_TASK_NUMBER-1)
 	{
-		lub_errno=TSOF;
+		lub_errno=ETSOF;
 		
 	}
 	else
@@ -36,7 +36,7 @@ _PUBLIC UBYTE task_pop(void)
 	UBYTE lub_errno=SUCCESS;
 	if(rub_task_stack_top==-1)
 	{
-		lub_errno=TSE;
+		lub_errno=ETSE;
 	}
 	else
 	{
