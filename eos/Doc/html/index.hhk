@@ -14,25 +14,15 @@
   </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="union_a_d_d_r_e_s_s.html#ac391a6b2f76ffd50ca6976bff19a45ca"><param name="Name" value="address"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="union_a_d_d_r_e_s_s.html"><param name="Name" value="ADDRESS"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html#a29fd891c42b0ed418a67150a6082282a"><param name="Name" value="app_identifier"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html"><param name="Name" value="App_list"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html#ga319999d79b88f8c93a8a8b4e2d5eb4b9"><param name="Name" value="app_load"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html"><param name="Name" value="App_register"></OBJECT>
   <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga4aef8d1098eb50fdb4e02676f24d8e8a"><param name="Name" value="app_list_execute"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga67a1295688d10432042bbd618514f5f0"><param name="Name" value="app_list_pop"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#gadc0fef21dcfd335ca4a23c48051892d6"><param name="Name" value="app_list_push"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga5c7a7fbb7a5eac051c51ad3070003220"><param name="Name" value="app_list_root"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga27b75377dd13aeec499a27309d2343a8"><param name="Name" value="app_list_search"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga2aa256a3084cd518a4af5eb404c76d36"><param name="Name" value="app_register"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#gaaecad16074dc7ba250302e3a0877a98a"><param name="Name" value="app_unregister"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html#ga319999d79b88f8c93a8a8b4e2d5eb4b9"><param name="Name" value="app_load"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html#ga37169a29da438d9d86af6f20bd5ee72d"><param name="Name" value="app_register"></OBJECT>
   </UL>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga4aef8d1098eb50fdb4e02676f24d8e8a"><param name="Name" value="app_list_execute"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga67a1295688d10432042bbd618514f5f0"><param name="Name" value="app_list_pop"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#gadc0fef21dcfd335ca4a23c48051892d6"><param name="Name" value="app_list_push"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga5c7a7fbb7a5eac051c51ad3070003220"><param name="Name" value="app_list_root"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga27b75377dd13aeec499a27309d2343a8"><param name="Name" value="app_list_search"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html#a39f9f3395e8351641c187209ad5f693f"><param name="Name" value="app_node"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#ga2aa256a3084cd518a4af5eb404c76d36"><param name="Name" value="app_register"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__list.html#gaaecad16074dc7ba250302e3a0877a98a"><param name="Name" value="app_unregister"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html#ga37169a29da438d9d86af6f20bd5ee72d"><param name="Name" value="app_register"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html"><param name="Name" value="App_register"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__app__register.html#gaf5ade3facfe7d9d300857bc5d879f531"><param name="Name" value="app_unload"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_b_y_t_e___b_i_t_f_i_e_l_d.html#a21eb9aeacbed8e028805cbf482d2aa23"><param name="Name" value="bit0"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_b_y_t_e___b_i_t_f_i_e_l_d.html#a21eb9aeacbed8e028805cbf482d2aa23"><param name="Name" value="BYTE_BITFIELD"></OBJECT>
@@ -195,7 +185,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___common_macros.html#gad5d36f23192f87275062b8d352aeb361"><param name="Name" value="MIN_BYTE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___common_macros.html#ga46240689e883dcfe032f551f8913bbe1"><param name="Name" value="MIN_DWORD"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___common_macros.html#ga2fa940c1267fae76795f705cc556b0f0"><param name="Name" value="MIN_WORD"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html#a73e7189e1aca8cefed244b2536b903e1"><param name="Name" value="next"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gga435c6dffe7c5d5855cb9665c5095a298ac157bdf0b85a40d2619cbc8bc1ae5fe2"><param name="Name" value="NONE"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group___common_macros.html#gac1b3960a3301783b4a3f3690cfa97244"><param name="Name" value="OUT_B"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__datatypes.html#ga577bc2b5878b20802c4eb8f11d2c5c38"><param name="Name" value="P_BYTE"></OBJECT>
@@ -212,12 +201,6 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___tasks___struct.html#a0fa289a70be5ce72895d0cca38a7e924"><param name="Name" value="rub_Task_Priority"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___tasks___struct.html#ac85f8657dc950e27a15fc2c01a4699dc"><param name="Name" value="rub_Task_Schedule"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__task__stack.html#ga699430547112d9685c2debf72263a50d"><param name="Name" value="rub_task_stack_top"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html"><param name="Name" value="S_List_Node"></OBJECT>
-  <UL>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html#a29fd891c42b0ed418a67150a6082282a"><param name="Name" value="app_identifier"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html#a39f9f3395e8351641c187209ad5f693f"><param name="Name" value="app_node"></OBJECT>
-    <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___list___node.html#a73e7189e1aca8cefed244b2536b903e1"><param name="Name" value="next"></OBJECT>
-  </UL>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___tasks___struct.html"><param name="Name" value="S_Tasks_Struct"></OBJECT>
   <UL>
     <LI><OBJECT type="text/sitemap"><param name="Local" value="struct_s___tasks___struct.html#a0fa289a70be5ce72895d0cca38a7e924"><param name="Name" value="rub_Task_Priority"></OBJECT>
@@ -327,8 +310,8 @@
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ggad68ce9cf4cde4eb812758f27f1ed6ee2a4e1a206399bc88af9fdc5eb80a237dc3"><param name="Name" value="wdt_8s_prescaler"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga0dfbab70279669aa591a25ae61ff270e"><param name="Name" value="WDT_CLEAR"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gaacce411f227308b77982274cf9de38e6"><param name="Name" value="WDT_DISABLE"></OBJECT>
-  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gad0d7fe3294708be07138757c6f70bd0b"><param name="Name" value="wdt_init"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga05a5dc28efbdc305d0385e8cb044dbd8"><param name="Name" value="WDT_INIT"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#gad0d7fe3294708be07138757c6f70bd0b"><param name="Name" value="wdt_init"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga680edb2de6555509a9916d88e203cb19"><param name="Name" value="wdt_int_task"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__watchdog.html#ga1533e325b3e557e437d616d4973189c3"><param name="Name" value="wdt_task"></OBJECT>
   <LI><OBJECT type="text/sitemap"><param name="Local" value="group__work__modes.html#ga8f5edda840f51ce49ac340b0ca3f8cbf"><param name="Name" value="wm_init"></OBJECT>
