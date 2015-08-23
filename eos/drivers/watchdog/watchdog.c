@@ -4,7 +4,7 @@
  * Created: 8/9/2015 11:27:53 AM
  *  Author: Mihai
  */ 
-#include "../../stdtypes.h"
+#include "../../os/stdtypes.h"
 #include "avr/wdt.h"
 #include <avr/interrupt.h>
 #include "watchdog.h"

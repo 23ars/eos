@@ -1,23 +1,166 @@
 
-=== Indirect: std.lnt, consumed 28,092 bytes
+=== Indirect: au-misra2.lnt, consumed 29,052 bytes
 
-    === Indirect: co-gcc.lnt, consumed 28,092 bytes
-co-gcc.lnt  88  Warning 686: Option '+cpp(.cc,.C)' is suspicious because of
-    'Upper case characters within extension '.C'; these will match lower case
-    when +fff is on; try -fff'
-
-    === Indirect: options.lnt, consumed 38,016 bytes
-
---- Module:   eos.c (C++), consumed 38,320 bytes
-           _
-    while(1)
-eos.c  13  Info 716: while(1) ... 
-    _
-}
-
-eos.c  17  Info 783: Line does not end with new-line
-
-    --- Wrap-up for Module: eos.c
-
-Info 766: Header file 'd:\Tools\Atmel\Atmel Toolchain\AVR8 GCC\Native\3.4.1061\avr8-gnu-toolchain\avr\include\avr\io.h'
-    not used in module 'eos.c'
+=== Indirect: env-xml.lnt, consumed 39,972 bytes
+<?xml version="1.0" ?>
+<doc>
+<message><file>os\errorcode.h</file> <line>12</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\errorcode.h</file> <line>13</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\errorcode.h</file> <line>14</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\errorcode.h</file> <line>15</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\errorcode.h</file> <line>16</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\errorcode.h</file> <line>17</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\errorcode.h</file> <line>21</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\compiler.h</file> <line>25</line> <type>Warning</type> <code>544</code> <desc>endif or else not followed by EOL</desc></message>
+<message><file>os\compiler.h</file> <line>28</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>20</line> <type>Error</type> <code>87</code> <desc>expression too complicated for #ifdef or #ifndef</desc></message>
+<message><file>os\stdtypes.h</file> <line>21</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>24</line> <type>Error</type> <code>87</code> <desc>expression too complicated for #ifdef or #ifndef</desc></message>
+<message><file>os\stdtypes.h</file> <line>25</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>29</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>30</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>31</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>33</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>34</line> <type>Error</type> <code>87</code> <desc>expression too complicated for #ifdef or #ifndef</desc></message>
+<message><file>os\stdtypes.h</file> <line>35</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>38</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>39</line> <type>Error</type> <code>87</code> <desc>expression too complicated for #ifdef or #ifndef</desc></message>
+<message><file>os\stdtypes.h</file> <line>40</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>43</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>48</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>53</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>58</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>64</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>69</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>74</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>76</line> <type>Warning</type> <code>694</code> <desc>The type of constant '4294967295' (precision 32) is dialect dependent</desc></message>
+<message><file>os\stdtypes.h</file> <line>79</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>84</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>89</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>94</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>99</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>101</line> <type>Warning</type> <code>694</code> <desc>The type of constant '2147483648' (precision 32) is dialect dependent</desc></message>
+<message><file>os\stdtypes.h</file> <line>104</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>111</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>112</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>113</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>115</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>118</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>119</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>120</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>122</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>125</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>126</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>127</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>129</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>132</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>133</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>134</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>136</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>140</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>141</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>142</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>144</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>147</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>148</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>149</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>151</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>154</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>155</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>156</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>158</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>161</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>162</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>163</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>165</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>168</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>169</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>170</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>172</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>172</line> <type>Info</type> <code>773</code> <desc>Expression-like macro 'OUT_B' not parenthesized [MISRA 2004 Rules 19.4 and 19.10]</desc></message>
+<message><file>os\stdtypes.h</file> <line>175</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>176</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>178</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\stdtypes.h</file> <line>180</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>182</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>183</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>184</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>186</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>187</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>189</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>190</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>192</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>193</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>195</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>196</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>198</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>199</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>201</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>202</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>204</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>205</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>207</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>208</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>210</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>218</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>221</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>224</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>227</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>230</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>233</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>236</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>239</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>242</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>245</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>248</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>249</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>250</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>251</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>252</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>253</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>254</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>255</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>259</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>262</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>263</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>264</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>265</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>266</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>267</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>268</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>269</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>270</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>271</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>272</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>273</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>274</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>275</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>276</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>277</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>281</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>282</line> <type>Note</type> <code>960</code> <desc>Violates MISRA 2004 Required Rule 18.4, unions shall not be used</desc></message>
+<message><file>os\stdtypes.h</file> <line>284</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>287</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>288</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\stdtypes.h</file> <line>295</line> <type>Info</type> <code>783</code> <desc>Line does not end with new-line</desc></message>
+<message><file>os\arch\architecture.h</file> <line>19</line> <type>Warning</type> <code>544</code> <desc>endif or else not followed by EOL</desc></message>
+<message><file>os\arch\architecture.h</file> <line>22</line> <type>Note</type> <code>961</code> <desc>Violates MISRA 2004 Advisory Rule 19.7, Function-like macro defined</desc></message>
+<message><file>os\arch\architecture.h</file> <line>28</line> <type>Info</type> <code>783</code> <desc>Line does not end with new-line</desc></message>
+<message><file>os\..\app\test_item.h</file> <line>12</line> <type>Note</type> <code>937</code> <desc>old-style function declaration for function 'init_port' [MISRA 2004 Rules 8.1 and 16.5]</desc></message>
+<message><file>os\..\app\test_item.h</file> <line>13</line> <type>Note</type> <code>937</code> <desc>old-style function declaration for function 'toggle_led' [MISRA 2004 Rules 8.1 and 16.5]</desc></message>
+<message><file>os\..\app\test_item.h</file> <line>17</line> <type>Info</type> <code>783</code> <desc>Line does not end with new-line</desc></message>
+<message><file>os\eos.c</file> <line>18</line> <type>Note</type> <code>957</code> <desc>Function 'init_os' defined without a prototype in scope [MISRA 2004 Rule 8.1]</desc></message>
+<message><file>os\eos.c</file> <line>19</line> <type>Info</type> <code>718</code> <desc>Symbol 'sched_init' undeclared, assumed to return int [MISRA 2004 Rule 8.1]</desc></message>
+<message><file>os\eos.c</file> <line>19</line> <type>Info</type> <code>746</code> <desc>call to function 'sched_init()' not made in the presence of a prototype [MISRA 2004 Rule 8.1]</desc></message>
+<message><file>os\eos.c</file> <line>24</line> <type>Note</type> <code>957</code> <desc>Function 'run_apps' defined without a prototype in scope [MISRA 2004 Rule 8.1]</desc></message>
+<message><file>os\eos.c</file> <line>25</line> <type>Info</type> <code>746</code> <desc>call to function 'init_port()' not made in the presence of a prototype [MISRA 2004 Rule 8.1]</desc></message>
+<message><file>os\eos.c</file> <line>29</line> <type>Note</type> <code>970</code> <desc>Use of modifier or type 'int' outside of a typedef [MISRA 2004 Rule 6.3]</desc></message>
+<message><file>os\eos.c</file> <line>33</line> <type>Info</type> <code>716</code> <desc>while(1) ... </desc></message>
+<message><file>os\eos.c</file> <line>35</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\eos.c</file> <line>36</line> <type>Note</type> <code>950</code> <desc>Non-ANSI reserved word or construct: '//' [MISRA 2004 Rules 1.1 and 2.2]</desc></message>
+<message><file>os\eos.c</file> <line>39</line> <type>Info</type> <code>766</code> <desc>Header file 'os\errorcode.h' not used in module 'eos.c'</desc></message>
+<message><file>os\eos.c</file> <line>39</line> <type>Info</type> <code>766</code> <desc>Header file 'os\stdtypes.h' not used in module 'eos.c'</desc></message>
+<message><file>os\eos.c</file> <line>39</line> <type>Info</type> <code>766</code> <desc>Header file 'os\arch\architecture.h' not used in module 'eos.c'</desc></message>
+<?xml>
+<message><file></file> <line>0</line> <type>Error</type> <code>305</code> <desc>Unable to open module 'version=1.0'</desc></message>
+</?xml>

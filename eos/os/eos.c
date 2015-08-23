@@ -10,7 +10,7 @@
 #include "errorcode.h"
 #include "stdtypes.h"
 
-#include "arch/architecture.h"
+#include "../arch/architecture.h"
 #include "../app/test_item.h"
 
 

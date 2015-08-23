@@ -6,7 +6,7 @@
  */ 
 #include "../os/stdtypes.h"
 #include <avr/io.h>
-#include "../os/arch/architecture.h"
+#include "../arch/architecture.h"
 #include "test_item.h"
 
 void init_port()
