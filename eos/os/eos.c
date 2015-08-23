@@ -7,13 +7,13 @@
 
 
 #include <avr/io.h>
+#include <stdlib.h>
 #include "errorcode.h"
 #include "stdtypes.h"
 
 #include "../arch/architecture.h"
+#include "app_register/app_register.h"
 #include "../app/test_item.h"
-
-
 void init_os(void)
 {
 	sched_init();
@@ -22,8 +22,8 @@ void init_os(void)
 
 void run_apps(void)
 {
-	init_port();
-
+	app_load();
+	
 }
 
 int main(void)

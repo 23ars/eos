@@ -4,10 +4,14 @@
  * Created: 8/22/2015 7:09:44 PM
  *  Author: Mihai
  */ 
-#include "../os/stdtypes.h"
 #include <avr/io.h>
+#include <stdlib.h>
+#include "../os/stdtypes.h"
 #include "../arch/architecture.h"
+#include "../os/app_register/app_register.h"
 #include "test_item.h"
+
+
 
 void init_port()
 {
@@ -26,9 +30,22 @@ void init_port()
 		PORTB|=(1<<PINB4);
 	}
 	
+
+	
+	
 }
 void toggle_led()
 {
 	PORTB^=(1<<PINB0);
 
 }
+
+void exit_port()
+{
+	DDRB=0x00;
+	
+}
+
+
+app_register(init_port);
+app_unregister(exit_port);

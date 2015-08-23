@@ -9,8 +9,11 @@
 #ifndef TEST_ITEM_H_
 #define TEST_ITEM_H_
 
-void init_port();
-void toggle_led();
+
+static void init_port();
+static void toggle_led();
+
+static void exit_port();
 
 
 
