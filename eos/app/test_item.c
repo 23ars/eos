@@ -47,5 +47,5 @@ void exit_port()
 }
 
 
-app_register(init_port);
-app_unregister(exit_port);
+app_init(init_port);
+app_exit(exit_port);

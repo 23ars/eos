@@ -23,21 +23,21 @@ _PUBLIC void app_load();
 _PUBLIC void app_unload();
 
 /**
- * app_register. Inline function which is called from each application module, to register it.
+ * app_init. Inline function which is called from each application module, to register it.
  * \param[in] application entry function
  * \return UBYTE error code 
  */
-#define app_register(x)				\	
+#define app_init(x)				\	
 	void app_load(x) __attribute__((alias(#x)));
 	
 		
 		
 /**
- * app_unregister. Inline function which is called from each application module, to unregister it.
+ * app_exit. Inline function which is called from each application module, to unregister it.
  * \param[in] application exit function
  * \return void
  */
-#define app_unregister(x)				\
+#define app_exit(x)				\
 	void app_unload(x) __attribute__((alias(#x)));
 
 
