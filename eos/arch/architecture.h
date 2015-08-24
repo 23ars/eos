@@ -8,8 +8,8 @@
 
 #ifndef ARCHITECTURE_H_
 #define ARCHITECTURE_H_
-#include "task_stack.h"
-#include "task_manager.h"
+#include "../os/threading/task_stack.h"
+#include "../os/threading/task_manager.h"
 #if defined (__AVR__)
 	
 	

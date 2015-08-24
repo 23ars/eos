@@ -9,6 +9,7 @@
 #include "../os/stdtypes.h"
 #include "../arch/architecture.h"
 #include "../os/app_register.h"
+#include "../os/threading/mutex.h"
 #include "test_item.h"
 
 
@@ -36,8 +37,9 @@ void init_port()
 }
 void toggle_led()
 {
+	lock_mutex();
 	PORTB^=(1<<PINB0);
-
+	unlock_mutex();
 }
 
 void exit_port()

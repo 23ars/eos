@@ -5,8 +5,8 @@
  *  Author: Mihai
  */ 
 
-#include "../os/stdtypes.h"
-#include "../os/errorcode.h"
+#include "../stdtypes.h"
+#include "../errorcode.h"
 #include "task_stack.h"
 #include "task_manager.h"
 
