@@ -8,11 +8,11 @@
 
 #ifndef ARCHITECTURE_H_
 #define ARCHITECTURE_H_
-
+#include "task_stack.h"
+#include "task_manager.h"
 #if defined (__AVR__)
 	
-	#include "atmega/include/task_stack.h"
-	#include "atmega/include/task_manager.h"
+	
 	#include "atmega/include/scheduler.h"
 
 
