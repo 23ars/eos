@@ -65,7 +65,7 @@ void execute_task(E_AvailableTasks task_scheduler)
 			stack_index--;
 			continue;
 		}
-		
+		rub_thread_id=stack_index;
 		switch(ls_task.rub_Task_Priority)
 		{
 			

@@ -10,21 +10,17 @@
 #include <stdlib.h>
 #include "errorcode.h"
 #include "stdtypes.h"
-
 #include "../arch/architecture.h"
 #include "app_register.h"
-#include "../app/test_item.h"
+#include "eos_conf.h"
+
 void init_os(void)
 {
 	sched_init();
 
 }
 
-void run_apps(void)
-{
-	app_load();
-	
-}
+
 
 int main(void)
 {

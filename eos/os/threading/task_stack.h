@@ -52,6 +52,8 @@ typedef struct
 
 volatile S_Tasks_Struct rs_task_stack[MAX_TASK_NUMBER];
 volatile BYTE rub_task_stack_top;
+volatile BYTE rub_thread_id;
+
 
 /** @} //end of task_stack
  */
