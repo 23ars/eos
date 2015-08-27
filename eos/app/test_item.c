@@ -6,10 +6,9 @@
  */ 
 #include <avr/io.h>
 #include <stdlib.h>
-#include "../os/stdtypes.h"
-#include "../arch/architecture.h"
-#include "../os/app_register.h"
-#include "../os/threading/mutex.h"
+#include "stdtypes.h"
+#include "architecture.h"
+#include "threading.h"
 #include "test_item.h"
 
 
@@ -42,12 +41,4 @@ void toggle_led()
 	unlock_mutex();
 }
 
-void exit_port()
-{
-	DDRB=0x00;
-	
-}
 
-
-app_init(init_port);
-app_exit(exit_port);

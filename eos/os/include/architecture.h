@@ -8,12 +8,12 @@
 
 #ifndef ARCHITECTURE_H_
 #define ARCHITECTURE_H_
-#include "../os/threading/task_stack.h"
-#include "../os/threading/task_manager.h"
+#include "../threading/task_stack.h"
+#include "../threading/task_manager.h"
 #if defined (__AVR__)
 	
 	
-	#include "atmega/include/scheduler.h"
+	#include "../../arch/atmega/include/scheduler.h"
 
 
 #else if defined (__XC8)

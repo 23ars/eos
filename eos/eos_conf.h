@@ -9,11 +9,11 @@
 #ifndef EOS_CONF_H_
 #define EOS_CONF_H_
 
-#include "../app/test_item.h"
+#include "app/test_item.h"
 
-_PRIVATE inline void run_apps()
+inline void run_apps()
 {
-	app_load();
+	init_port();
 	
 }
 

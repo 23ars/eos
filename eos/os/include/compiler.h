@@ -13,8 +13,8 @@
 /*lint -save -e961 Used as macro for NOP */
 #if defined (__AVR__)
 
-	#define DISABLE_INTERRUPTS  __asm__ __volatile__ ("sei" ::: "memory")
-	#define ENABLE_INTERRUPTS  __asm__ __volatile__ ("cli" ::: "memory")
+	#define DISABLE_INTERRUPTS __asm__ __volatile__ ("cli" ::: "memory")
+	#define ENABLE_INTERRUPTS   __asm__ __volatile__ ("sei" ::: "memory")
 
 
 

@@ -4,7 +4,7 @@
  * Created: 8/9/2015 5:43:32 PM
  *  Author: Mihai
  */ 
-#include "../../os/stdtypes.h"
+#include "stdtypes.h"
 
 #include "work_modes.h"
 

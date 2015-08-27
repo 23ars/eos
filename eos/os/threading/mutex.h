@@ -13,7 +13,7 @@
  * Macros for defining and controlling shared resources
  * @{
  */
-#include "../stdtypes.h"
+#include "../include/stdtypes.h"
 #include "task_stack.h"
 #include "../utils/utils.h"
 /** 

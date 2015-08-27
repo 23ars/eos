@@ -10,9 +10,9 @@
 #include <stddef.h>
 #include "errorcode.h"
 #include "stdtypes.h"
-#include "../arch/architecture.h"
-#include "app_register.h"
-#include "eos_conf.h"
+#include "architecture.h"
+
+#include "../eos_conf.h"
 
 void init_os(void)
 {

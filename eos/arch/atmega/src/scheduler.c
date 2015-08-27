@@ -4,22 +4,19 @@
 * Created: 8/9/2015 11:24:51 AM
 *  Author: Mihai
 */
-
-#include "../../../os/stdtypes.h"
-
-#include "../include/scheduler.h"
-
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include "../../../os/include/stdtypes.h"
 
+#include "../include/scheduler.h"
 
 ISR(TIMER0_OVF_vect)
 {
 	
 	ENABLE_PROTECTION();
 	rub_schd_counter++;
-
 	DISABLE_PROTECTION();
+	
 	if(rub_schd_counter%E_Task_5ms==0)
 	{
 		execute_task(E_Task_5ms);
