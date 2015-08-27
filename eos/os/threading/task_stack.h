@@ -50,10 +50,11 @@ typedef struct
 	
 }S_Tasks_Struct;
 
+/*lint -save -e960 Neede global objects */
 volatile S_Tasks_Struct rs_task_stack[MAX_TASK_NUMBER];
 volatile BYTE rub_task_stack_top;
 volatile BYTE rub_thread_id;
-
+/*lint -restore*/
 
 /** @} //end of task_stack
  */

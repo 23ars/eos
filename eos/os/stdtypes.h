@@ -17,14 +17,6 @@
 #define STDTYPES_H_
 #include "compiler.h"
 
-#ifndef ENTER_PROTECTED_SECTION()
-#define ENTER_PROTECTED_SECTION() DISABLE_INTERRUPTS
-#endif
-
-#ifndef LEAVE_PROTECTED_SECTION()
-#define LEAVE_PROTECTED_SECTION() ENABLE_INTERRUPTS
-#endif
-
 
 /** \defgroup CommonMacros Library Macros
  * These Macros allow you to implement basic logical operations and also to "encapsulate" functions and variables.
@@ -33,15 +25,15 @@
 
 /** Defines macro that should be called before doing operations on shared variables
  */
-#ifndef ENABLE_PROTECTION()
+/*lint -save -e961 Know it's function-like */
 #define ENABLE_PROTECTION() DISABLE_INTERRUPTS
-#endif
+
 
 /**  Defines macro that should be called after doing operations on shared variables
  */
-#ifndef DISABLE_PROTECTION()
+
 #define DISABLE_PROTECTION() ENABLE_INTERRUPTS
-#endif
+/*lint -restore*/
 
 /** Defines the "_PRIVATE" type that can be added to a function or a global variable
  */
@@ -67,7 +59,7 @@
 #define _NEAR_FUNC
 #endif
 
-
+/*lint -save -e694 General constants for min and max value. */
 /** Defines the max value for an unsigned char
  */
 #ifndef MAX_UBYTE
@@ -121,9 +113,9 @@
 #ifndef MAX_DWORD
 #define MAX_DWORD	2147483647
 #endif
+/*lint -restore*/
 
-
-
+/*lint -save -e961 Know it's function-like */
 /** Define BIT Set logical operation.
  * \param[in] variable/register in which the bit will be set
  * \param[in] bit to act upon
@@ -194,7 +186,7 @@
  * \param[in] data
  */
 #ifndef OUT_B
-#define	OUT_B(addr, data)	addr = (data)
+#define	OUT_B(addr, data)	((addr) = (data))
 #endif
 
 /** Define IN_B macro. Similar to IN mnemonic from x86 assembly language
@@ -203,6 +195,7 @@
 #ifndef IN_B
 #define	IN_B(addr)			(addr)
 #endif
+/*lint -restore*/
 /**  @} //end of CommonMacros
  */
 
@@ -328,6 +321,7 @@ typedef struct
 
 /** Defines address format in LSB order
  */
+/*lint -save -e960 Needed union for address variables */
 typedef union
 {
 	UWORD address; /**< 16 bits address */
@@ -338,7 +332,7 @@ typedef union
 	}Bytes;
 	
 }ADDRESS;
-
+/*lint -restore*/
 
 
 #endif /* STDTYPES_H_ */

@@ -8,4 +8,8 @@
 -efile(322,avr\interrupt.h)
 -efile(7,avr\interrupt.h)
 
+-efile(322,stddef.h)
+-efile(7,stddef.h)
+
+
 -A(C99) +veis

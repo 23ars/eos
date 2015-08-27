@@ -7,7 +7,7 @@
 
 
 #include <avr/io.h>
-#include <stdlib.h>
+#include <stddef.h>
 #include "errorcode.h"
 #include "stdtypes.h"
 #include "../arch/architecture.h"
