@@ -15,6 +15,18 @@
 _PRIVATE void _init();
 _PRIVATE void _exit();
 
+_PRIVATE void gpio_write(volatile P_UBYTE addr,UDWORD data);
+_PRIVATE UDWORD gpio_read(volatile P_UBYTE addr,UBYTE no_of_blocks);
+_PRIVATE BYTE gpio_configure(UBYTE dir,UBYTE pld,UBYTE ev);
 
+_PRIVATE struct io_file gpio_file=
+	{
+		.io_read=gpio_read,
+		.io_write=gpio_write,
+		.dt=0x00,
+		.special_fct.io_conf=gpio_configure
+	};
 
+_PRIVATE UBYTE gpio_file_descriptor;
+_PRIVATE UBYTE gpio_mutex_id;
 #endif /* GPIO_H_ */
