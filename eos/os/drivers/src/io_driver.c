@@ -5,7 +5,6 @@
  *  Author: Mihai
  */ 
 #include "stdtypes.h"
-
 #include "eos_utils.h"
 #include "io_driver.h"
 
@@ -34,6 +33,7 @@ _PUBLIC int ops_add(struct io_file s_desc)
 	{
 		ops[ops_desc_index].ub_is_location_used=0x01;
 		memory_copy(&ops[ops_desc_index].op,&s_desc,sizeof(struct io_file));
+		/*ops[ops_desc_index].op=s_desc;*/
 		DISABLE_PROTECTION();
 		return ops_desc_index;
 	}

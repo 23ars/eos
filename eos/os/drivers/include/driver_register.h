@@ -14,8 +14,6 @@
 * Module implemented to allow add of application code without modifying eos.c main function
 * @{
 */
-
-
 _PUBLIC void fct_driver_load();
 _PUBLIC void fct_driver_unload();
 _PRIVATE UBYTE driver_descriptor=0;
