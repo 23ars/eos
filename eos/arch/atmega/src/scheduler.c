@@ -15,6 +15,7 @@ ISR(TIMER0_OVF_vect)
 	
 	ENABLE_PROTECTION();
 	rub_schd_counter++;
+
 	DISABLE_PROTECTION();
 	
 	if(rub_schd_counter%E_Task_5ms==0)
@@ -36,6 +37,7 @@ ISR(TIMER0_OVF_vect)
 
 void execute_task(E_AvailableTasks task_scheduler)
 {
+
 	if(rub_task_stack_top==-1)
 	{
 		return;
@@ -47,11 +49,11 @@ void execute_task(E_AvailableTasks task_scheduler)
 	
 	while(stack_index>=0)
 	{
-			
+
 		ls_task=rs_task_stack[stack_index];
 		if(ls_task.task==0)
 		{
-			
+					
 			stack_index--;
 			continue;
 		}

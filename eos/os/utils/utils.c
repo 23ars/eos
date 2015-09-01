@@ -8,7 +8,7 @@
 #include <stddef.h>
 #include "utils.h"
 
-_PUBLIC void* memcopy(void *dest, const void *src, size_t n)
+_PUBLIC void* memory_copy(void *dest, const void *src, size_t n)
 {
 	P_UBYTE s = (P_UBYTE)src;
 	P_UBYTE d = dest;
@@ -16,7 +16,7 @@ _PUBLIC void* memcopy(void *dest, const void *src, size_t n)
 	return dest;
 }
 
-_PUBLIC void* memmove(void *dest, const void *src, size_t n)
+_PUBLIC void* memory_move(void *dest, const void *src, size_t n)
 {
 	P_UBYTE d=dest;
 	P_UBYTE s=(P_UBYTE)src;
@@ -82,7 +82,7 @@ _PUBLIC UBYTE crc8 ( P_UBYTE data_in, UWORD number_of_bytes_to_read )
 }
 
 
-UBYTE crc16(P_UBYTE data_p, UWORD length)
+_PUBLIC UBYTE crc16(P_UBYTE data_p, UWORD length)
 {
 	UBYTE i;
 	UWORD data;

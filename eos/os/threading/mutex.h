@@ -16,7 +16,7 @@
 #include "../include/stdtypes.h"
 #include "task_stack.h"
 #include "../utils/utils.h"
-#define MAX_NO_OF_MUTEX 256
+
 /** 
  * Variable used to control the mutex state -> locked or unlocked
  */
@@ -30,22 +30,22 @@ typedef struct
 	BYTE locked_threads_stack_top;
 }S_Mutex_Struct;
 
-_PRIVATE S_Mutex_Struct rs_mutex_configuration[MAX_NO_OF_MUTEX];
+_PRIVATE S_Mutex_Struct rs_mutex_configuration;
 BYTE lub_mutex_index;
-_PRIVATE inline void mutex_stack_push(UBYTE thread,BYTE ub_mutex_id)
+_PRIVATE inline void mutex_stack_push(UBYTE thread)
 {
-	if (rs_mutex_configuration[ub_mutex_id].locked_threads_stack_top != (MAX_TASK_NUMBER - 1))
+	if (rs_mutex_configuration.locked_threads_stack_top != (MAX_TASK_NUMBER - 1))
 	{
-		rs_mutex_configuration[ub_mutex_id].locked_threads_stack[++rs_mutex_configuration[ub_mutex_id].locked_threads_stack_top] = thread;
+		rs_mutex_configuration.locked_threads_stack[++rs_mutex_configuration.locked_threads_stack_top] = thread;
 	}
 }
 
-_PRIVATE inline BYTE mutex_stack_pop(BYTE ub_mutex_id)
+_PRIVATE inline BYTE mutex_stack_pop()
 {
 	BYTE thread_id=-1;
-	if (-1!=rs_mutex_configuration[ub_mutex_id].locked_threads_stack_top)
+	if (-1!=rs_mutex_configuration.locked_threads_stack_top)
 	{
-		thread_id = rs_mutex_configuration[ub_mutex_id].locked_threads_stack[rs_mutex_configuration[ub_mutex_id].locked_threads_stack_top--];
+		thread_id = rs_mutex_configuration.locked_threads_stack[rs_mutex_configuration.locked_threads_stack_top--];
 	}
 	return thread_id;
 }
@@ -54,17 +54,13 @@ _PRIVATE inline BYTE mutex_stack_pop(BYTE ub_mutex_id)
 /* \param[in] none														*/
 /* \param[out] P_BYTE mutex_id											*/
 /************************************************************************/
-#define init_mutex()																		\	
+#define init_mutex()																		\
 	inline void mutex_init()																\
 	{																						\
-		if(lub_mutex_index!=MAX_NO_OF_MUTEX-1)												\
-		{																					\
-			memory_set(&rs_mutex_configuration[lub_mutex_index],0,sizeof(S_Mutex_Struct));	\
-			rs_mutex_configuration[lub_mutex_index].lock_var=FALSE;							\
-			rs_mutex_configuration[lub_mutex_index].owner_thread=-1;						\
-			rs_mutex_configuration[lub_mutex_index].locked_threads_stack_top=-1;			\									
-			lub_mutex_index++;																\
-		}																					\
+			memory_set(&rs_mutex_configuration,0,sizeof(S_Mutex_Struct));					\
+			rs_mutex_configuration.lock_var=FALSE;											\
+			rs_mutex_configuration.owner_thread=-1;											\
+			rs_mutex_configuration.locked_threads_stack_top=-1;								\										
 	}
 
 /************************************************************************/
@@ -74,18 +70,18 @@ _PRIVATE inline BYTE mutex_stack_pop(BYTE ub_mutex_id)
 #define lock_mutex()																\
 	inline void lock()																\
 	{																				\
-		ENABLE_PROTECTION();														\			
-		if(rs_mutex_configuration[lub_mutex_index].lock_var==TRUE)					\
+		ENABLE_PROTECTION();														\		
+		if(rs_mutex_configuration.lock_var==TRUE)									\
 		{																			\
-			mutex_stack_push(rub_thread_id,lub_mutex_index);						\
+			mutex_stack_push(rub_thread_id);										\
 		}																			\
 		else																		\
 		{																			\
-			rs_mutex_configuration[lub_mutex_index].lock_var=TRUE;					\
-			rs_mutex_configuration[lub_mutex_index].owner_thread=rub_thread_id;		\
-			BYTE thread_id=mutex_stack_pop(lub_mutex_index);						\
+			rs_mutex_configuration.lock_var=TRUE;									\
+			rs_mutex_configuration.owner_thread=rub_thread_id;						\
+			BYTE thread_id=mutex_stack_pop();										\
 			(thread_id==-1)?:(*(rs_task_stack[thread_id].task))();					\
-		}																			\		
+		}																			\	
 		DISABLE_PROTECTION();														\
 	}							
 
@@ -97,8 +93,8 @@ _PRIVATE inline BYTE mutex_stack_pop(BYTE ub_mutex_id)
 	inline void unlock()												\
 	{																	\
 		ENABLE_PROTECTION();											\
-		rs_mutex_configuration[lub_mutex_index].lock_var=FALSE;			\
-		BYTE thread_id=mutex_stack_pop(lub_mutex_index);				\
+		rs_mutex_configuration.lock_var=FALSE;							\
+		BYTE thread_id=mutex_stack_pop();								\
 		(thread_id==-1)?:(*(rs_task_stack[thread_id].task))();			\
 		DISABLE_PROTECTION();											\
 	}
