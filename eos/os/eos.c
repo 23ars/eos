@@ -16,6 +16,7 @@
 
 void init_os(void)
 {
+
 	sched_init();
 
 }
@@ -28,7 +29,7 @@ int main(void)
 	run_apps();
     while(1)
     {
-		//PORTB^=(1<<PINB1);
+		
        // NO_OPERATION();//just do nops to avoid compiler optimizations on empty loops
     }
 }
