@@ -6,8 +6,6 @@
  */ 
 
 #include "stdtypes.h"
-#include "driver_register.h"
-#include "io_driver.h"
 #include "threading.h"
 #include "gpio.h"
 
@@ -33,23 +31,11 @@ BYTE gpio_configure(UBYTE dir,UBYTE pld,UBYTE ev)
 	
 }
 
-_PRIVATE void _init(void)
+void _init(void)
 {
 	
-	gpio_file_descriptor=ops_add(gpio_file);
-	driver_descriptor=gpio_file_descriptor;
+	
 	
 }
 
 
-_PRIVATE void _exit(void)
-{
-	if(gpio_file_descriptor!=-1)
-	{
-		ops_rem(gpio_file_descriptor);
-	}
-	
-}
-
-driver_init(_init);
-driver_exit(_exit);

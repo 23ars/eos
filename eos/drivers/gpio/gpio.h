@@ -9,24 +9,17 @@
 #ifndef GPIO_H_
 #define GPIO_H_
 
-#define MODULE_NAME gpio
 
 
-_PRIVATE void _init(void);
-_PRIVATE void _exit(void);
 
-_PRIVATE void gpio_write(volatile P_UBYTE addr,UDWORD data);
-_PRIVATE UDWORD gpio_read(volatile P_UBYTE addr,UBYTE no_of_blocks);
-_PRIVATE BYTE gpio_configure(UBYTE dir,UBYTE pld,UBYTE ev);
+_PUBLIC void _init(void);
 
-_PRIVATE struct io_file gpio_file=
-	{
-		.io_read=&gpio_read,
-		.io_write=&gpio_write,
-		.dt=0x01,
-		.special_fct.io_conf=gpio_configure
-	};
 
-_PRIVATE UBYTE gpio_file_descriptor;
+_PUBLIC void gpio_write(volatile P_UBYTE addr,UDWORD data);
+_PUBLIC UDWORD gpio_read(volatile P_UBYTE addr,UBYTE no_of_blocks);
+_PUBLIC BYTE gpio_configure(UBYTE dir,UBYTE pld,UBYTE ev);
+
+
+
 
 #endif /* GPIO_H_ */

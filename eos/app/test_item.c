@@ -9,10 +9,26 @@
 #include "stdtypes.h"
 #include "architecture.h"
 #include "threading.h"
+#include "driver_api.h"
 #include "test_item.h"
 
 
-
+void init_port()
+{
+	DDRB=0xff;
+	
+	
+	
+//	write(desc,&PORTB,(1<<PINB2));
+	//driver_unload(gpio);
+}
+void toggle_led()
+{
+	//lock_mutex();
+	PORTB^=(1<<PINB0);
+//	unlock_mutex();
+}
+/*
 void init_port()
 {
 	
@@ -41,4 +57,4 @@ void toggle_led()
 	unlock_mutex();
 }
 
-
+*/
