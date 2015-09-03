@@ -277,6 +277,19 @@ typedef unsigned long int* P_UDWORD;
  */
 typedef unsigned long long int* P_UQWORD;
 
+/** Pointer to const data 
+ */
+#define PTR_CTDATA(ptrtype) const prttype*
+
+/**Const pointer to variable data 
+*/
+#define CTPTR(ptrtype) ptrtype *const
+
+/**Const pointer to const data 
+*/
+#define CTPTR_CTDATA(ptrtype) const ptrtype * const
+
+
 /** @} //end of datatypes
  */
 
