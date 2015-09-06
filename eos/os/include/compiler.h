@@ -9,6 +9,7 @@
 #ifndef COMPILER_H_
 #define COMPILER_H_
 
+
 /*lint -save -e544 it's really ok if not followed by EOL */
 /*lint -save -e961 Used as macro for NOP */
 #if defined (__AVR__)

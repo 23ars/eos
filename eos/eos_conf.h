@@ -11,6 +11,11 @@
 
 #include "app/test_item.h"
 
+#define ATMEGA
+//#define PIC
+//#define 80C51
+
+
 inline void run_apps()
 {
 	init_port();

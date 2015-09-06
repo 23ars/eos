@@ -10,16 +10,21 @@
 #define ARCHITECTURE_H_
 #include "../threading/task_stack.h"
 #include "../threading/task_manager.h"
-#if defined (__AVR__)
+#include "../../eos_conf.h"
+
+
+#if defined (__AVR__) || defined ATMEGA
 	
 	
 	#include "../../arch/atmega/include/scheduler.h"
 
 
-#else if defined (__XC8)
+#else if defined (__XC8) || defined PIC
 	#define DISABLE_INTERRUPTS
 	#define ENABLE_INTERRUPTS
 	#define  NO_OPERATION()
+
+else if defined 80C51
 
 #endif
 
