@@ -7,7 +7,7 @@
 #include "stdtypes.h"
 #include "avr/wdt.h"
 #include <avr/interrupt.h>
-#include "watchdog.h"
+#include "../include/watchdog.h"
 
 ISR(WDT_vect)
 {

@@ -6,7 +6,7 @@
  */ 
 #include "stdtypes.h"
 
-#include "work_modes.h"
+#include "../include/work_modes.h"
 
 
 _PUBLIC void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void))

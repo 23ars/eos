@@ -9,7 +9,7 @@
 #ifndef EOS_CONF_H_
 #define EOS_CONF_H_
 
-#include "app/test_item.h"
+#include "test_item.h"
 
 #define ATMEGA
 //#define PIC

@@ -10,14 +10,15 @@
 #define ARCHITECTURE_H_
 #include "../threading/task_stack.h"
 #include "../threading/task_manager.h"
-#include "../../eos_conf.h"
+#include "../eos_conf.h"
 
 
 #if defined (__AVR__) || defined ATMEGA
 	
 	
 	#include "../../arch/atmega/include/scheduler.h"
-
+	#include "../../arch/atmega/include/watchdog.h"
+	#include "../../arch/atmega/include/work_modes.h"
 
 #else if defined (__XC8) || defined PIC
 	#define DISABLE_INTERRUPTS
