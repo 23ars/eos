@@ -25,6 +25,6 @@ _PUBLIC BYTE task_change_state(BYTE task_id,E_Task_State task_state)
 	ENABLE_PROTECTION();
 	rs_task_stack[task_id].rub_Task_State=task_state;
 	DISABLE_PROTECTION();
-	
+	return SUCCESS;
 	
 }
