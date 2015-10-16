@@ -24,14 +24,12 @@
 
 
 
-ISR(TIMER0_OVF_vect);
-
-_PRIVATE volatile UBYTE rub_schd_counter;
 
 
-_PRIVATE void (*high_prio_task)(void)=0;
-_PRIVATE void (*medium_prio_task)(void)=0;  
-_PRIVATE void (*low_prio_task)(void)=0;
+
+
+
+
 
 /** Init function
  * \param[in] void
@@ -39,7 +37,7 @@ _PRIVATE void (*low_prio_task)(void)=0;
  */
 _PUBLIC void sched_init();
 
-_PRIVATE void execute_task(E_AvailableTasks task_scheduler);
+
 
 /** @} //end of scheduler
  */

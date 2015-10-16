@@ -48,7 +48,7 @@ _PRIVATE void (*wm_wakeup_condition)(void)=0;
 /// \return void
 _PUBLIC void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void));
 
-_PRIVATE void wm_wakeup();
+
 
 /// Wakeup from sleep mode 
 #define WORK_MODE_WAKEUP() wm_wakeup()

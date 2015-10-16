@@ -10,6 +10,14 @@
 
 #include "../include/scheduler.h"
 
+_PRIVATE volatile UBYTE rub_schd_counter;
+
+ISR(TIMER0_OVF_vect);
+_PRIVATE void (*high_prio_task)(void)=0;
+_PRIVATE void (*medium_prio_task)(void)=0;
+_PRIVATE void (*low_prio_task)(void)=0;
+_PRIVATE void execute_task(E_AvailableTasks task_scheduler);
+
 ISR(TIMER0_OVF_vect)
 {
 	

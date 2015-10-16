@@ -8,6 +8,7 @@
 
 #include "../include/work_modes.h"
 
+_PRIVATE void wm_wakeup();
 
 _PUBLIC void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void))
 {

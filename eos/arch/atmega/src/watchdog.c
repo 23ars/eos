@@ -9,6 +9,13 @@
 #include <avr/interrupt.h>
 #include "../include/watchdog.h"
 
+/* Pointer to the function that will be executed on watchdog interrupt */
+_PRIVATE void (*wdt_task)(void)=0;
+/* Watchdog interrupt*/
+ISR(WDT_vect);
+/* Function that will init the watchdog*/
+_PRIVATE void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler);
+
 ISR(WDT_vect)
 {
 	(*wdt_task)();	

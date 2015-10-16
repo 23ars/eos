@@ -37,13 +37,9 @@ typedef enum
 	
 }E_WdtTimerPrescaler;
 
-/* Pointer to the function that will be executed on watchdog interrupt */
-_PRIVATE void (*wdt_task)(void)=0; 
-/* Watchdog interrupt*/
-ISR(WDT_vect);
 
-/* Function that will init the watchdog*/
-void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler);
+
+
 
 /// Setup the task that will be run on watchdog interrupt, if WATCHDOG_INTERRUPT_MODE or WATCHDOG INTERRUPT_RESET mode was selected
 /// \param[in] (*int_task)(void) Pointer to a function that will be called in ISR's body
