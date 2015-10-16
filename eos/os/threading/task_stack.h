@@ -40,17 +40,29 @@ typedef enum
 	TASK_LOW_PRIO=0x03 /**< Low priority task */
 }E_task_priority;
 
+/** Task states
+ */
+typedef enum
+{
+	OS_DESTROYED=0x00,/**< Task State that can be set only by OS */
+	TASK_ACTIVE=0x10, /**< Task State Active */
+	TASK_SLEEPING=0x20,/**< Task State Sleeping */
+	TASK_BLOCKED=0x30 /**< Task State Disabled */
+	
+}E_Task_State;
+
 /** Task structure
  */
 typedef struct
 {
 	E_task_priority rub_Task_Priority; /**< Task priority */
+	E_Task_State rub_Task_State;
 	E_AvailableTasks rub_Task_Schedule; /**< Task scheduler */
 	void (*task)(void); /**< Pointer to a function that will run on task */
 	
 }S_Tasks_Struct;
 
-/*lint -save -e960 Neede global objects */
+/*lint -save -e960 Needed global objects */
 volatile S_Tasks_Struct rs_task_stack[MAX_TASK_NUMBER];
 volatile BYTE rub_task_stack_top;
 volatile BYTE rub_thread_id;

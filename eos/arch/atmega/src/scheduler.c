@@ -72,6 +72,18 @@ void execute_task(E_AvailableTasks task_scheduler)
 			stack_index--;
 			continue;
 		}
+
+		if(TASK_BLOCKED==ls_task.rub_Task_State )
+		{
+			stack_index--;
+			continue;
+		}
+		if(TASK_SLEEPING==ls_task.rub_Task_State)
+		{
+			rs_task_stack[stack_index].rub_Task_State=TASK_BLOCKED;
+			
+		}
+		
 		rub_thread_id=stack_index;
 		switch(ls_task.rub_Task_Priority)
 		{
@@ -89,6 +101,7 @@ void execute_task(E_AvailableTasks task_scheduler)
 	{
 		stack_index=rub_task_stack_top;		
 	}
+	
 	if(high_prio_task!=0)
 	{
 		(*high_prio_task)();

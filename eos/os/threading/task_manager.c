@@ -11,13 +11,13 @@
 #include "task_manager.h"
 
 
-_PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)
+_PUBLIC BYTE task_push(S_Tasks_Struct ls_task)
 {
-	UBYTE lub_errno=SUCCESS;
+	BYTE lb_errno=SUCCESS;
 	
 	if(rub_task_stack_top==MAX_TASK_NUMBER-1)
 	{
-		lub_errno=ETSOF;
+		lb_errno=-ETSOF;
 		
 	}
 	else
@@ -25,9 +25,10 @@ _PUBLIC UBYTE task_push(S_Tasks_Struct ls_task)
 		ENABLE_PROTECTION();
 		rub_task_stack_top++;
 		rs_task_stack[rub_task_stack_top]=ls_task;
+		rs_task_stack[rub_task_stack_top].rub_Task_State=TASK_ACTIVE;
 		DISABLE_PROTECTION();
 	}
-	return lub_errno;
+	return rub_task_stack_top;
 	
 }
 

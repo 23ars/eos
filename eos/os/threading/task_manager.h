@@ -15,9 +15,9 @@
 #include "task_stack.h"
 /** push
  * \param[in] S_Tasks_Struct
- * \return errorcodes
+ * \return ETSOF or task_id ( position in stack)
  */
-_PUBLIC UBYTE task_push(S_Tasks_Struct ls_task);
+_PUBLIC BYTE task_push(S_Tasks_Struct ls_task);
 
 /** push
  * \param[in] void
