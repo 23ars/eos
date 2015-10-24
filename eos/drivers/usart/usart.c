@@ -21,8 +21,14 @@ ISR(USART_RX_vect)
 	received_data=UDR0;
 }
 #endif
+void usart_cntl(UWORD opt)
+{
+	UCSR0C|=opt;
+	
+}
 
-void USART_init(void)
+
+void usart_init(void)
 {
 	UBRR0H=(UBYTE)(BAUD_PRESCALLER>>8);
 	UBRR0L=(UBYTE)(BAUD_PRESCALLER);
@@ -36,7 +42,7 @@ void USART_init(void)
 #endif	
 }
 
-void USART_write(UBYTE data)
+void usart_write(UBYTE data)
 {
 #ifndef INTERRUPT_TX_TRANSFER
 	while(!(UCSR0A & (1<<UDRE0)));
@@ -46,7 +52,7 @@ void USART_write(UBYTE data)
 #endif
 }
 
-UBYTE USART_read(void)
+UBYTE usart_read(void)
 {
 #ifndef INTERRUPT_RX_TRANSFER
 	while(!(UCSR0A &(1<<RXC0)));
@@ -58,11 +64,11 @@ UBYTE USART_read(void)
 	
 }
 
-void USART_print(P_BYTE p_string)
+void usart_print(P_BYTE p_string)
 {
 	while(*p_string)
 	{
-		USART_write(*p_string);
+		usart_write(*p_string);
 		p_string++;
 	}
 }
