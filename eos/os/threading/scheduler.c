@@ -6,19 +6,19 @@
 */
 #include <avr/io.h>
 #include <avr/interrupt.h>
-#include "../../../os/include/stdtypes.h"
+#include "../include/stdtypes.h"
 
-#include "../include/scheduler.h"
+#include "scheduler.h"
 
 _PRIVATE volatile UBYTE rub_schd_counter;
 
-ISR(TIMER0_OVF_vect);
+_PUBLIC void Timer_Overflow_ServiceRoutine(void);
 _PRIVATE void (*high_prio_task)(void)=0;
 _PRIVATE void (*medium_prio_task)(void)=0;
 _PRIVATE void (*low_prio_task)(void)=0;
 _PRIVATE void execute_task(E_AvailableTasks task_scheduler);
 
-ISR(TIMER0_OVF_vect)
+void Timer_Overflow_ServiceRoutine(void)
 {
 	
 	ENABLE_PROTECTION();
@@ -122,22 +122,11 @@ void execute_task(E_AvailableTasks task_scheduler)
 _PUBLIC void sched_init()
 {
 
-	ENABLE_PROTECTION();
+	
 	
 	rub_task_stack_top=-1;
 	
-	/*
-	Timer resolution=(1 / (Input Frequency / Prescale))=0.000004
-	Timer resolution*255= 0.00102=1.02 ms
-	*/
 	
-	TCNT0=0x00;
-	TCCR0B|=(1<<CS00)|(1<<CS01);//set 64 prescaler
-	TIMSK0=(1<<TOIE0);
-	//enable timer0 overflow interrupt
-
-	DDRB=0xFF;
-	DISABLE_PROTECTION();
 	
 }
 //extern void Task_1ms

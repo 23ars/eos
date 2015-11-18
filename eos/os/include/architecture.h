@@ -13,21 +13,12 @@
 #include "../eos_conf.h"
 
 
-#if defined (__AVR__) || defined ATMEGA
+
 	
-	
-	#include "../../arch/atmega/include/scheduler.h"
-	#include "../../arch/atmega/include/watchdog.h"
-	#include "../../arch/atmega/include/work_modes.h"
 
-#else if defined (__XC8) || defined PIC
-	#define DISABLE_INTERRUPTS
-	#define ENABLE_INTERRUPTS
-	#define  NO_OPERATION()
 
-else if defined 80C51
 
-#endif
+
 
 
 

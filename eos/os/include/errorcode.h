@@ -20,6 +20,7 @@
 #define EAPL 0x05 /**< Application already loaded to list */
 #define NTID 0x06 /**< Not a task ID */
 #define TSNA 0x07 /**< Reserved task state */
+
 /** @} //end of errorcodes
 */
 

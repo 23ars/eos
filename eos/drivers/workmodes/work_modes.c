@@ -6,7 +6,7 @@
  */ 
 #include "stdtypes.h"
 
-#include "../include/work_modes.h"
+#include "work_modes.h"
 
 _PRIVATE void wm_wakeup();
 

@@ -19,7 +19,7 @@
 #define F_CPU 16000000UL 
 #endif
 
-#include "../../../os/threading/task_stack.h"
+#include "task_stack.h"
 
 
 
@@ -29,7 +29,11 @@
 
 
 
-
+/** Scheduler Service Routine
+ * \param[in] void
+ * \return void
+ */
+_PUBLIC void Timer_Overflow_ServiceRoutine(void);
 
 /** Init function
  * \param[in] void

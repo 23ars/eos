@@ -7,7 +7,7 @@
 #include "stdtypes.h"
 #include "avr/wdt.h"
 #include <avr/interrupt.h>
-#include "../include/watchdog.h"
+#include "watchdog.h"
 
 /* Pointer to the function that will be executed on watchdog interrupt */
 _PRIVATE void (*wdt_task)(void)=0;

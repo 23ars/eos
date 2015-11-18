@@ -16,3 +16,5 @@ eos/Debug/os/sw/task_manager/task_manager.d
 eos/Debug/eos.hex
 *.lss
 eos.atsuo
+eos/Doc/*.*
+eos/Doc/
