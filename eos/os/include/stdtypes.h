@@ -1,9 +1,4 @@
-/*
- * stdtypes.h
- *
- * Created: 8/9/2015 11:24:12 AM
- *  Author: Mihai
- */ 
+
 /**
 \mainpage  eOS, an embedded Operating System
 * <p></p>

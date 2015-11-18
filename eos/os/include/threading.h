@@ -1,10 +1,3 @@
-/*
- * threading.h
- *
- * Created: 8/27/2015 10:25:48 PM
- *  Author: Mihai
- */ 
-
 
 #ifndef THREADING_H_
 #define THREADING_H_

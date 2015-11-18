@@ -1,11 +1,3 @@
-/*
- * errorcode.h
- *
- * Created: 8/22/2015 4:51:09 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef ERRORCODE_H_
 #define ERRORCODE_H_
 

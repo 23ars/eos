@@ -1,11 +1,3 @@
-/*
- * task_stack.h
- *
- * Created: 8/22/2015 9:12:38 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef TASK_STACK_H_
 #define TASK_STACK_H_
 

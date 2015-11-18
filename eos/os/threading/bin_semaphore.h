@@ -1,11 +1,3 @@
-/*
- * bin_semaphore.h
- *
- * Created: 8/26/2015 9:45:26 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef BIN_SEMAPHORE_H_
 #define BIN_SEMAPHORE_H_
 /** \defgroup binary_semaphores

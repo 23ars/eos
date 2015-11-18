@@ -1,11 +1,3 @@
-/*
- * task_state.h
- *
- * Created: 10/16/2015 11:06:04 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef TASK_STATE_H_
 #define TASK_STATE_H_
 /* \defgroup task_state

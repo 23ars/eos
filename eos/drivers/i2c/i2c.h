@@ -1,11 +1,3 @@
-/*
- * i2c.h
- *
- * Created: 5/9/2015 6:30:12 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef I2C_H_
 #define I2C_H_
 #ifndef F_CPU

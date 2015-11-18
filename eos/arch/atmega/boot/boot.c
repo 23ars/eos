@@ -1,11 +1,3 @@
-/*
- * boot.c
- *
- * Created: 10/24/2015 09:17:56 PM
- *  Author: Mihai
- */ 
-
-
 #include <avr/io.h>
 //#include <avr/boot.h>
 //#include <avr/interrupt.h>

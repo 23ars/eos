@@ -1,9 +1,3 @@
-/*
- * usart.h
- *
- * Created: 5/16/2015 1:40:10 PM
- *  Author: Mihai
- */ 
 #ifndef USART_H_
 #define USART_H_
 /*

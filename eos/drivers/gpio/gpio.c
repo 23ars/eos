@@ -1,10 +1,3 @@
-/*
- * gpio.c
- *
- * Created: 8/27/2015 11:06:13 PM
- *  Author: Mihai
- */ 
-
 #include "stdtypes.h"
 #include "threading.h"
 #include "gpio.h"

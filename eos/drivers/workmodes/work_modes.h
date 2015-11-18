@@ -1,11 +1,3 @@
-/*
- * work_modes.h
- *
- * Created: 8/9/2015 5:43:21 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef WORK_MODES_H_
 #define WORK_MODES_H_
 #include <avr/io.h>

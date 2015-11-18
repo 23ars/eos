@@ -1,11 +1,3 @@
-/*
- * utils.h
- *
- * Created: 8/22/2015 1:49:47 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef UTILS_H_
 #define UTILS_H_
 #include <stddef.h>

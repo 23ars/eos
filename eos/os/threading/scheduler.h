@@ -1,11 +1,3 @@
-/*
- * scheduler.h
- *
- * Created: 8/2/2015 5:48:29 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef SCHEDULER_H_
 #define SCHEDULER_H_
 

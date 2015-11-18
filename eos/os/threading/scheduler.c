@@ -1,9 +1,3 @@
-/*
-* scheduler.c
-*
-* Created: 8/9/2015 11:24:51 AM
-*  Author: Mihai
-*/
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include "../include/stdtypes.h"

@@ -1,9 +1,3 @@
-/*
- * task_state.c
- *
- * Created: 10/16/2015 11:06:16 PM
- *  Author: Mihai
- */ 
 #include "stdtypes.h"
 #include "errorcode.h"
 #include "task_stack.h"

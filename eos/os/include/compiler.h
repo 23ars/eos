@@ -1,11 +1,3 @@
-/*
- * compiler.h
- *
- * Created: 8/9/2015 4:28:26 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef COMPILER_H_
 #define COMPILER_H_
 

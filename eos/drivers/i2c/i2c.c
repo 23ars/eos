@@ -1,9 +1,3 @@
-/*
-* i2c.c
-*
-* Created: 5/9/2015 6:30:23 PM
-*  Author: Mihai
-*/
 #include <avr/io.h>
 
 #include "stdtypes.h"

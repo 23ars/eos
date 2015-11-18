@@ -1,9 +1,3 @@
-/*
- * test_item.c
- *
- * Created: 8/22/2015 7:09:44 PM
- *  Author: Mihai
- */ 
 #include <avr/io.h>
 #include <stdlib.h>
 #include "stdtypes.h"

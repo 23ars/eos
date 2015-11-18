@@ -1,9 +1,4 @@
-/*
- * watchdog.h
- *
- * Created: 8/9/2015 11:27:43 AM
- *  Author: Mihai
- */ 
+
 #ifndef WATCHDOG_H_
 #define WATCHDOG_H_
 #include "avr/wdt.h"

@@ -1,11 +1,3 @@
-/*
- * task_manager.h
- *
- * Created: 8/20/2015 11:33:17 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef TASK_MANAGER_H_
 #define TASK_MANAGER_H_
 /** \defgroup taskmanager

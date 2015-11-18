@@ -1,11 +1,3 @@
-/*
- * mutex.h
- *
- * Created: 8/24/2015 10:47:51 PM
- *  Author: Mihai
- */ 
-
-
 #ifndef MUTEX_H_
 #define MUTEX_H_
 

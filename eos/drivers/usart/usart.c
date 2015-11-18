@@ -1,9 +1,3 @@
-/*
- * usart.c
- *
- * Created: 5/16/2015 1:39:59 PM
- *  Author: Mihai
- */ 
 #include <avr/io.h>
 #include "stdtypes.h"
 #include "usart.h"
