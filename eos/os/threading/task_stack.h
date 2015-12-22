@@ -6,6 +6,7 @@
  * @{
  */
 
+#include "../eos_conf.h"
 
 /** Maximum number of tasks. By default it will be 20, 5 task for each time interval
  */
