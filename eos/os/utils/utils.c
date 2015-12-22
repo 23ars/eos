@@ -2,18 +2,18 @@
 #include <stddef.h>
 #include "utils.h"
 
-_PUBLIC void* memory_copy(void *dest, const void *src, size_t n)
+_public void* memory_copy(void *dest, const void *src, size_t n)
 {
-	P_UBYTE s = (P_UBYTE)src;
-	P_UBYTE d = dest;
+	ptr_u8 s = (ptr_u8)src;
+	ptr_u8 d = dest;
 	while (n--) *d++ = *s++;
 	return dest;
 }
 
-_PUBLIC void* memory_move(void *dest, const void *src, size_t n)
+_public void* memory_move(void *dest, const void *src, size_t n)
 {
-	P_UBYTE d=dest;
-	P_UBYTE s=(P_UBYTE)src;
+	ptr_u8 d=dest;
+	ptr_u8 s=(ptr_u8)src;
 	if(s<dest)
 	{
 		for(d+=n;s+=n;n--)
@@ -27,12 +27,12 @@ _PUBLIC void* memory_move(void *dest, const void *src, size_t n)
 	return dest;
 }
 
-_PUBLIC void* memory_set(void *s,int c,size_t n)
+_public void* memory_set(void *s,int c,size_t n)
 {
-	P_UBYTE p=s;
+	ptr_u8 p=s;
 	while(n--)
 	{
-		*p++=(UBYTE)c;
+		*p++=(u8)c;
 	}
 	return s;
 }
@@ -40,13 +40,13 @@ _PUBLIC void* memory_set(void *s,int c,size_t n)
 #define CRC8INIT  0x00
 #define CRC8POLY  0x18              //0X18 = X^8+X^5+X^4+X^0
 
-_PUBLIC UBYTE crc8 ( P_UBYTE data_in, UWORD number_of_bytes_to_read )
+_public u8 crc8 ( ptr_u8 data_in, u16 number_of_bytes_to_read )
 {
-	UBYTE  crc;
-	UWORD loop_count;
-	UBYTE  bit_counter;
-	UBYTE  data;
-	UBYTE  feedback_bit;
+	u8  crc;
+	u16 loop_count;
+	u8  bit_counter;
+	u8  data;
+	u8  feedback_bit;
 	
 	crc = 0x00;
 
@@ -76,11 +76,11 @@ _PUBLIC UBYTE crc8 ( P_UBYTE data_in, UWORD number_of_bytes_to_read )
 }
 
 
-_PUBLIC UBYTE crc16(P_UBYTE data_p, UWORD length)
+_public u8 crc16(ptr_u8 data_p, u16 length)
 {
-	UBYTE i;
-	UWORD data;
-	UWORD crc = 0xffff;
+	u8 i;
+	u16 data;
+	u16 crc = 0xffff;
 
 	if (length == 0)
 		return (~crc);
@@ -105,10 +105,10 @@ _PUBLIC UBYTE crc16(P_UBYTE data_p, UWORD length)
 }
 
 
-_PUBLIC UDWORD crc32(P_UBYTE message)
+_public u32 crc32(ptr_u8 message)
 {
 	int j;
-	UDWORD byte, crc, mask, word;
+	u32 byte, crc, mask, word;
 	static unsigned int table[256];
 
 	/* Set up the table, if necessary. */

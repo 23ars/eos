@@ -168,7 +168,7 @@ ISR(TWI_vect)
 }
 
 
-void TWI_tx_data(P_UBYTE data,UBYTE data_length,UBYTE address,BOOL repeated_start)
+void TWI_tx_data(ptr_u8 data,u8 data_length,u8 address,BOOL repeated_start)
 {
 	
 	TWI_info.repeated_start=repeated_start;
@@ -176,7 +176,7 @@ void TWI_tx_data(P_UBYTE data,UBYTE data_length,UBYTE address,BOOL repeated_star
 	
 	if(data_length<=TWI_MAX_DATA_BUFFER)
 	{
-		UBYTE iindex=0;
+		u8 iindex=0;
 		for(iindex=0;iindex<data_length;iindex++)
 		{
 			tx_data_buffer[iindex]=data[iindex];
@@ -202,7 +202,7 @@ void TWI_tx_data(P_UBYTE data,UBYTE data_length,UBYTE address,BOOL repeated_star
 	}
 }
 
-void TWI_rx_data(UBYTE address,UBYTE data_length,BOOL repeated_start)
+void TWI_rx_data(u8 address,u8 data_length,BOOL repeated_start)
 {
 	TWI_info.repeated_start=repeated_start;
 	if(data_length<=TWI_MAX_DATA_BUFFER)
@@ -229,18 +229,18 @@ void TWI_rx_data(UBYTE address,UBYTE data_length,BOOL repeated_start)
 	
 }
 
- P_UBYTE TWI_get_data()
+ ptr_u8 TWI_get_data()
  {
 	 return rx_data_buffer;
 	 
  }
 
- UBYTE TWI_get_mode()
+ u8 TWI_get_mode()
  {
 	 return TWI_info.mode;
  }
 
- UBYTE TWI_get_error_code()
+ u8 TWI_get_error_code()
  {
 	 return TWI_info.error_code;
  }

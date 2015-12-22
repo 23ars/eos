@@ -4,13 +4,13 @@
 
 
 
-_PUBLIC void _init(void);
+_public void _init(void);
 
-_PUBLIC void gpio_set_pud();
-_PUBLIC void gpio_set_direction();
-_PUBLIC void gpio_set_event();
-_PUBLIC void gpio_write(volatile P_UBYTE addr,UDWORD data);
-_PUBLIC UDWORD gpio_read(volatile P_UBYTE addr,UBYTE no_of_blocks);
+_public void gpio_set_pud();
+_public void gpio_set_direction();
+_public void gpio_set_event();
+_public void gpio_write(volatile ptr_u8 addr,u32 data);
+_public u32 gpio_read(volatile ptr_u8 addr,u8 no_of_blocks);
 
 
 

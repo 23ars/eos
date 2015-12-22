@@ -9,7 +9,7 @@
 /** 
  * Variable used to control the semaphore state -> locked or unlocked
  */
-_PRIVATE BOOL lock_var=FALSE;
+_private BOOL lock_var=FALSE;
 
 /** 
  * lock_semaphore() locks the semaphore

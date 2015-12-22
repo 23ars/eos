@@ -21,92 +21,92 @@
 /** Defines macro that should be called before doing operations on shared variables
  */
 /*lint -save -e961 Know it's function-like */
-#define ENABLE_PROTECTION() DISABLE_INTERRUPTS
+#define enable_protection() DISABLE_INTERRUPTS
 
 
 /**  Defines macro that should be called after doing operations on shared variables
  */
 
-#define DISABLE_PROTECTION() ENABLE_INTERRUPTS
+#define disable_protection() ENABLE_INTERRUPTS
 /*lint -restore*/
 
 /** Defines the "_PRIVATE" type that can be added to a function or a global variable
  */
-#ifndef _PRIVATE
-#define _PRIVATE static
+#ifndef _private
+#define _private static
 #endif
 
 /** Defines the "_PUBLIC" type that can be added to a function or a global variable
  */
-#ifndef _PUBLIC
-#define _PUBLIC extern
+#ifndef _public
+#define _public extern
 #endif
 
 /** Defines the "_FAR_FUNC" type of a function. Not available for AVR
  */
-#ifndef _FAR_FUNC
-#define _FAR_FUNC
+#ifndef _far_func
+#define _far_func
 #endif
 
 /** Defines the "_NEAR_FUNC" type of a function. Not available for AVR
  */
-#ifndef _NEAR_FUNC
-#define _NEAR_FUNC
+#ifndef _near_func
+#define _near_func
 #endif
 
 /*lint -save -e694 General constants for min and max value. */
 /** Defines the max value for an unsigned char
  */
-#ifndef MAX_UBYTE
-#define MAX_UBYTE	255
+#ifndef MAX_U8
+#define MAX_U8	255
 #endif
 
 /** Defines the max value for an unsigned int
  */
-#ifndef MAX_UWORD
-#define MAX_UWORD	65535
+#ifndef MAX_U16
+#define MAX_U16	65535
 #endif
 
 /** Defines the max value for an unsigned long int
  */
-#ifndef MAX_UDWORD
-#define MAX_UDWORD	4294967295
+#ifndef MAX_U32
+#define MAX_U32	4294967295
 #endif
 
 /** Defines the min value for a signed char
  */
-#ifndef MIN_BYTE
-#define MIN_BYTE	-128
+#ifndef MIN_S8
+#define MIN_S8	-128
 #endif
 
 /** Defines the max value for a signed char
  */
-#ifndef MAX_BYTE
-#define MAX_BYTE	127
+#ifndef MAX_S8
+#define MAX_S8	127
 #endif
 
 /** Defines the min value for a signed int
  */
-#ifndef MIN_WORD
-#define MIN_WORD	-32768
+#ifndef MIN_S16
+#define MIN_S16	-32768
 #endif
 
 /** Defines the max value for a signed int
  */
-#ifndef MAX_WORD
-#define MAX_WORD	32767
+#ifndef MAX_S16
+#define MAX_S16	32767
 #endif
 
 /** Defines the min value for a signed long int
  */
-#ifndef MIN_DWORD
-#define MIN_DWORD	-2147483648
+#ifndef MIN_S32
+#define MIN_S32	-2147483648
 #endif
 
 /** Defines the max value for a signed long int
  */
-#ifndef MAX_DWORD
-#define MAX_DWORD	2147483647
+#ifndef MAX_S32
+#define MAX_S32	2147483647
 #endif
 /*lint -restore*/
 
@@ -201,35 +201,35 @@
 
 /** Defines signed BYTE type
  */
-typedef signed char BYTE;  /**< 8 bits signed type */
+typedef signed char s8;  /**< 8 bits signed type */
 
 /** Defines signed WORD type
  */
-typedef signed int WORD;  /**< 16 bits signed type */
+typedef signed int s16;  /**< 16 bits signed type */
 
 /** Defines signed DWORD type
  */
-typedef signed long int DWORD;  /**< 32 bits signed type */
+typedef signed long int s32;  /**< 32 bits signed type */
 
 /** Defines signed QWORD type
  */
-typedef signed long long int QWORD;  /**< 64 bits signed type */
+typedef signed long long int s64;  /**< 64 bits signed type */
 
 /** Defines unsigned BYTE type
  */
-typedef unsigned char UBYTE;  /**< 8 bits unsigned type */
+typedef unsigned char u8;  /**< 8 bits unsigned type */
 
 /** Defines unsigned WORD type
  */
-typedef unsigned int UWORD; /**< bits unsigned type */
+typedef unsigned int u16; /**< bits unsigned type */
 
 /** Defines unsigned DWORD type
  */
-typedef unsigned long int UDWORD; /**< 32 bits unsigned type */
+typedef unsigned long int u32; /**< 32 bits unsigned type */
 
 /** Defines unsigned QWORD type
  */
-typedef unsigned long long int UQWORD; /**< 64 bits unsigned type */
+typedef unsigned long long int u64; /**< 64 bits unsigned type */
 
 /** Defines the BOOL type. By convention, FALSE means 0 and TRUE means 1.
  */
@@ -242,47 +242,47 @@ typedef enum
 
 /** Defines signed BYTE pointer type
  */
-typedef signed char* P_BYTE;
+typedef signed char* ptr_s8;
 
 /** Defines signed WORD pointer type
  */
-typedef signed int* P_WORD;
+typedef signed int* ptr_s16;
 
 /** Defines signed DWORD pointer type
  */
-typedef signed long int* P_DWORD;
+typedef signed long int* ptr_s32;
 
 /** Defines signed QWORD pointer type
  */
-typedef signed long long int* P_QWORD;
+typedef signed long long int* ptr_s64;
 
 /** Defines unsigned BYTE pointer type
  */
-typedef unsigned char* P_UBYTE;
+typedef unsigned char* ptr_u8;
 
 /** Defines unsigned WORD pointer type
  */
-typedef unsigned int* P_UWORD;
+typedef unsigned int* ptr_u16;
 
 /** Defines unsigned DWORD pointer type
  */
-typedef unsigned long int* P_UDWORD;
+typedef unsigned long int* ptr_u32;
 
 /** Defines unsigned QWORD pointer type
  */
-typedef unsigned long long int* P_UQWORD;
+typedef unsigned long long int* ptr_u64;
 
 /** Pointer to const data 
  */
-#define PTR_CTDATA(ptrtype) const prttype*
+#define ptr_const_data(ptrtype) const prttype*
 
 /**Const pointer to variable data 
 */
-#define CTPTR(ptrtype) ptrtype *const
+#define const_ptr_var_data(ptrtype) ptrtype *const
 
 /**Const pointer to const data 
 */
-#define CTPTR_CTDATA(ptrtype) const ptrtype * const
+#define const_ptr_const_data(ptrtype) const ptrtype * const
 
 
 /** @} //end of datatypes
@@ -302,7 +302,7 @@ typedef struct
 	unsigned int bit6:1; /**< bit6 */
 	unsigned int bit7:1; /**< bit7 */
 	
-}BYTE_BITFIELD;
+}s8_bitfield;
 
 /** Defines WORD bitfield in LSB order
  */
@@ -324,7 +324,7 @@ typedef struct
 	unsigned int bit13:1; /**< bit13 */
 	unsigned int bit14:1; /**< bit14 */
 	unsigned int bit15:1; /**< bit15 */
-}WORD_BITFIELD;
+}s16_bitfield;
 
 
 /** Defines address format in LSB order
@@ -332,14 +332,14 @@ typedef struct
 /*lint -save -e960 Needed union for address variables */
 typedef union
 {
-	UWORD address; /**< 16 bits address */
+	u16 address; /**< 16 bits address */
 	struct
 	{
-		UBYTE addr_L; /**< address low nibble */
-		UBYTE addr_H; /**< address high nibble */
+		u8 addr_L; /**< address low nibble */
+		u8 addr_H; /**< address high nibble */
 	}Bytes;
 	
-}ADDRESS;
+}addr;
 /*lint -restore*/
 
 

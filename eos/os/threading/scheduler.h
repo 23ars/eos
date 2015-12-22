@@ -25,13 +25,13 @@
  * \param[in] void
  * \return void
  */
-_PUBLIC void Timer_Overflow_ServiceRoutine(void);
+_public void Timer_Overflow_ServiceRoutine(void);
 
 /** Init function
  * \param[in] void
  * \return void
  */
-_PUBLIC void sched_init();
+_public void sched_init();
 
 
 

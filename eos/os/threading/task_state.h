@@ -11,7 +11,7 @@
  * \param[in] task_state value from E_Task_State Enum
  * \return 0 for success and a negative number for failure.
  */
-_PUBLIC BYTE task_change_state(BYTE task_id,E_Task_State task_state);
+_public s8 task_change_state(s8 task_id,E_Task_State task_state);
 /**  @} //end of task_state
  */
 

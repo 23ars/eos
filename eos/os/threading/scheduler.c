@@ -4,21 +4,21 @@
 
 #include "scheduler.h"
 
-_PRIVATE volatile UBYTE rub_schd_counter;
+_private volatile u8 rub_schd_counter;
 
-_PUBLIC void Timer_Overflow_ServiceRoutine(void);
-_PRIVATE void (*high_prio_task)(void)=0;
-_PRIVATE void (*medium_prio_task)(void)=0;
-_PRIVATE void (*low_prio_task)(void)=0;
-_PRIVATE void execute_task(E_AvailableTasks task_scheduler);
+_public void Timer_Overflow_ServiceRoutine(void);
+_private void (*high_prio_task)(void)=0;
+_private void (*medium_prio_task)(void)=0;
+_private void (*low_prio_task)(void)=0;
+_private void execute_task(E_AvailableTasks task_scheduler);
 
 void Timer_Overflow_ServiceRoutine(void)
 {
 	
-	ENABLE_PROTECTION();
+	enable_protection();
 	rub_schd_counter++;
 
-	DISABLE_PROTECTION();
+	disable_protection();
 	
 	if(rub_schd_counter%E_Task_5ms==0)
 	{
@@ -45,8 +45,8 @@ void execute_task(E_AvailableTasks task_scheduler)
 		return;
 	}	
 	
-	_PRIVATE BYTE stack_index=0;
-	_PRIVATE S_Tasks_Struct ls_task;
+	_private s8 stack_index=0;
+	_private S_Tasks_Struct ls_task;
 	stack_index=rub_task_stack_top;
 	
 	while(stack_index>=0)
@@ -113,7 +113,7 @@ void execute_task(E_AvailableTasks task_scheduler)
 }
 
 
-_PUBLIC void sched_init()
+_public void sched_init()
 {
 
 	

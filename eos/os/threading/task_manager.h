@@ -9,13 +9,13 @@
  * \param[in] S_Tasks_Struct
  * \return ETSOF or task_id ( position in stack)
  */
-_PUBLIC BYTE task_push(S_Tasks_Struct ls_task);
+_public s8 task_push(S_Tasks_Struct ls_task);
 
 /** push
  * \param[in] void
  * \return errorcodes
  */
-_PUBLIC UBYTE task_pop(void);
+_public u8 task_pop(void);
 
 /** @} //end of taskmanager
  */

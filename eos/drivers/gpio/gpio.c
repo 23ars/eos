@@ -3,7 +3,7 @@
 #include "gpio.h"
 
 
-void gpio_write(volatile P_UBYTE addr,UDWORD data)
+void gpio_write(volatile ptr_u8 addr,u32 data)
 {
 
 	lock_mutex();
@@ -11,15 +11,15 @@ void gpio_write(volatile P_UBYTE addr,UDWORD data)
 	unlock_mutex();
 	
 }
-UDWORD gpio_read(volatile P_UBYTE addr,UBYTE no_of_blocks)
+u32 gpio_read(volatile ptr_u8 addr,u8 no_of_blocks)
 {
 	lock_mutex();
-	UDWORD data=*addr;
+	u32 data=*addr;
 	unlock_mutex();
 	return data;
 	
 }
-BYTE gpio_configure(UBYTE dir,UBYTE pld,UBYTE ev)
+s8 gpio_configure(u8 dir,u8 pld,u8 ev)
 {
 	
 }

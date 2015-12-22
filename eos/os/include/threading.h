@@ -6,4 +6,5 @@
 #include "../threading/bin_semaphore.h"
 #include "../threading/mutex.h"
 #include "../threading/task_stack.h"
+#include "../threading/task_state.h"
 #endif /* THREADING_H_ */

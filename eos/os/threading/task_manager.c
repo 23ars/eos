@@ -4,9 +4,9 @@
 #include "task_manager.h"
 
 
-_PUBLIC BYTE task_push(S_Tasks_Struct ls_task)
+_public s8 task_push(S_Tasks_Struct ls_task)
 {
-	BYTE lb_errno=SUCCESS;
+	s8 lb_errno=SUCCESS;
 	
 	if(rub_task_stack_top==MAX_TASK_NUMBER-1)
 	{
@@ -15,28 +15,28 @@ _PUBLIC BYTE task_push(S_Tasks_Struct ls_task)
 	}
 	else
 	{
-		ENABLE_PROTECTION();
+		enable_protection();
 		rub_task_stack_top++;
 		rs_task_stack[rub_task_stack_top]=ls_task;
 		rs_task_stack[rub_task_stack_top].rub_Task_State=TASK_ACTIVE;
-		DISABLE_PROTECTION();
+		disable_protection();
 	}
 	return rub_task_stack_top;
 	
 }
 
-_PUBLIC UBYTE task_pop(void)
+_public u8 task_pop(void)
 {
-	UBYTE lub_errno=SUCCESS;
+	u8 lub_errno=SUCCESS;
 	if(rub_task_stack_top==-1)
 	{
 		lub_errno=ETSE;
 	}
 	else
 	{
-		ENABLE_PROTECTION();
+		enable_protection();
 		rub_task_stack_top--;
-		DISABLE_PROTECTION();
+		disable_protection();
 	}
 	return lub_errno;
 

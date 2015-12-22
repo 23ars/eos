@@ -31,14 +31,14 @@ typedef enum
 }E_ShudDown_Modules;
 
 /// Pointer to the function that will set up the wakeup condition
-_PRIVATE void (*wm_wakeup_condition)(void)=0; 
+_private void (*wm_wakeup_condition)(void)=0; 
 
 /// Initialize Sleep mode
 /// \param[in] lub_sleep_mode Unsigned Byte variable that represents the Sleep mode
 /// \param[in] lub_sleep_modules Unsigned Byte variable that represents the modules that will be shutdown
 /// \param[in] (*_wakeup_condition)(void) Pointer to function that will set up the wakeup condition
 /// \return void
-_PUBLIC void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void));
+_public void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void));
 
 
 

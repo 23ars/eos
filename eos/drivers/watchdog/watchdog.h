@@ -39,7 +39,7 @@ typedef enum
 /// Setup the task that will be run on watchdog interrupt, if WATCHDOG_INTERRUPT_MODE or WATCHDOG INTERRUPT_RESET mode was selected
 /// \param[in] (*int_task)(void) Pointer to a function that will be called in ISR's body
 /// \return void
-_PUBLIC void wdt_int_task(void (*int_task)(void));
+_public void wdt_int_task(void (*int_task)(void));
 
 /// WDT_INIT initialize the watchdog
 /// \param[in] lub_watchdog_mode Unsigned Byte representing the watchdog mode

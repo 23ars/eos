@@ -2,15 +2,15 @@
 
 #include "work_modes.h"
 
-_PRIVATE void wm_wakeup();
+_private void wm_wakeup();
 
-_PUBLIC void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void))
+_public void wm_init(E_Sleep_modes lub_sleep_mode,E_ShudDown_Modules lub_sleep_modules,void (*_wakeup_condition)(void))
 {
-	ENABLE_PROTECTION();
+	enable_protection();
 	PRR|=lub_sleep_modules;/*set modules to sleep*/
 	SMCR|=lub_sleep_mode; /*select sleep mode */
 	
-	DISABLE_PROTECTION(); /*allow interrupt to end sleep mode*/
+	disable_protection(); /*allow interrupt to end sleep mode*/
 	
 	wm_wakeup_condition=_wakeup_condition; /*wakeup condition*/
 	

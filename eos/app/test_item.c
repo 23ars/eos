@@ -28,7 +28,7 @@ void init_port()
 	
 	DDRB=0xFF;
 	S_Tasks_Struct task_20;
-	UBYTE task_id;
+	u8 task_id;
 	task_20.rub_Task_Priority=TASK_HIGH_PRIO;
 	task_20.rub_Task_Schedule=E_Task_20ms;
 	task_20.task=&toggle_led;

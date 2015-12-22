@@ -12,7 +12,7 @@
  * \param[in] n number of bytes to copy
  * \return dest
  */
-_PUBLIC void* memory_copy(void *dest, const void *src, size_t n);
+_public void* memory_copy(void *dest, const void *src, size_t n);
 
 /* memory_move (similar to memmove)
  * \param[in] dest destination
@@ -20,7 +20,7 @@ _PUBLIC void* memory_copy(void *dest, const void *src, size_t n);
  * \param[in] n number of bytes to copy
  * \return dest
  */
-_PUBLIC void* memory_move(void *dest, const void *src, size_t n);
+_public void* memory_move(void *dest, const void *src, size_t n);
 
 /* memory_move (similar to memset)
  * \param[in] s memory that'll be filled
@@ -28,27 +28,27 @@ _PUBLIC void* memory_move(void *dest, const void *src, size_t n);
  * \param[in] n number of bytes to fill
  * \return s
  */
-_PUBLIC void* memory_set(void *s,int c,size_t n);
+_public void* memory_set(void *s,int c,size_t n);
 
 /* crc32
  * \param[in] message message on which the checksum will be calculated
  * \return checksum
  */
-_PUBLIC UDWORD crc32(P_UBYTE message);
+_public u32 crc32(ptr_u8 message);
 
 /* crc8
  * \param[in] data_in message on which the checksum will be calculated
  * \param[in] length message length
  * \return checksum
  */
-_PUBLIC UBYTE crc8 ( P_UBYTE data_in, UWORD length );
+_public u8 crc8 ( ptr_u8 data_in, u16 length );
 
 /* crc16
  * \param[in] data_in message on which the checksum will be calculated
  * \param[in] length message length
  * \return checksum
  */
-_PUBLIC UBYTE crc16(P_UBYTE data_p, UWORD length);
+_public u8 crc16(ptr_u8 data_p, u16 length);
 
 /* @} //end of task_stack
  */

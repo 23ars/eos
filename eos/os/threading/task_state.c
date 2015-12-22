@@ -5,7 +5,7 @@
 #include "task_state.h"
 
 
-_PUBLIC BYTE task_change_state(BYTE task_id,E_Task_State task_state)
+_public s8 task_change_state(s8 task_id,E_Task_State task_state)
 {
 	if((MAX_TASK_NUMBER<task_id && -1>task_id))
 	{
@@ -16,9 +16,9 @@ _PUBLIC BYTE task_change_state(BYTE task_id,E_Task_State task_state)
 		
 		return -TSNA;
 	}
-	ENABLE_PROTECTION();
+	enable_protection();
 	rs_task_stack[task_id].rub_Task_State=task_state;
-	DISABLE_PROTECTION();
+	disable_protection();
 	return SUCCESS;
 	
 }

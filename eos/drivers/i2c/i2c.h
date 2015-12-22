@@ -56,7 +56,7 @@ typedef enum
 typedef struct _TWI_INFO_STRUCT
 {
 	TWI_MODE mode;
-	UBYTE error_code;
+	u8 error_code;
 	BOOL repeated_start;
 	
 }TWI_INFO_STRUCT;
@@ -91,24 +91,24 @@ TWI_INFO_STRUCT TWI_info;
 #define TWI_SEND_ACK()   (TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWIE)|(1<<TWEA))
 #define TWI_SEND_NACK()	(TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWIE))
 
-volatile UBYTE tx_data_buffer[TWI_MAX_DATA_BUFFER];
-volatile UBYTE tx_data_index;
-volatile UBYTE tx_address_buffer;
+volatile u8 tx_data_buffer[TWI_MAX_DATA_BUFFER];
+volatile u8 tx_data_index;
+volatile u8 tx_address_buffer;
 
-volatile UBYTE rx_data_buffer[TWI_MAX_DATA_BUFFER];
-volatile UBYTE rx_data_index;
-volatile UBYTE rx_address_buffer;
-volatile UBYTE rx_buffer_index;
+volatile u8 rx_data_buffer[TWI_MAX_DATA_BUFFER];
+volatile u8 rx_data_index;
+volatile u8 rx_address_buffer;
+volatile u8 rx_buffer_index;
 extern void TWI_init(void);
 
-extern void TWI_tx_data(P_UBYTE data,UBYTE data_length,UBYTE address,BOOL repeated_start);
+extern void TWI_tx_data(ptr_u8 data,u8 data_length,u8 address,BOOL repeated_start);
 
-extern void TWI_rx_data(UBYTE address,UBYTE data_length,BOOL repeated_start);
+extern void TWI_rx_data(u8 address,u8 data_length,BOOL repeated_start);
 
-extern P_UBYTE TWI_get_data();
+extern ptr_u8 TWI_get_data();
 
-extern UBYTE TWI_get_mode();
+extern u8 TWI_get_mode();
 
-extern UBYTE TWI_get_error_code();
+extern u8 TWI_get_error_code();
 
 #endif /* I2C_H_ */

@@ -66,17 +66,17 @@ typedef enum
 
 #ifdef INTERRUPT_RX_TRANSFER
 ISR(USART_RX_vect);
-volatile UBYTE received_data;
+volatile u8 received_data;
 #endif
 #ifdef INTERRUPT_TX_TRANSFER
 ISR(USART_TX_vect);
-volatile UBYTE send_data;
+volatile u8 send_data;
 #endif
 
 
 extern void usart_init(void);
-extern void usart_cntl(UWORD opt);
-extern void usart_write(UBYTE data);
-extern UBYTE usart_read(void);
-extern void usart_print(P_BYTE p_string);
+extern void usart_cntl(u16 opt);
+extern void usart_write(u8 data);
+extern u8 usart_read(void);
+extern void usart_print(ptr_s8 p_string);
 #endif

@@ -4,11 +4,11 @@
 #include "watchdog.h"
 
 /* Pointer to the function that will be executed on watchdog interrupt */
-_PRIVATE void (*wdt_task)(void)=0;
+_private void (*wdt_task)(void)=0;
 /* Watchdog interrupt*/
 ISR(WDT_vect);
 /* Function that will init the watchdog*/
-_PRIVATE void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler);
+_private void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler);
 
 ISR(WDT_vect)
 {
@@ -16,7 +16,7 @@ ISR(WDT_vect)
 	
 }
 
-_PUBLIC void wdt_int_task(void (*int_task)(void))
+_public void wdt_int_task(void (*int_task)(void))
 {
 	wdt_task=int_task;
 }
@@ -24,7 +24,7 @@ _PUBLIC void wdt_int_task(void (*int_task)(void))
 
 void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_prescaler)
 {
-	ENABLE_PROTECTION();
+	enable_protection();
 	
 	wdt_reset();										/* reset the watchdog*/
 	switch(lub_watchdog_mode)
@@ -46,6 +46,6 @@ void wdt_init(E_WatchDogModes lub_watchdog_mode,E_WdtTimerPrescaler lub_wdt_pres
 			}
 	}
 	WDTCSR|=lub_wdt_prescaler;							/* set up timer prescaler */
-	DISABLE_PROTECTION();
+	disable_protection();
 	
 }

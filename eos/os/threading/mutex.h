@@ -16,15 +16,15 @@ typedef struct
 {
 	BOOL lock_var;
 	/*resource is BYTE because if there is no owner thread, -1 will be*/
-	BYTE owner_thread; 
+	s8 owner_thread; 
 	/*max task number -1 because 1 thread is already locking the resource*/
-	UBYTE locked_threads_stack[MAX_TASK_NUMBER];
-	BYTE locked_threads_stack_top;
+	u8 locked_threads_stack[MAX_TASK_NUMBER];
+	s8 locked_threads_stack_top;
 }S_Mutex_Struct;
 
-_PRIVATE S_Mutex_Struct rs_mutex_configuration;
-BYTE lub_mutex_index;
-_PRIVATE inline void mutex_stack_push(UBYTE thread)
+_private S_Mutex_Struct rs_mutex_configuration;
+s8 lub_mutex_index;
+_private inline void mutex_stack_push(u8 thread)
 {
 	if (rs_mutex_configuration.locked_threads_stack_top != (MAX_TASK_NUMBER - 1))
 	{
@@ -32,9 +32,9 @@ _PRIVATE inline void mutex_stack_push(UBYTE thread)
 	}
 }
 
-_PRIVATE inline BYTE mutex_stack_pop()
+_private inline s8 mutex_stack_pop()
 {
-	BYTE thread_id=-1;
+	s8 thread_id=-1;
 	if (-1!=rs_mutex_configuration.locked_threads_stack_top)
 	{
 		thread_id = rs_mutex_configuration.locked_threads_stack[rs_mutex_configuration.locked_threads_stack_top--];
@@ -62,7 +62,7 @@ _PRIVATE inline BYTE mutex_stack_pop()
 #define lock_mutex()																\
 	inline void lock()																\
 	{																				\
-		ENABLE_PROTECTION();														\		
+		enable_protection();														\		
 		if(rs_mutex_configuration.lock_var==TRUE)									\
 		{																			\
 			mutex_stack_push(rub_thread_id);										\
@@ -71,10 +71,10 @@ _PRIVATE inline BYTE mutex_stack_pop()
 		{																			\
 			rs_mutex_configuration.lock_var=TRUE;									\
 			rs_mutex_configuration.owner_thread=rub_thread_id;						\
-			BYTE thread_id=mutex_stack_pop();										\
+			s8 thread_id=mutex_stack_pop();											\
 			(thread_id==-1)?:(*(rs_task_stack[thread_id].task))();					\
 		}																			\	
-		DISABLE_PROTECTION();														\
+		disable_protection();														\
 	}							
 
 /************************************************************************/
@@ -84,11 +84,11 @@ _PRIVATE inline BYTE mutex_stack_pop()
 #define unlock_mutex()													\
 	inline void unlock()												\
 	{																	\
-		ENABLE_PROTECTION();											\
+		enable_protection();											\
 		rs_mutex_configuration.lock_var=FALSE;							\
-		BYTE thread_id=mutex_stack_pop();								\
+		s8 thread_id=mutex_stack_pop();									\
 		(thread_id==-1)?:(*(rs_task_stack[thread_id].task))();			\
-		DISABLE_PROTECTION();											\
+		disable_protection();											\
 	}
 
 #endif /* MUTEX_H_ */

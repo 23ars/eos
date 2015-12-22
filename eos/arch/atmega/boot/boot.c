@@ -17,9 +17,9 @@
  * \param[in] void
  * \return void
  *****************************************************/
-_PRIVATE void timer_config(void);
+_private void timer_config(void);
 
-_PRIVATE ISR(TIMER0_OVF_vect);
+_private ISR(TIMER0_OVF_vect);
 
 int main(void)
 {
@@ -45,7 +45,7 @@ int main(void)
 
 void timer_config(void)
 {
-	ENABLE_PROTECTION();
+	enable_protection();
 	
 	sched_init();
 	
@@ -60,7 +60,7 @@ void timer_config(void)
 	//enable timer0 overflow interrupt
 
 	
-	DISABLE_PROTECTION();
+	disable_protection();
 	
 }
 
