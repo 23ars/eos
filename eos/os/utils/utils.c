@@ -107,8 +107,9 @@ _public u8 crc16(ptr_u8 data_p, u16 length)
 
 _public u32 crc32(ptr_u8 message)
 {
-	int j;
-	u32 byte, crc, mask, word;
+	u8 j;
+	u8 byte;
+	u32 crc, mask, word;
 	static unsigned int table[256];
 
 	/* Set up the table, if necessary. */
