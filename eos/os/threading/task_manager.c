@@ -20,8 +20,10 @@ _public s8 task_push(S_Tasks_Struct ls_task)
 		rs_task_stack[rub_task_stack_top]=ls_task;
 		rs_task_stack[rub_task_stack_top].rub_Task_State=TASK_ACTIVE;
 		disable_protection();
+		lb_errno=rub_task_stack_top;
 	}
-	return rub_task_stack_top;
+	
+	return lb_errno;
 	
 }
 

@@ -14,7 +14,7 @@ _public void* memory_move(void *dest, const void *src, size_t n)
 {
 	ptr_u8 d=dest;
 	ptr_u8 s=(ptr_u8)src;
-	if(s<dest)
+	if(s<(ptr_u8)dest)
 	{
 		for(d+=n;s+=n;n--)
 			*--d=*--s;

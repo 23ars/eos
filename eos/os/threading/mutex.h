@@ -52,7 +52,7 @@ _private inline s8 mutex_stack_pop()
 			memory_set(&rs_mutex_configuration,0,sizeof(S_Mutex_Struct));					\
 			rs_mutex_configuration.lock_var=FALSE;											\
 			rs_mutex_configuration.owner_thread=-1;											\
-			rs_mutex_configuration.locked_threads_stack_top=-1;								\										
+			rs_mutex_configuration.locked_threads_stack_top=-1;								\
 	}
 
 /************************************************************************/
@@ -62,7 +62,7 @@ _private inline s8 mutex_stack_pop()
 #define lock_mutex()																\
 	inline void lock()																\
 	{																				\
-		enable_protection();														\		
+		enable_protection();														\
 		if(rs_mutex_configuration.lock_var==TRUE)									\
 		{																			\
 			mutex_stack_push(rub_thread_id);										\
@@ -72,8 +72,8 @@ _private inline s8 mutex_stack_pop()
 			rs_mutex_configuration.lock_var=TRUE;									\
 			rs_mutex_configuration.owner_thread=rub_thread_id;						\
 			s8 thread_id=mutex_stack_pop();											\
-			(thread_id==-1)?:(*(rs_task_stack[thread_id].task))();					\
-		}																			\	
+			(thread_id==-1)?TRUE:(*(rs_task_stack[thread_id].task))();					\
+		}																			\
 		disable_protection();														\
 	}							
 
@@ -87,7 +87,7 @@ _private inline s8 mutex_stack_pop()
 		enable_protection();											\
 		rs_mutex_configuration.lock_var=FALSE;							\
 		s8 thread_id=mutex_stack_pop();									\
-		(thread_id==-1)?:(*(rs_task_stack[thread_id].task))();			\
+		(thread_id==-1)?TRUE:(*(rs_task_stack[thread_id].task))();			\
 		disable_protection();											\
 	}
 

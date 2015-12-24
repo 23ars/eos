@@ -4,6 +4,8 @@
 
 #include <util/delay.h>
 #include "i2c.h"
+
+static void __vector_24 (void) __attribute__ ((signal,__INTR_ATTRS));
 void TWI_init(void)
 {
 	
@@ -30,7 +32,7 @@ void TWI_init(void)
 	
 }
 
-ISR(TWI_vect)
+void __vector_24(void)
 {
 	switch(TWI_STATUS)
 	{

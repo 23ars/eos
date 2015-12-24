@@ -21,7 +21,7 @@ u32 gpio_read(volatile ptr_u8 addr,u8 no_of_blocks)
 }
 s8 gpio_configure(u8 dir,u8 pld,u8 ev)
 {
-	
+	return 0;
 }
 
 void _init(void)

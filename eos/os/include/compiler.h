@@ -17,7 +17,7 @@
 
 	#define NO_OPERATION() asm volatile("NOP")
 
-#else if defined (__XC8) 
+#elif defined (__XC8) 
 
 	#define DISABLE_INTERRUPTS
 	#define ENABLE_INTERRUPTS
