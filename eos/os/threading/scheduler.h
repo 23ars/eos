@@ -15,15 +15,6 @@
 #endif
 
 
-
-
-
-
-
-
-
-
-
 /** Scheduler Service Routine
  * \param[in] void
  * \return void

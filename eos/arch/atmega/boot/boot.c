@@ -2,7 +2,7 @@
 //#include <avr/boot.h>
 //#include <avr/interrupt.h>
 //#include <avr/pgmspace.h>
-
+#include "../eos_conf.h"
 #include "errorcode.h"
 #include "stdtypes.h"
 
@@ -19,7 +19,8 @@
  *****************************************************/
 _private void timer_config(void);
 
-_private ISR(TIMER0_OVF_vect);
+void __vector_16 (void) __attribute__ ((signal,__INTR_ATTRS));
+
 
 int main(void)
 {
@@ -65,8 +66,9 @@ void timer_config(void)
 }
 
 
-ISR(TIMER0_OVF_vect)
+void __vector_16(void)
 {
+	
 	Timer_Overflow_ServiceRoutine();
 	
 }
