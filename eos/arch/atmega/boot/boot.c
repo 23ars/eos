@@ -1,14 +1,11 @@
 #include <avr/io.h>
-//#include <avr/boot.h>
-//#include <avr/interrupt.h>
-//#include <avr/pgmspace.h>
-#include "../eos_conf.h"
+#include "../../../os/eos_conf.h"
 #include "errorcode.h"
 #include "stdtypes.h"
 
 #include "../../../os/threading/scheduler.h"
 
-#include "../eos_conf.h"
+
 
 
 

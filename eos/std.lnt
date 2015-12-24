@@ -6,6 +6,6 @@
 
 options.lnt au-misra2.lnt -si2 -spN2 -spF4
 -I"os"
--i"eos.c"
+-i"arch/atmega/boot/boot.c"
 
 
