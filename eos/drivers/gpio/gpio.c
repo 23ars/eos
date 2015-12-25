@@ -1,34 +1,46 @@
 #include "stdtypes.h"
-#include "threading.h"
 #include "gpio.h"
 
 
-void gpio_write(volatile ptr_u8 addr,u32 data)
+void gpio_write(volatile ptr_u8 addr,const ptr_void data,u32 count)
 {
+	ptr_u8 lpub_d=(ptr_u8)data;
+	while(count--)
+	{
+		*addr=lpub_d;	
+		*lpub_d++;
+	}
+}
+void gpio_read(volatile ptr_u8 addr,void*data,u32 count)
+{
+	
+	u8 lub_d;
+	while (count--)
+	{
+		lub_d=*addr;
+		*data++;
+		*((u8*)(data))=lub_d;	
+	}
 
-	lock_mutex();
-	*addr=data;
-	unlock_mutex();
 	
-}
-u32 gpio_read(volatile ptr_u8 addr,u8 no_of_blocks)
-{
-	lock_mutex();
-	u32 data=*addr;
-	unlock_mutex();
-	return data;
 	
-}
-s8 gpio_configure(u8 dir,u8 pld,u8 ev)
-{
-	return 0;
 }
 
-void _init(void)
+
+s8 gpio_set_direction(const E_Gpio_Direction direction,volatile ptr_u8 dir_reg,const u8 pin_no)
 {
-	
-	
+	if(INPUT==direction)
+	{
+		*dir_reg&=~(1<<pin_no);
+		
+	}
+	else
+	{
+		*dir_reg|=(1<<pin_no);
+	}
 	
 }
+
+
 
 
