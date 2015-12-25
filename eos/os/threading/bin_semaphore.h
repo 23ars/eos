@@ -4,7 +4,7 @@
  * Macros for defining and controlling shared resources
  * @{
  */
-#include "../include/stdtypes.h"
+#include "stdtypes.h"
 
 /** 
  * Variable used to control the semaphore state -> locked or unlocked

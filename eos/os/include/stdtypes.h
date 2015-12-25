@@ -240,6 +240,11 @@ typedef enum
 	
 }BOOL;
 
+
+/** Defines void pointer type
+ */
+typedef void* ptr_void;
+
 /** Defines signed BYTE pointer type
  */
 typedef signed char* ptr_s8;
@@ -271,18 +276,6 @@ typedef unsigned long int* ptr_u32;
 /** Defines unsigned QWORD pointer type
  */
 typedef unsigned long long int* ptr_u64;
-
-/** Pointer to const data 
- */
-#define ptr_const_data(ptrtype) const prttype*
-
-/**Const pointer to variable data 
-*/
-#define const_ptr_var_data(ptrtype) ptrtype *const
-
-/**Const pointer to const data 
-*/
-#define const_ptr_const_data(ptrtype) const ptrtype * const
 
 
 /** @} //end of datatypes

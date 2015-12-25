@@ -1,4 +1,3 @@
-eos.atsln
 eos/Debug/eos.d
 eos/Debug/eos.eep
 *.map
@@ -15,6 +14,5 @@ eos/Debug/os/sw/task_manager/task_manager.d
 *.d
 eos/Debug/eos.hex
 *.lss
-eos.atsuo
 eos/Doc/*.*
 eos/Doc/

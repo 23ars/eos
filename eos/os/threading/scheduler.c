@@ -1,6 +1,4 @@
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include "../include/stdtypes.h"
+#include "stdtypes.h"
 
 #include "scheduler.h"
 

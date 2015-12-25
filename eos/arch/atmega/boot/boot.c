@@ -1,9 +1,9 @@
 #include <avr/io.h>
-#include "../../../os/eos_conf.h"
+#include "eos_conf.h"
 #include "errorcode.h"
 #include "stdtypes.h"
 
-#include "../../../os/threading/scheduler.h"
+#include "../threading/scheduler.h"
 
 
 

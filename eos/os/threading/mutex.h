@@ -5,9 +5,9 @@
  * Macros for defining and controlling shared resources
  * @{
  */
-#include "../include/stdtypes.h"
+#include "stdtypes.h"
 #include "task_stack.h"
-#include "../utils/utils.h"
+#include "eos_utils.h"
 
 /** 
  * Variable used to control the mutex state -> locked or unlocked
