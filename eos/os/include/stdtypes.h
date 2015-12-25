@@ -5,7 +5,7 @@
 * <p>Author: Mihai Seba <<b>23ars</b>></p>
 * <p>Version: 1.0</p>
 * <p>License: GPL</p>
-* @see 
+* @see https://github.com/23ars/eos
 */
 
 #ifndef STDTYPES_H_
