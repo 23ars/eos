@@ -1,27 +1,26 @@
 #include <avr/io.h>
-#include <stdlib.h>
+
 #include "stdtypes.h"
-#include "architecture.h"
 #include "threading.h"
-#include "driver_api.h"
+//#include "gpio/gpio.h"
 #include "test_item.h"
 
-/*
-void init_port()
-{
-	DDRB=0xff;
-	
+
+//void init_port()
+//{
+	//gpio_set_direction(OUTPUT,&DDRB,0);
+	//
 	//toggle_led();
-	
-//	write(desc,&PORTB,(1<<PINB2));
-	//driver_unload(gpio);
-}
-void toggle_led()
-{
-	//lock_mutex();
-	PORTB^=(1<<PINB0);
-//	unlock_mutex();
-}*/
+	//
+////	write(desc,&PORTB,(1<<PINB2));
+	////driver_unload(gpio);
+//}
+//void toggle_led()
+//{
+	////lock_mutex();
+	//gpio_write(&PORTB,0x01,1);
+////	unlock_mutex();
+//}
 
 void init_port()
 {
@@ -40,7 +39,7 @@ void init_port()
 	{
 		PORTB|=(1<<PINB4);
 	}
-	task_change_state(task_id,TASK_BLOCKED);
+	task_change_state(task_id,TASK_ACTIVE);
 
 	
 	
