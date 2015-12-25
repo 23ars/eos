@@ -2,14 +2,15 @@
 
 #include "scheduler.h"
 
-_private volatile u8 rub_schd_counter;
+_private volatile u8 rub_schd_counter=0;
 
-_public void Timer_Overflow_ServiceRoutine(void);
+
 _private void (*high_prio_task)(void)=0;
 _private void (*medium_prio_task)(void)=0;
 _private void (*low_prio_task)(void)=0;
 _private void execute_task(E_AvailableTasks task_scheduler);
 
+/*lint -save -e641 Fields of E_AvailableTasks have int values 5,10 and 20. It's save to convert to int. */
 void Timer_Overflow_ServiceRoutine(void)
 {
 	
@@ -18,15 +19,15 @@ void Timer_Overflow_ServiceRoutine(void)
 
 	disable_protection();
 	
-	if(rub_schd_counter%E_Task_5ms==0)
+	if((rub_schd_counter%E_Task_5ms)==0)
 	{
 		execute_task(E_Task_5ms);
 	}
-	if(rub_schd_counter%E_Task_10ms==0 )
+	if((rub_schd_counter%E_Task_10ms)==0 )
 	{
 		execute_task(E_Task_10ms);
 	}
-	if(rub_schd_counter%E_Task_20ms==0 )
+	if((rub_schd_counter%E_Task_20ms)==0 )
 	{
 
 		execute_task(E_Task_20ms);
@@ -34,17 +35,20 @@ void Timer_Overflow_ServiceRoutine(void)
 
 	
 }
-
-void execute_task(E_AvailableTasks task_scheduler)
+/*lint-restore*/
+/*lint -save -e904 Return statement before end of function is used for fast exit from function.
+It's safe because no task should be executed if there are not on stack. */
+_private void execute_task(E_AvailableTasks task_scheduler)
 {
 
+	_private s8 stack_index=0;
+	_private S_Tasks_Struct ls_task;
+	
 	if(rub_task_stack_top==-1)
 	{
 		return;
 	}	
 	
-	_private s8 stack_index=0;
-	_private S_Tasks_Struct ls_task;
 	stack_index=rub_task_stack_top;
 	
 	while(stack_index>=0)
@@ -109,16 +113,14 @@ void execute_task(E_AvailableTasks task_scheduler)
 	
 
 }
+/*lint-restore*/
 
 
-_public void sched_init(void)
+void sched_init(void)
 {
 
-	
-	
 	rub_task_stack_top=-1;
 	
 	
 	
 }
-//extern void Task_1ms
