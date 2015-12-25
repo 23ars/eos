@@ -4,10 +4,11 @@
 #include "task_manager.h"
 #include "task_state.h"
 
-
-_public s8 task_change_state(s8 task_id,E_Task_State task_state)
+/*lint -save -e904 Return statement before end of function is used to 
+fast exit from function if condition are not met. */
+s8 task_change_state(s8 task_id,E_Task_State task_state)
 {
-	if((MAX_TASK_NUMBER<task_id && -1>task_id))
+	if(((MAX_TASK_NUMBER<task_id) && (-1>task_id)))
 	{
 		return -NTID;
 	}
@@ -22,3 +23,4 @@ _public s8 task_change_state(s8 task_id,E_Task_State task_state)
 	return SUCCESS;
 	
 }
+/*lint-restore*/

@@ -4,11 +4,11 @@
 #include "task_manager.h"
 
 
-_public s8 task_push(S_Tasks_Struct ls_task)
+s8 task_push(S_Tasks_Struct ls_task)
 {
 	s8 lb_errno=SUCCESS;
 	
-	if(rub_task_stack_top==MAX_TASK_NUMBER-1)
+	if((MAX_TASK_NUMBER-1)==rub_task_stack_top)
 	{
 		lb_errno=-ETSOF;
 		
@@ -27,7 +27,7 @@ _public s8 task_push(S_Tasks_Struct ls_task)
 	
 }
 
-_public u8 task_pop(void)
+u8 task_pop(void)
 {
 	u8 lub_errno=SUCCESS;
 	if(rub_task_stack_top==-1)
