@@ -5,7 +5,8 @@
 
 
 options.lnt au-misra2.lnt -si2 -spN2 -spF4
--I"os"
+-I"os/include/"
+-I"os/threading/"
 -i"arch/atmega/boot/boot.c"
 
 

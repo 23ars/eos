@@ -111,7 +111,7 @@ void execute_task(E_AvailableTasks task_scheduler)
 }
 
 
-_public void sched_init()
+_public void sched_init(void)
 {
 
 	

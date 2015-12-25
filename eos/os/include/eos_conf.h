@@ -3,18 +3,19 @@
 #define F_CPU 16000000UL
 #define MAX_TASK_NUMBER 15
 #define ATMEGA
-//#define PIC
-//#define 80C51
+/*
+#define PIC
+#define 80C51
 #include "test_item.h"
+*/
 
-
-
-
-inline void run_apps()
+/*lint -save -e960 -e957 -e129 Inline function defined in config header */
+inline void run_apps(void)
 {
 	init_port();
 	
 }
+/*lint-restore*/
 
 
 

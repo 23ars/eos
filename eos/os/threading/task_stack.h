@@ -5,8 +5,9 @@
  * Definition of the stack that is used for holding tasks
  * @{
  */
-
+/*lint -save -e537 eos_conf.h is needed because it contains the custom definition of MAX_TASK_NUMBER */
 #include "eos_conf.h"
+/*lint-restore */
 
 /** Maximum number of tasks. By default it will be 20, 5 task for each time interval
  */

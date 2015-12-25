@@ -25,7 +25,7 @@ _public void Timer_Overflow_ServiceRoutine(void);
  * \param[in] void
  * \return void
  */
-_public void sched_init();
+_public void sched_init(void);
 
 
 
