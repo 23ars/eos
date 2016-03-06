@@ -1,4 +1,3 @@
-
 /**
 \mainpage  eOS, an embedded Operating System
 * <p></p>
@@ -7,10 +6,9 @@
 * <p>License: GPL</p>
 * @see https://github.com/23ars/eos
 */
-
 #ifndef STDTYPES_H_
 #define STDTYPES_H_
-#include "compiler.h"
+#include "../compiler.h"
 
 
 /** \defgroup CommonMacros Library Macros
@@ -20,7 +18,7 @@
 
 /** Defines macro that should be called before doing operations on shared variables
  */
-/*lint -save -e961 Know it's function-like */
+
 #define enable_protection() DISABLE_INTERRUPTS
 
 
@@ -28,7 +26,7 @@
  */
 
 #define disable_protection() ENABLE_INTERRUPTS
-/*lint -restore*/
+
 
 /** Defines the "_PRIVATE" type that can be added to a function or a global variable
  */
@@ -54,7 +52,7 @@
 #define _near_func
 #endif
 
-/*lint -save -e694 General constants for min and max value. */
+
 /** Defines the max value for an unsigned char
  */
 #ifndef MAX_U8
@@ -108,9 +106,9 @@
 #ifndef MAX_S32
 #define MAX_S32	2147483647
 #endif
-/*lint -restore*/
 
-/*lint -save -e961 Know it's function-like */
+
+
 /** Define BIT Set logical operation.
  * \param[in] variable/register in which the bit will be set
  * \param[in] bit to act upon
@@ -190,7 +188,7 @@
 #ifndef IN_B
 #define	IN_B(addr)			(addr)
 #endif
-/*lint -restore*/
+
 /**  @} //end of CommonMacros
  */
 
@@ -322,7 +320,7 @@ typedef struct
 
 /** Defines address format in LSB order
  */
-/*lint -save -e960 Needed union for address variables */
+
 typedef union
 {
 	u16 address; /**< 16 bits address */
@@ -333,7 +331,7 @@ typedef union
 	}Bytes;
 	
 }addr;
-/*lint -restore*/
+
 
 
 #endif /* STDTYPES_H_ */
