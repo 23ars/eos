@@ -8,7 +8,7 @@
 */
 #ifndef STDTYPES_H_
 #define STDTYPES_H_
-#include "../compiler.h"
+#include "compiler.h"
 
 
 /** \defgroup CommonMacros Library Macros

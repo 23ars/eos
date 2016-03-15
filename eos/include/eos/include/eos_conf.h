@@ -2,7 +2,7 @@
 #define EOS_CONF_H_
 #define F_CPU 16000000UL
 #define MAX_TASK_NUMBER 15
-#define ATMEGA
+
 /*
 #define PIC
 #define 80C51

@@ -5,7 +5,7 @@
  *  Author: Mihai
  */ 
 #include "stdtypes.h"
-#include "include/scheduler.h"
+#include "scheduler.h"
 #include "process.h"
 
 _private volatile u8 rub_schd_counter=0;
@@ -26,7 +26,7 @@ void Timer_Overflow_ServiceRoutine(void)
 void sched_init(void)
 {
 
-	rub_task_stack_top=-1;
+//	rub_task_stack_top=-1;
 	
 	
 	

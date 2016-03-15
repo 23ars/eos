@@ -27,19 +27,7 @@ _private void timer_config(void);
 void __vector_16 (void) __attribute__ ((signal,__INTR_ATTRS));
 
 
-int main(void)
-{
-	
 
-	timer_config();
-	
-	run_apps();
-	
-	while(1);
-
-
-	
-}
 
 
 
