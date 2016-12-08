@@ -1,44 +1,24 @@
 #############################################
 # Compiler settings ( flags)				#
 #############################################
-INCLUDE_DIR=include/eos/include
+INCLUDE_DIR=
 EOS_HEADERS=include/eos
-COMPILER_PATH=d:\Tools\Atmel\Atmel Toolchain\AVR32 GCC\Native\3.4.1067\avr32-gnu-toolchain\bin
-COMPILER_PREFIX=avr32-
+COMPILER_PATH=d:\Tools\Freescale\KDS_v3\Toolchain\bin
+COMPILER_PREFIX=arm-none-eabi-
 COMPILER=$(COMPILER_PREFIX)gcc.exe
+ARCHIVER=$(COMPILER_PATH)ar.exe
 CC=$(COMPILER_PATH)\$(COMPILER)
+AR=$(COMPILER_PATH)\$(COMPILER)
+OUTPUT=eos.a
+
+HOST_C_FLAGS += -Wall -g3 -O2 -I$(INCLUDE_DIR) -I$(EOS_HEADERS) -mcpu=cortex-m4 -mthumb -fmessage-length=0 -fsigned-char -ffunction-sections -fdata-sections -std=gnu11
 
 
-
-
-
-
-
-HOST_C_FLAGS += -Wall -g -O2 -I$(INCLUDE_DIR) -I$(EOS_HEADERS) -D __AVR__ 
 HOST_LD_FLAGS +=
 LIBFLAGS=$(HOST_LD_FLAGS)
 DEBUGVAR=DEBUG
 
-#############################################
-# Define all folders and subfolders			#
-#	Folders meaning:						#
-#											#
-#		apps = folder where applications 	#
-#				will be wrote				#
-#		arch = will contain the HAL and 	#
-#				other c and asm files 		#
-#				related to each				# 
-#				architecture.				#
-#		drivers								#
-#		include = headers for kernel& 		#
-#				apps development			#
-#		kernel = operating system 			#
-#		core/ basic functionalities			#
-#	( scheduler, process, threads, 			#
-#				memory protection)			#
-#		lib = libs for apps					#
-#		scripts = scripts for configuring os#
-#############################################
+
 APP_DIR=app
 ARCH_DIR=arch
 DOC_DIR=Documentation
@@ -64,34 +44,28 @@ endif
 # Targets and objects						#
 #############################################
 TARGETS=\
-	entry\
-	process\
-	scheduler
+	entry
+	
+	
 		
 
 OBJECTS=\
-	$(OUTPUT)/entry.o\
-	$(OUTPUT)/process.o\
-	$(OUTPUT)/scheduler.o
+	$(OUTPUT)/entry.o
+	
+	
 	
 #############################################
 # Compile and Link Targets					#
 #############################################
-all: clean link_compile objprepare
-		$(CC) $(CFLAGS)\
-	   	-Wl,-Map=$(OUTPUT)/eos.map -Wl,--start-group\
-	 	-Wl,-lm  -Wl,--end-group\
-	  	-Wl,--gc-sections -mmcu=atmega32\
-	   	$(OBJECTS) $(DEBUGFLAGS) -o $(OUTPUT)/eos.elf\
+all: clean link_compile 
+	@echo 'Building target: $@'
+	@echo 'Invoking: Cross ARM GNU Archiver'
+	$(AR) -r  $(OUTPUT)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
 	
-objprepare:
-	"$(COMPILER_PATH)\avr32-objcopy.exe" -O ihex -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures  $(OUTPUT)/eos.elf $(OUTPUT)/eos.hex
-	"$(COMPILER_PATH)\avr32-objcopy.exe" -j .eeprom  --set-section-flags=.eeprom=alloc,load --change-section-lma .eeprom=0  --no-change-warnings -O ihex $(OUTPUT)/eos.elf $(OUTPUT)/eos.eep || exit 0
-	"$(COMPILER_PATH)\avr32-objdump.exe" -h -S $(OUTPUT)/eos.elf > $(OUTPUT)/eos.lss
-	"$(COMPILER_PATH)\avr32-objcopy.exe" -O srec -R .eeprom -R .fuse -R .lock -R .signature -R .user_signatures $(OUTPUT)/eos.elf $(OUTPUT)/eos.srec
-	"$(COMPILER_PATH)\avr32-size.exe" $(OUTPUT)/eos.elf 	
-	  
-	 
+ 
 
 link_compile: $(TARGETS)
 
@@ -99,13 +73,11 @@ clean:
 #	rm -f $(OUTPUT)/*
 	
 entry: 
-	$(CC) $(CFLAGS) -c $(KERNEL_DIR)/entry.c $(DEBUGFLAGS) -o $(OUTPUT)/entry.o 
+	@echo 'Invoking: Cross ARM C Compiler'
+	$(CC) $(CFLAGS) -MMD -MP -MF"$(KERNEL_DIR)/entry.d" -MT"$(KERNEL_DIR)/entry.o" -c $(KERNEL_DIR)/entry.c $(DEBUGFLAGS) -o $(OUTPUT)/entry.o 
+	@echo 'Finished building: $@'
+	@echo ' '
 
-process:
-	$(CC) $(CFLAGS) -c $(KERNEL_DIR)/process.c $(DEBUGFLAGS) -o $(OUTPUT)/process.o
-
-scheduler:
-	$(CC) $(CFLAGS) -c $(KERNEL_DIR)/scheduler.c $(DEBUGFLAGS) -o $(OUTPUT)/scheduler.o
 
 #############################################
 # Special Targets							#
