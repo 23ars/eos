@@ -1,0 +1,1 @@
+# Used scripts for analyzing and building eOS
