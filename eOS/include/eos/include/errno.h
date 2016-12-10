@@ -1,16 +1,13 @@
 /*
  * errno.h
  *
- * Created: 2/7/2016 07:55:21 PM
- *  Author: Mihai
- */ 
+ *  Created on: Dec 10, 2016
+ *      Author: mihai
+ */
 
-
-#ifndef ERRNO_H_
-#define ERRNO_H_
-
-//volatile errno;
+#ifndef INCLUDE_EOS_INCLUDE_ERRNO_H_
+#define INCLUDE_EOS_INCLUDE_ERRNO_H_
 
 
 
-#endif /* ERRNO_H_ */
+#endif /* INCLUDE_EOS_INCLUDE_ERRNO_H_ */

@@ -4,8 +4,8 @@
  * Created: 2/6/2016 11:46:57 PM
  *  Author: Mihai
  */ 
-#ifndef SCHEDULER_H_
-#define SCHEDULER_H_
+#ifndef INCLUDE_EOS_SCHEDULER_H_
+#define INCLUDE_EOS_SCHEDULER_H_
 
 
 _public void Timer_Overflow_ServiceRoutine(void);

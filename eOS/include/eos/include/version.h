@@ -1,17 +1,15 @@
 /*
  * version.h
  *
- * Created: 2/7/2016 12:06:51 AM
- *  Author: Mihai
- */ 
+ *  Created on: Dec 10, 2016
+ *      Author: mihai
+ */
 
-
-#ifndef VERSION_H_
-#define VERSION_H_
+#ifndef INCLUDE_EOS_INCLUDE_VERSION_H_
+#define INCLUDE_EOS_INCLUDE_VERSION_H_
 
 #define MAJOR_NUMBER 0
 #define MINOR_NUMBER 0
 #define BUILD_NUMBER 1
 
-
-#endif /* VERSION_H_ */
+#endif /* INCLUDE_EOS_INCLUDE_VERSION_H_ */

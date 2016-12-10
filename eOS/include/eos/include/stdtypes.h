@@ -6,11 +6,11 @@
 * <p>License: GPL</p>
 * @see https://github.com/23ars/eos
 */
-#ifndef STDTYPES_H_
-#define STDTYPES_H_
+#ifndef INCLUDE_EOS_INCLUDE_STDTYPES_H_
+#define INCLUDE_EOS_INCLUDE_STDTYPES_H_
+
+
 #include "compiler.h"
-
-
 /** \defgroup CommonMacros Library Macros
  * These Macros allow you to implement basic logical operations and also to "encapsulate" functions and variables.
  * @{
@@ -107,8 +107,12 @@
 #define MAX_S32	2147483647
 #endif
 
-
-
+/** Define HWREG General register access macro.
+ * \param[in] register address
+  */
+#ifndef HWREG
+#define HWREG(x) (*((volatile unsigned int *)(x)))
+#endif
 /** Define BIT Set logical operation.
  * \param[in] variable/register in which the bit will be set
  * \param[in] bit to act upon
@@ -235,7 +239,7 @@ typedef enum
 {
 	FALSE=0,
 	TRUE
-	
+
 }BOOL;
 
 
@@ -292,7 +296,7 @@ typedef struct
 	unsigned int bit5:1; /**< bit5 */
 	unsigned int bit6:1; /**< bit6 */
 	unsigned int bit7:1; /**< bit7 */
-	
+
 }s8_bitfield;
 
 /** Defines WORD bitfield in LSB order
@@ -329,9 +333,10 @@ typedef union
 		u8 addr_L; /**< address low nibble */
 		u8 addr_H; /**< address high nibble */
 	}Bytes;
-	
+
 }addr;
 
 
 
-#endif /* STDTYPES_H_ */
+
+#endif /* INCLUDE_EOS_STDTYPES_H_ */
