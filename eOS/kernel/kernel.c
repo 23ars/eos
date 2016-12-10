@@ -3,6 +3,8 @@
  * ##			API Include      					   ##
  * ######################################################
  * */
+#include "stdtypes.h"
+#include "kernel.h"
 /*
  * ######################################################
  * ##			Type Definitions					   ##
@@ -14,7 +16,8 @@
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-
+systicks_t systicks;
+status_t sysstatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
@@ -26,3 +29,7 @@
  * ##			Function Implementations			   ##
  * ######################################################
  * */
+void kernel_Init(void)
+{
+
+}

@@ -3,7 +3,8 @@
  * ##			API Include      					   ##
  * ######################################################
  * */
-
+#include "stdtypes.h"
+#include "kernel.h"
 /*
  * ######################################################
  * ##			Type Definitions					   ##
@@ -29,7 +30,8 @@
  * */
 void entry(void)
 {
-
+	/*initialize kernel*/
+	kernel_Init();
     while(1);
 
 
