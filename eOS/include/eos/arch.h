@@ -1,31 +1,37 @@
-#ifndef INCLUDE_EOS_KERNEL_H_
-#define INCLUDE_EOS_KERNEL_H_
+/*
+ * boot.h
+ *
+ *  Created on: Dec 10, 2016
+ *      Author: mihai
+ */
+
+#ifndef ARCH_CORTEX_M_ARCH_H_
+#define ARCH_CORTEX_M_ARCH_H_
 /*
  * ######################################################
  * ##			API Include      					   ##
  * ######################################################
  * */
+#include "configuration.h"
+#include "stdtypes.h"
 
 /*
  * ######################################################
  * ##			Type Definitions					   ##
  * ######################################################
  * */
-typedef u32 systicks_t;
-typedef u32 status_t;
-typedef u32 memaddr_t;
+
 /*
  * ######################################################
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public systicks_t systicks;
-_public status_t sysstatus;
+typedef u32 systicks_t;
+
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-
-
-#endif /*INCLUDE_EOS_KERNEL_H_*/
+_public void arch_init(void);
+#endif /* ARCH_CORTEX_M_ARCH_H_ */

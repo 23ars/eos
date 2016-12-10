@@ -3,8 +3,10 @@
  * ##			API Include      					   ##
  * ######################################################
  * */
-#include "stdtypes.h"
-#include "kernel.h"
+#include "arch.h"
+#include "hal/MK20D7.h"
+#include "hal/Cpu.h"
+#include "scheduler.h"
 /*
  * ######################################################
  * ##			Type Definitions					   ##
@@ -16,23 +18,31 @@
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-
+systicks_t systicks;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-
 /*
  * ######################################################
  * ##			Function Implementations			   ##
  * ######################################################
  * */
-void entry(void)
-{
-	/*initialize kernel*/
-	kernel_Init();
-    while(1);
 
+void arch_init(void)
+{
+	/*Initialize MCU*/
+	__init_hardware();
+	low_level_init();
+}
+
+
+
+
+
+EOS_ISR(ISR_SysTick)
+{
+	Timer_Overflow_ServiceRoutine();
 
 }

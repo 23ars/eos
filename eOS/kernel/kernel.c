@@ -5,6 +5,8 @@
  * */
 #include "stdtypes.h"
 #include "kernel.h"
+
+#include "arch.h"
 /*
  * ######################################################
  * ##			Type Definitions					   ##
@@ -16,14 +18,14 @@
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-systicks_t systicks;
+
 status_t sysstatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-
+_private void kernel_Init(void);
 /*
  * ######################################################
  * ##			Function Implementations			   ##
@@ -31,5 +33,15 @@ status_t sysstatus;
  * */
 void kernel_Init(void)
 {
+	/*init kernel*/
+}
+int main(void)
+{
+	/*initialize MCU*/
+	arch_init();
+	kernel_Init();
+    while(1);
+    return 0;
 
 }
+
