@@ -1,9 +1,8 @@
 /*
- * scheduler.c
- *
- * Created: 2/6/2016 11:47:18 PM
- *  Author: Mihai
- */ 
+ * ######################################################
+ * ##			API Include      					   ##
+ * ######################################################
+ * */
 #include "stdtypes.h"
 #include "scheduler.h"
 #include "process.h"
