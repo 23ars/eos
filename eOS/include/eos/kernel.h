@@ -11,7 +11,6 @@
  * ##			Type Definitions					   ##
  * ######################################################
  * */
-typedef u32 systicks_t;
 typedef u32 status_t;
 typedef u32 memaddr_t;
 /*
@@ -19,7 +18,6 @@ typedef u32 memaddr_t;
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public systicks_t systicks;
 _public status_t sysstatus;
 /*
  * ######################################################

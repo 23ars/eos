@@ -30,7 +30,7 @@ _private volatile u8 rub_schd_counter=0;
  * ######################################################
  * */
 
-void Timer_Overflow_ServiceRoutine(void)
+void SystemTick_ServiceRoutine(void)
 {
 
 	enable_protection();

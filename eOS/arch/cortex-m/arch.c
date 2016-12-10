@@ -5,7 +5,7 @@
  * */
 #include "arch.h"
 #include "hal/MK20D7.h"
-#include "hal/Cpu.h"
+#include "hal/core_cm4.h"
 #include "scheduler.h"
 /*
  * ######################################################
@@ -32,17 +32,22 @@ systicks_t systicks;
 
 void arch_init(void)
 {
-	/*Initialize MCU*/
-	__init_hardware();
-	low_level_init();
+	/* set interrupt priority grouping to be preemptive (no sub-priority)*/
+	NVIC_SetPriorityGrouping( 0x03 );
+	/*configure system tick frequency*/
+	SysTick_Config( SystemCoreClock / SYSTICK_FREQUENCY_HZ );
+	/*clear base priority for exception processing*/
+	__set_BASEPRI( 0 );
+	/*set PendSV to the lowest priority*/
+	NVIC_SetPriority( PendSV_IRQn, 0xFF );
 }
 
 
 
 
 
-EOS_ISR(ISR_SysTick)
+EOS_ISR(SysTick_Handler)
 {
-	Timer_Overflow_ServiceRoutine();
+	SystemTick_ServiceRoutine();
 
 }

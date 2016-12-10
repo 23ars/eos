@@ -22,7 +22,7 @@
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-_public void Timer_Overflow_ServiceRoutine(void);
+_public void SystemTick_ServiceRoutine(void);
 _public void sched_init(void);
 
 #endif 

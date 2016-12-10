@@ -33,5 +33,6 @@ typedef u32 systicks_t;
  * ##			Function Definitions				   ##
  * ######################################################
  * */
+EOS_ISR(SysTick_Handler);
 _public void arch_init(void);
 #endif /* ARCH_CORTEX_M_ARCH_H_ */
