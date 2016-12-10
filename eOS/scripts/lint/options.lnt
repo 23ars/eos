@@ -1,0 +1,17 @@
+// Please note -- this is a representative set of error suppression
+//                options.  Please adjust to suit your own policies
+//                See  manual (chapter LIVING WITH LINT)
+//                for further details.
+-efile(322,avr\io.h)
+-efile(7,avr\io.h)
+
+-efile(322,avr\interrupt.h)
+-efile(7,avr\interrupt.h)
+
+-efile(322,stddef.h)
+-efile(7,stddef.h)
+
+
+
+
+-A(C99) +veis
