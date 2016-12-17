@@ -4,8 +4,8 @@
  * ######################################################
  * */
 #include "arch.h"
-#include "stm32f407/stm32f407xx.h"
-#include "stm32f407/core_cm4.h"
+#include "stm32f407/cmsis/stm32f407xx.h"
+#include "stm32f407/cmsis/core_cm4.h"
 #include "scheduler.h"
 /*
  * ######################################################
