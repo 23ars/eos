@@ -11,6 +11,7 @@
 
 
 #include "compiler.h"
+
 /** \defgroup CommonMacros Library Macros
  * These Macros allow you to implement basic logical operations and also to "encapsulate" functions and variables.
  * @{
@@ -235,12 +236,10 @@ typedef unsigned long long int u64; /**< 64 bits unsigned type */
 
 /** Defines the BOOL type. By convention, FALSE means 0 and TRUE means 1.
  */
-typedef enum
-{
-	FALSE=0,
-	TRUE
+typedef unsigned char boolean;
+#define FALSE 0x00
+#define TRUE 0x01
 
-}BOOL;
 
 
 /** Defines void pointer type

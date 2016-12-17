@@ -5,7 +5,7 @@
  * */
 #include "stdtypes.h"
 #include "scheduler.h"
-#include "process.h"
+
 /*
  * ######################################################
  * ##           Type Definitions                       ##
@@ -17,7 +17,7 @@
  * ##           Variable Definitions                   ##
  * ######################################################
  * */
-_private volatile u8 rub_schd_counter=0;
+_private volatile u8 u8_schd_counter=0;
 /*
  * ######################################################
  * ##           Function Definitions                   ##
@@ -34,15 +34,15 @@ void SystemTick_ServiceRoutine(void)
 {
 
 	enable_protection();
-	rub_schd_counter++;
+	u8_schd_counter++;
 
 	disable_protection();
 }
 
 
-void sched_init(void)
+void sched_Init(void)
 {
 
-/*	rub_task_stack_top=-1;*/
+	u8_schd_counter=0;
 	
 }

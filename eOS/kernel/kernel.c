@@ -4,9 +4,11 @@
  * ######################################################
  * */
 #include "stdtypes.h"
-#include "kernel.h"
-
 #include "arch.h"
+#include "scheduler.h"
+#include "process.h"
+#include "errno.h"
+#include "kernel.h"
 /*
  * ######################################################
  * ##			Type Definitions					   ##
@@ -33,12 +35,17 @@ _private void kernel_Init(void);
  * */
 void kernel_Init(void)
 {
-	/*init kernel*/
+	/*initialize scheduler*/
+	sched_Init();
+	/*initialize processes*/
+	process_Init();
+	/*clean errors*/
+	errno=EOK;
 }
 int main(void)
 {
 	/*initialize MCU*/
-	arch_init();
+	arch_Init();
 	kernel_Init();
     while(1);
     return 0;
