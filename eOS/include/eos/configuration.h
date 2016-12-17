@@ -16,5 +16,8 @@
 #define AVAILABLE_PROCESS_NUMBER 10
 #endif
 
+#ifndef USE_MEMORY_PROTECTION
+//#define USE_MPU
+#endif
 
 #endif /* INCLUDE_EOS_CONFIGURATION_H_ */

@@ -4,8 +4,8 @@
  * ######################################################
  * */
 #include "arch.h"
-#include "stm32f407/cmsis/stm32f407xx.h"
-#include "stm32f407/cmsis/core_cm4.h"
+#include "stm32f407xx.h"
+#include "core_cm4.h"
 #include "scheduler.h"
 /*
  * ######################################################
@@ -30,7 +30,7 @@ systicks_t systicks;
  * ######################################################
  * */
 
-void arch_init(void)
+void arch_Init(void)
 {
 	/* set interrupt priority grouping to be preemptive (no sub-priority)*/
 	NVIC_SetPriorityGrouping( 0x03 );

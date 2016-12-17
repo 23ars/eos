@@ -23,6 +23,6 @@
  * ######################################################
  * */
 _public void SystemTick_ServiceRoutine(void);
-_public void sched_init(void);
+_public void sched_Init(void);
 
 #endif 

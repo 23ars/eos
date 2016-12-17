@@ -35,11 +35,6 @@ typedef enum
 	
 }E_MemoryProtection;
 
-typedef enum
-{
-	SINGLE_SHOT_PROCESS=0x00,
-	CYCLIC_PROCESS
-}E_ProcessType;
 
 
 struct S_ProcessData
@@ -49,7 +44,7 @@ struct S_ProcessData
 	E_ProcessStates process_state;
 	E_TaskPriority priority;
 	E_MemoryProtection is_emp_used;
-	E_ProcessType process_type;
+	u8 processId;
 	void (*task)(void);
 	void (*error_hook)(void);
 };
@@ -59,13 +54,15 @@ struct S_ProcessData
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public volatile s8 rub_task_stack_top;
-
+_public volatile u8 u8_task_stack_top;
+_public volatile struct S_ProcessData rs_TaskStruct[AVAILABLE_PROCESS_NUMBER];
 
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-_public s8 create_process(void (*task)(void),void (*error_hook)(void),E_ProcessType processType,E_TaskPriority priority);
+_public void process_Init(void);
+_public s16 create_process(void (*task)(void),void (*error_hook)(void),E_TaskPriority priority);
+_public s16 kill_process(u8 processId);
 #endif /* PROCESS_H_ */
