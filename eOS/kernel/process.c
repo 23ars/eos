@@ -42,7 +42,6 @@ s16 create_process(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type) {
 	/*returns -1 in case of error or a number >0 that represents the process id.*/
 	u8 errorNumber = EOK;
-
 	enable_protection();
 	if (create(task, error_hook, priority, task_type) != 0) {
 		errorNumber = ETSOF;
@@ -92,7 +91,6 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 		rs_TaskStruct[taskIndex] = ls_Task;
 		return 0;
 	}
-
 	if ((AVAILABLE_PROCESS_NUMBER - 1) == u8_task_stack_top) {
 		return -1;
 	}
@@ -101,4 +99,3 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 	rs_TaskStruct[u8_task_stack_top] = ls_Task;
 	return 0;
 }
-
