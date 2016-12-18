@@ -18,6 +18,10 @@
   #define EOS_ISR(ISR_name) void __attribute__ ((interrupt)) ISR_name(void)
 #endif
 
+#ifndef EOS_NAKED_ISR
+#define EOS_NAKED_ISR(ISR_name) void __attribute__((interrupt,naked)) ISR_name(void)
+#endif
+
 #ifndef mem_copy
 #define mem_copy(target,src,size) memcpy(target,src,size)
 #endif

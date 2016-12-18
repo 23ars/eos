@@ -44,7 +44,10 @@ void arch_Init(void)
 }
 
 
-
+inline void arch_IssueSwInterrupt(void)
+{
+	SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk;
+}
 
 
 EOS_ISR(SysTick_Handler)

@@ -5,7 +5,6 @@
  * */
 #include "stdtypes.h"
 #include "arch.h"
-#include "scheduler.h"
 #include "process.h"
 #include "errno.h"
 #include "kernel.h"
@@ -21,7 +20,6 @@
  * ######################################################
  * */
 
-status_t sysstatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
@@ -33,8 +31,20 @@ _private void kernel_Init(void);
  * ##			Function Implementations			   ##
  * ######################################################
  * */
+EOS_NAKED_ISR(PendSV_Handler)
+{
+	/*save context*/
+	__asm volatile (
+			"mrs     r0, msp           \n"
+			"push    {r4 - r11, lr}    \n"
+			"mov     r11, r0           \n"
+		);
+	__asm("NOP");
+}
 void kernel_Init(void)
 {
+	/*set kernel status to 0*/
+	u32_KernelStatus=0x00000001u;
 	/*initialize scheduler*/
 	sched_Init();
 	/*initialize processes*/

@@ -234,6 +234,10 @@ typedef unsigned long int u32; /**< 32 bits unsigned type */
  */
 typedef unsigned long long int u64; /**< 64 bits unsigned type */
 
+/** Defines unsigned memaddr type
+ */
+typedef u32 memaddr; /**< 32 bits unsigned type */
+
 /** Defines the BOOL type. By convention, FALSE means 0 and TRUE means 1.
  */
 typedef unsigned char boolean;

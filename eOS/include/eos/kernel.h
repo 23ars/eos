@@ -11,19 +11,19 @@
  * ##			Type Definitions					   ##
  * ######################################################
  * */
-typedef u32 status_t;
-typedef u32 memaddr_t;
+
+
 /*
  * ######################################################
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public status_t sysstatus;
+_public u32 u32_KernelStatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-
+_public EOS_NAKED_ISR(PendSV_Handler);
 
 #endif /*INCLUDE_EOS_KERNEL_H_*/

@@ -48,6 +48,8 @@ struct S_ProcessData
 {
 	void *base_address;
 	u32 memory_length;
+	ptr_u32 sp;
+	ptr_u32 stk_end;
 	E_ProcessStates process_state;
 	E_TaskPriority priority;
 	E_MemoryProtection is_emp_used;

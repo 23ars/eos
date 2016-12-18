@@ -35,4 +35,5 @@ typedef u32 systicks_t;
  * */
 
 _public void arch_Init(void);
+_public inline void arch_IssueSwInterrupt(void);
 #endif /* ARCH_CORTEX_M_ARCH_H_ */
