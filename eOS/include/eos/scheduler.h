@@ -16,7 +16,7 @@
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-
+_public u32 u32_KernelStatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
@@ -24,5 +24,5 @@
  * */
 _public void SystemTick_ServiceRoutine(void);
 _public void sched_Init(void);
-
+_public void sched_ScheduleNextTask(void);
 #endif 

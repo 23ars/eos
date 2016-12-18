@@ -25,6 +25,7 @@ systicks_t systicks;
  * ######################################################
  * */
 EOS_ISR(SysTick_Handler);
+EOS_NAKED_ISR(PendSV_Handler);
 /*
  * ######################################################
  * ##			Function Implementations			   ##
@@ -54,4 +55,16 @@ EOS_ISR(SysTick_Handler)
 {
 	SystemTick_ServiceRoutine();
 
+}
+
+EOS_NAKED_ISR(PendSV_Handler)
+{
+	/*save context*/
+	__asm volatile (
+			"mrs     r0, msp           \n"
+			"push    {r4 - r11, lr}    \n"
+			"mov     r11, r0           \n"
+		);
+	__asm("NOP");
+//	sched_ScheduleNextTask();
 }

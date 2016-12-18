@@ -11,19 +11,17 @@
  * ##			Type Definitions					   ##
  * ######################################################
  * */
-
-
 /*
  * ######################################################
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public u32 u32_KernelStatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-_public EOS_NAKED_ISR(PendSV_Handler);
 
+_public inline void kernel_DisableSwInterrupt();
+_public inline void kernel_EnableSwInterrupt();
 #endif /*INCLUDE_EOS_KERNEL_H_*/

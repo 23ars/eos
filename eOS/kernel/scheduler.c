@@ -5,7 +5,6 @@
  * */
 #include "stdtypes.h"
 #include "arch.h"
-#include "kernel.h"
 #include "scheduler.h"
 
 /*
@@ -32,6 +31,11 @@ u32 u32_KernelStatus;
  * ##           Function Implementations               ##
  * ######################################################
  * */
+
+void sched_ScheduleNextTask(void)
+{
+
+}
 
 void SystemTick_ServiceRoutine(void)
 {
