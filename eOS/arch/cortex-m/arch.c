@@ -66,5 +66,5 @@ EOS_NAKED_ISR(PendSV_Handler)
 			"mov     r11, r0           \n"
 		);
 	__asm("NOP");
-//	sched_ScheduleNextTask();
+	sched_ScheduleNextTask();
 }
