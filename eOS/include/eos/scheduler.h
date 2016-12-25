@@ -16,7 +16,7 @@
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public u32 u32_KernelStatus;
+_public volatile u32 u32_KernelStatus;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
