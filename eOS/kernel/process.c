@@ -99,3 +99,12 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 	rs_TaskStruct[u8_task_stack_top] = ls_Task;
 	return 0;
 }
+
+
+void process_ErrorHook(u8 processId)
+{
+	/*prevent task from executing*/
+	rs_TaskStruct[processId].process_state=BLOCKED;
+	/*call Kernel ErrorHook*/
+	kernel_ErrorHook();
+}

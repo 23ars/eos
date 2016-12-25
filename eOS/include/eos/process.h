@@ -39,10 +39,10 @@ typedef enum
 typedef enum
 {
 	ONE_SHOT,
-	CYCLIC_5MS,
-	CYCLIC_10,
-	CYCLIC_20,
-	CYCLIC_100
+	CYCLIC_5MS=0x05,
+	CYCLIC_10=0x0A,
+	CYCLIC_20=0x14,
+	CYCLIC_100=0x64
 }E_TaskType;
 
 struct S_ProcessData
@@ -73,6 +73,7 @@ _public volatile struct S_ProcessData rs_TaskStruct[AVAILABLE_PROCESS_NUMBER];
  * ##			Function Definitions				   ##
  * ######################################################
  * */
+_public void process_ErrorHook(u8 processId);
 _public void process_Init(void);
 _public s16 create_process(void (*task)(void),void (*error_hook)(void),E_TaskPriority priority,E_TaskType task_type);
 _public s16 kill_process(u8 processId);

@@ -32,13 +32,23 @@ _private void kernel_Init(void);
  * ##			Function Implementations			   ##
  * ######################################################
  * */
+void kernel_ErrorHook(void)
+{
+	/*TODO:Do nothing for now!*/
+	__asm("NOP");
+}
+
 inline void kernel_DisableSwInterrupt()
 {
+	enable_protection();
 	u32_KernelStatus&=~KERNEL_SCHEDULER_FLAG;
+	disable_protection();
 }
 inline void kernel_EnableSwInterrupt()
 {
+	enable_protection();
 	u32_KernelStatus|=KERNEL_SCHEDULER_FLAG;
+	disable_protection();
 }
 
 
