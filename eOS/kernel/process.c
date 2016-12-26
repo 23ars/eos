@@ -19,14 +19,14 @@
  * ######################################################
  * */
 volatile struct S_ProcessData rs_TaskStruct[AVAILABLE_PROCESS_NUMBER];
-volatile u8 u8_task_stack_top=0;
-
+volatile u8 u8_task_stack_top = 0;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-_private s16 create(void (*task)(void),void (*error_hook)(void),E_TaskPriority priority,E_TaskType task_type);
+_private s16 create(void (*task)(void), void (*error_hook)(void),
+		E_TaskPriority priority, E_TaskType task_type);
 /*
  * ######################################################
  * ##			Function Implementations			   ##
@@ -61,7 +61,8 @@ s16 kill_process(u8 processId) {
 		return -1;
 	}
 	enable_protection();
-	rs_TaskStruct[processId].process_state = BLOCKED;
+	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
+
 	disable_protection();
 	return 0;
 }
@@ -72,19 +73,43 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 	boolean is_found = FALSE;
 	struct S_ProcessData ls_Task;
 	mem_fill(&ls_Task, 0, sizeof(struct S_ProcessData));
-	ls_Task.process_state = READY;
-	ls_Task.priority = priority;
-	ls_Task.processId = u8_task_stack_top;
-	ls_Task.task = task;
-	ls_Task.task_type = task_type;
-	ls_Task.error_hook = error_hook;
+	PROCESS_SET_READY(ls_Task);
+	switch (priority) {
+	case TASK_HIGH_PRIO:
+		PROCESS_SET_HIGH_PRIO(ls_Task);
+		break;
+	case TASK_MEDIUM_PRIO:
+		PROCESS_SET_MEDIUM_PRIO(ls_Task);
+		break;
+	case TASK_LOW_PRIO:
+		PROCESS_SET_LOW_PRIO(ls_Task);
+		break;
+	}
+	switch (task_type) {
+	case ONE_SHOT:
+		PROCESS_SET_ONE_SHOT(ls_Task);
+		break;
+	case CYCLIC_5MS:
+		PROCESS_SET_CYCLIC_5MS(ls_Task);
+		break;
+	case CYCLIC_10MS:
+		PROCESS_SET_CYCLIC_10MS(ls_Task);
+		break;
+	case CYCLIC_20MS:
+		PROCESS_SET_CYCLIC_20MS(ls_Task);
+		break;
+	}
 #ifndef USE_MEMORY_PROTECTION
-	ls_Task.is_emp_used = NO_MPU;
+	PROCESS_SET_NO_MPU(ls_Task);
 #endif
+	PROCESS_ID(ls_Task, u8_task_stack_top);
+	ls_Task.task = task;
+	ls_Task.error_hook = error_hook;
 	for (taskIndex = 0; taskIndex < AVAILABLE_PROCESS_NUMBER; taskIndex++) {
-		if (rs_TaskStruct[taskIndex].process_state == BLOCKED) {
+		if (PROCESS_IS_BLOCKED(rs_TaskStruct[taskIndex]) == TRUE) {
 			is_found = TRUE;
 			break;
+
 		}
 	}
 	if (is_found == TRUE) {
@@ -100,11 +125,13 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 	return 0;
 }
 
-
-void process_ErrorHook(u8 processId)
-{
+void process_ErrorHook(u8 processId) {
 	/*prevent task from executing*/
-	rs_TaskStruct[processId].process_state=BLOCKED;
+	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
 	/*call Kernel ErrorHook*/
 	kernel_ErrorHook();
+}
+
+boolean process_CheckIfValid(void) {
+	return TRUE;
 }
