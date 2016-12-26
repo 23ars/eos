@@ -38,18 +38,7 @@ void kernel_ErrorHook(void)
 	__asm("NOP");
 }
 
-inline void kernel_DisableSwInterrupt()
-{
-	enable_protection();
-	u32_KernelStatus&=~KERNEL_SCHEDULER_FLAG;
-	disable_protection();
-}
-inline void kernel_EnableSwInterrupt()
-{
-	enable_protection();
-	u32_KernelStatus|=KERNEL_SCHEDULER_FLAG;
-	disable_protection();
-}
+
 
 
 void kernel_Init(void)

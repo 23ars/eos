@@ -34,7 +34,7 @@ typedef u32 systicks_t;
  * ######################################################
  * */
 _public void arch_Init(void);
-_public inline void arch_IssueSwInterrupt(void);
+_public void arch_IssueSwInterrupt(void);
 
 EOS_ISR(SysTick_Handler);
 _public void arch_Init(void);
