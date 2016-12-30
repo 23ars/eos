@@ -35,7 +35,7 @@ _private void kernel_Init(void);
 void kernel_ErrorHook(void)
 {
 	/*TODO:Do nothing for now!*/
-	__asm("NOP");
+	__asm volatile("NOP");
 }
 
 

@@ -38,7 +38,7 @@ void process_Init(void) {
 	mem_fill(&rs_TaskStruct[u8_task_stack_top], 0,
 			sizeof(sizeof(struct S_ProcessData)));
 }
-s16 create_process(void (*task)(void), void (*error_hook)(void),
+s16 process_Create(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type) {
 	/*returns -1 in case of error or a number >0 that represents the process id.*/
 	u8 errorNumber = EOK;
@@ -50,7 +50,7 @@ s16 create_process(void (*task)(void), void (*error_hook)(void),
 	return ((errorNumber == EOK) ? 0 : -1);
 }
 
-s16 kill_process(u8 processId) {
+s16 process_Kill(u8 processId) {
 	if (processId == 0) {
 		/*cannot kill reserved process*/
 		errno = ERSPR;
@@ -77,9 +77,6 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 	switch (priority) {
 	case TASK_HIGH_PRIO:
 		PROCESS_SET_HIGH_PRIO(ls_Task);
-		break;
-	case TASK_MEDIUM_PRIO:
-		PROCESS_SET_MEDIUM_PRIO(ls_Task);
 		break;
 	case TASK_LOW_PRIO:
 		PROCESS_SET_LOW_PRIO(ls_Task);
@@ -134,4 +131,8 @@ void process_ErrorHook(u8 processId) {
 
 boolean process_CheckIfValid(void) {
 	return TRUE;
+}
+
+void process_TerminateTask(u8 processId){
+	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
 }

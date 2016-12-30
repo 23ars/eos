@@ -18,8 +18,7 @@
 #define PROCESS_SET_BLOCKED(process)			((process.processData)|=(0x02u<<22))
 
 #define PROCESS_SET_HIGH_PRIO(process)			((process.processData)|=(0x00u<<20))
-#define PROCESS_SET_MEDIUM_PRIO(process)		((process.processData)|=(0x01u<<20))
-#define PROCESS_SET_LOW_PRIO(process)		  	((process.processData)|=(0x02u<<20))
+#define PROCESS_SET_LOW_PRIO(process)		  	((process.processData)|=(0x01u<<20))
 
 #define PROCESS_SET_MPU(process)				((process.processData)|=(0x00u<<18))
 #define PROCESS_SET_NO_MPU(process)				((process.processData)|=(0x01u<<18))
@@ -39,16 +38,19 @@
 #define PROCESS_IS_BLOCKED(process)				(((process.processData)&(0x02u<<22))!=0x00)
 
 #define PROCESS_IS_HIGH_PRIO(process)			(((process.processData)&(0x00u<<20))!=0x00)
-#define PROCESS_IS_MEDIUM_PRIO(process)			(((process.processData)&(0x01u<<20))!=0x00)
-#define PROCESS_IS_LOW_PRIO(process)			(((process.processData)&(0x02u<<20))!=0x00)
+#define PROCESS_IS_LOW_PRIO(process)			(((process.processData)&(0x01u<<20))!=0x00)
 
 #define PROCESS_IS_ONE_SHOT(process)			(((process.processData)&(0x00u<<16))!=0x00)
 #define PROCESS_IS_CYCLIC_5MS(process)			(((process.processData)&(0x01u<<16))!=0x00)
 #define PROCESS_IS_CYCLIC_10MS(process)			(((process.processData)&(0x02u<<16))!=0x00)
 #define PROCESS_IS_CYCLIC_20MS(process)			(((process.processData)&(0x03u<<16))!=0x00)
 
+/** Process states
+ */
 typedef enum {
-	RUNNING = 0x00, READY, BLOCKED,
+	RUNNING = 0x00,/**< A process in <b>RUNNING</b> state cannot be activated by scheduler*/
+	READY,/**< A process in <b>READY</b> state will be activated by scheduler*/
+	BLOCKED,/**< A process in <b>BLOCKED</b> state is marked for deletion*/
 
 } E_ProcessStates;
 
@@ -56,8 +58,7 @@ typedef enum {
  */
 typedef enum {
 	TASK_HIGH_PRIO = 0x01, /**< High priority task */
-	TASK_MEDIUM_PRIO = 0x02, /**< Medium priority task */
-	TASK_LOW_PRIO = 0x03 /**< Low priority task */
+	TASK_LOW_PRIO = 0x02 /**< Low priority task */
 } E_TaskPriority;
 
 typedef enum {
@@ -95,7 +96,8 @@ _public volatile struct S_ProcessData rs_TaskStruct[AVAILABLE_PROCESS_NUMBER];
 _public boolean process_CheckIfValid(void);
 _public void process_ErrorHook(u8 processId);
 _public void process_Init(void);
-_public s16 create_process(void (*task)(void), void (*error_hook)(void),
+_public s16 process_Create(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type);
-_public s16 kill_process(u8 processId);
+_public s16 process_Kill(u8 processId);
+_public void process_TerminateTask(u8 processId);
 #endif /* PROCESS_H_ */
