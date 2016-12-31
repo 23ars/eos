@@ -5,7 +5,7 @@
  * */
 #include "stdtypes.h"
 #include "arch.h"
-#include "process.h"
+#include "kernel.h"
 #include "scheduler.h"
 
 /*
@@ -27,7 +27,7 @@ volatile u32 u32_KernelStatus;
  * ##           Function Definitions                   ##
  * ######################################################
  * */
-
+_private void sched_ScheduleNextTask(void);
 /*
  * ######################################################
  * ##           Function Implementations               ##
@@ -78,10 +78,12 @@ void sched_ScheduleNextTask(void) {
 
 	if (u8_StackIndex > u8_task_stack_top) {
 		u8_StackIndex = 0;
+		return;
 	}
 	/*call task with the higher priority and smaller cycle time*/
 	/*prepare next SW Interrupt*/
 	call_task:
+	u8_RunningProcess=u8_StackIndex;
 	enable_protection();
 	u32_KernelStatus ^= KERNEL_SCHEDULER_FLAG;
 	disable_protection();
@@ -94,13 +96,8 @@ void SystemTick_ServiceRoutine(void) {
 	enable_protection();
 	u8_schd_counter++;
 	disable_protection();
-	/*issue new Sw Interrupt to kernel*/
-	if (u32_KernelStatus & KERNEL_SCHEDULER_FLAG) {
-		enable_protection();
-		u32_KernelStatus ^= KERNEL_SCHEDULER_FLAG;
-		disable_protection();
-		arch_IssueSwInterrupt();
-	}
+	sched_ScheduleNextTask();
+
 }
 
 void sched_Init(void) {

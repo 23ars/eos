@@ -20,7 +20,7 @@
  * ######################################################
  * */
 /*context saved by hardware*/
-struct {
+struct S_MainStkCtxt{
 	memaddr r0;
 	memaddr r1;
 	memaddr r2;
@@ -29,9 +29,9 @@ struct {
 	memaddr lr;
 	memaddr pc;
 	memaddr psr;
-}S_MainStkCtxt;
+};
 /*context saved by software*/
-struct {
+struct S_TaskStkCtxt{
 	memaddr r4;
 	memaddr r5;
 	memaddr r6;
@@ -41,7 +41,7 @@ struct {
 	memaddr r10;
 	memaddr r11;
 	memaddr lr;
-}S_TaskStkCtxt;
+};
 /*
  * ######################################################
  * ##			Variable Definitions				   ##

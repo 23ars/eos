@@ -6,6 +6,7 @@
 #include "arch.h"
 #include "stm32f407xx.h"
 #include "core_cm4.h"
+#include "kernel.h"
 #include "scheduler.h"
 /*
  * ######################################################
@@ -24,7 +25,7 @@ systicks_t systicks;
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-EOS_ISR(SysTick_Handler);
+EOS_NAKED_ISR(SysTick_Handler);
 EOS_NAKED_ISR(PendSV_Handler);
 /*
  * ######################################################
@@ -51,20 +52,24 @@ void arch_IssueSwInterrupt(void)
 }
 
 
-EOS_ISR(SysTick_Handler)
+EOS_NAKED_ISR(SysTick_Handler)
 {
+	KERNEL_CONTEXT_SAVE();
 	SystemTick_ServiceRoutine();
+	KERNEL_CONTEXT_RESTORE();
 
 }
 
 EOS_NAKED_ISR(PendSV_Handler)
 {
-	/*save context*/
-//	__asm volatile (
-//			"mrs     r0, msp           \n"
-//			"push    {r4 - r11, lr}    \n"
-//			"mov     r11, r0           \n"
-//		);
-//	__asm("NOP");
-//	sched_ScheduleNextTask();
+	/*issue new Sw Interrupt to kernel*/
+//	if (u32_KernelStatus & KERNEL_SCHEDULER_FLAG) {
+//		enable_protection();
+//		u32_KernelStatus ^= KERNEL_SCHEDULER_FLAG;
+//		disable_protection();
+//		arch_IssueSwInterrupt();
+//	}
+	__asm("NOP");
+
+
 }
