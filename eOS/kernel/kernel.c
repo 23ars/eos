@@ -9,6 +9,8 @@
 #include "errno.h"
 #include "scheduler.h"
 #include "kernel.h"
+/*REMOVE*/
+#include "../ToBeRemoved/test.h"//TODO: Remove after testing
 /*
  * ######################################################
  * ##			Type Definitions					   ##
@@ -32,6 +34,7 @@ _private void kernel_Init(void);
 _private s16 create(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type);
 _private void kernel_ProcessErrorHook(u8 processId);
+_private void kernel_IdleTask(void);
 /*
  * ######################################################
  * ##			Function Implementations			   ##
@@ -64,12 +67,13 @@ s16 kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type) {
 	/*returns -1 in case of error or a number >0 that represents the process id.*/
 	u8 errorNumber = EOK;
+	s16 processId;
 	enable_protection();
-	if (create(task, error_hook, priority, task_type) != 0) {
+	if ((processId=create(task, error_hook, priority, task_type)) ==-1) {
 		errorNumber = ETSOF;
 	}
 	disable_protection();
-	return ((errorNumber == EOK) ? 0 : -1);
+	return ((errorNumber == EOK) ? processId : -1);
 }
 
 s16 kernel_KillProcess(u8 processId) {
@@ -91,7 +95,7 @@ s16 kernel_KillProcess(u8 processId) {
 
 s16 create(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type) {
-	u8 taskIndex = 0;
+	u8 taskIndex = 1;
 	boolean is_found = FALSE;
 	struct S_ProcessData ls_Task;
 	mem_fill(&ls_Task, 0, sizeof(struct S_ProcessData));
@@ -121,10 +125,9 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 #ifndef USE_MEMORY_PROTECTION
 	PROCESS_SET_NO_MPU(ls_Task);
 #endif
-	PROCESS_ID(ls_Task, u8_task_stack_top);
 	ls_Task.task = task;
 	ls_Task.error_hook = error_hook;
-	for (taskIndex = 0; taskIndex < AVAILABLE_PROCESS_NUMBER; taskIndex++) {
+	for (taskIndex = 1; taskIndex < AVAILABLE_PROCESS_NUMBER; taskIndex++) {
 		if (PROCESS_IS_BLOCKED(rs_TaskStruct[taskIndex]) == TRUE) {
 			is_found = TRUE;
 			break;
@@ -132,16 +135,18 @@ s16 create(void (*task)(void), void (*error_hook)(void),
 		}
 	}
 	if (is_found == TRUE) {
+		PROCESS_ID(ls_Task, taskIndex);
 		rs_TaskStruct[taskIndex] = ls_Task;
-		return 0;
+		return taskIndex;
 	}
 	if ((AVAILABLE_PROCESS_NUMBER - 1) == u8_task_stack_top) {
 		return -1;
 	}
 
 	u8_task_stack_top++;
+	PROCESS_ID(ls_Task, u8_task_stack_top);
 	rs_TaskStruct[u8_task_stack_top] = ls_Task;
-	return 0;
+	return u8_task_stack_top;
 }
 
 void kernel_ProcessErrorHook(u8 processId) {
@@ -151,7 +156,8 @@ void kernel_ProcessErrorHook(u8 processId) {
 	kernel_ErrorHook();
 }
 
-boolean kernel_ProcessIsValid(void) {
+boolean kernel_ProcessIsValid(u8 processId) {
+	NOT_USED(processId);
 	return TRUE;
 }
 
@@ -159,12 +165,23 @@ void kernel_TerminateProcess(u8 processId){
 	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
 }
 
+void kernel_IdleTask(void){
+	while(1){
+		__asm volatile("NOP");
+	}
+}
+
 int main(void)
 {
 	/*initialize MCU*/
 	arch_Init();
+	enable_protection();
 	kernel_Init();
-    while(1);
+	KERNEL_DISABLE_SW_INTR();
+	initApp();
+	KERNEL_ENABLE_SW_INTR();
+	disable_protection();
+	kernel_IdleTask();
     return 0;
 
 }

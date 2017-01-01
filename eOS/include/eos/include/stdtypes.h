@@ -53,7 +53,9 @@
 #define _near_func
 #endif
 
-
+#ifndef NOT_USED
+#define NOT_USED(var) var=var
+#endif
 /** Defines the max value for an unsigned char
  */
 #ifndef MAX_U8

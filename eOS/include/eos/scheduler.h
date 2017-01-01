@@ -24,5 +24,5 @@ _public volatile u32 u32_KernelStatus;
  * */
 _public void SystemTick_ServiceRoutine(void);
 _public void sched_Init(void);
-
+_public void sched_ScheduleNextTask(void);
 #endif 

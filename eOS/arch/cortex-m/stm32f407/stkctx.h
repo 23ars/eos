@@ -53,5 +53,31 @@ struct S_TaskStkCtxt{
  * ##			Function Definitions				   ##
  * ######################################################
  * */
+#define STORE_REGISTERS_PSP_ASM()	\
+__asm volatile(						\
+	 "MRS r0, psp			\n\t"	\
+	 "STMDB r0!, {r4-r11}	\n\t"	\
+	 "MSR psp, r0			\n\t"	\
+	 "BX lr					\n\t"	\
+	 );
 
+#define LOAD_REGISTERS_PSP_ASM()	\
+__asm volatile(						\
+	"MRS r0, psp			\n\t"	\
+	"LDMFD r0!, {r4-r11}	\n\t"	\
+	"MSR psp, r0			\n\t"	\
+	"BX lr					\n\t"	\
+);
+
+#define SET_PSP_ASM(PSP)			\
+__asm volatile(						\
+	"MSR psp,r0				\n\t"   \
+	"BX lr					\n\t"	\
+);
+
+#define GET_PSP_ASM()				\
+__asm volatile(						\
+	"MRS r0,psp				\n\t"   \
+	"BX lr					\n\t"	\
+);
 #endif /* ARCH_CORTEX_M_STM32F407_STKCTX_H_ */
