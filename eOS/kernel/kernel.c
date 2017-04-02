@@ -22,17 +22,15 @@
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-volatile struct S_ProcessData rs_TaskStruct[AVAILABLE_PROCESS_NUMBER];
-volatile u8 u8_task_stack_top = 0;
-volatile u8 u8_RunningProcess=0;
+volatile os_process_t *os_curr_process;
+volatile os_process_t *os_next_process;
+volatile struct S_ProcessTable os_process_table;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
 _private void kernel_Init(void);
-_private s16 create(void (*task)(void), void (*error_hook)(void),
-		E_TaskPriority priority, E_TaskType task_type);
 _private void kernel_ProcessErrorHook(u8 processId);
 _private void kernel_IdleTask(void);
 /*
@@ -53,30 +51,56 @@ void kernel_Init(void)
 {
 	/*set kernel status to 0*/
 	u32_KernelStatus=KERNEL_SCHEDULER_FLAG;
-	/*initialize scheduler*/
-	sched_Init();
 	/*initialize processes*/
-	u8_task_stack_top = 0;
+	/*init scheduler*/
+	sched_Init();
 	/*set internal process (error hook for kernel)*/
-	mem_fill(&rs_TaskStruct[u8_task_stack_top], 0,
-			sizeof(struct S_ProcessData));
+	mem_fill(&os_process_table, 0,
+			sizeof(struct S_ProcessTable));
 	/*clean errors*/
 	errno=EOK;
 }
-s16 kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
-		E_TaskPriority priority, E_TaskType task_type) {
-	/*returns -1 in case of error or a number >0 that represents the process id.*/
-	u8 errorNumber = EOK;
-	s16 processId;
-	enable_protection();
-	if ((processId=create(task, error_hook, priority, task_type)) ==-1) {
-		errorNumber = ETSOF;
-	}
-	disable_protection();
-	return ((errorNumber == EOK) ? processId : -1);
+os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
+		E_TaskPriority priority, E_TaskType task_type,os_stack *p_stack,u32 stack_size) {
+	os_process_t *p_Task=&os_process_table.tasks[os_process_table.size];
+	u8 processId=os_process_table.size;
+	p_Task->task=task;
+	p_Task->sp=(u32)(p_stack+stack_size-16);
+
+	switch (priority) {
+		case TASK_HIGH_PRIO:
+			PROCESS_SET_HIGH_PRIO((*p_Task));
+			break;
+		case TASK_LOW_PRIO:
+			PROCESS_SET_LOW_PRIO((*p_Task));
+			break;
+		}
+		switch (task_type) {
+		case CYCLIC_5MS:
+			PROCESS_SET_CYCLIC_5MS((*p_Task));
+			break;
+		case CYCLIC_10MS:
+			PROCESS_SET_CYCLIC_10MS((*p_Task));
+			break;
+		case CYCLIC_20MS:
+			PROCESS_SET_CYCLIC_20MS((*p_Task));
+			break;
+		}
+#ifndef USE_MEMORY_PROTECTION
+	PROCESS_SET_NO_MPU((*p_Task));
+#endif
+	p_stack[stack_size-1] = 0x01000000;
+	p_stack[stack_size-2] = (u32)task;
+	p_stack[stack_size-3] = (u32)&kernel_TerminateProcess;
+
+
+	os_process_table.size++;
+	PROCESS_SET_READY((*p_Task));
+	return processId;
 }
 
 s16 kernel_KillProcess(u8 processId) {
+
 	if (processId == 0) {
 		/*cannot kill reserved process*/
 		errno = ERSPR;
@@ -86,72 +110,19 @@ s16 kernel_KillProcess(u8 processId) {
 		errno = EIDNR;
 		return -1;
 	}
-	enable_protection();
-	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
-
-	disable_protection();
+//	enable_protection();
+//	os_process_t *p_Task=&os_process_table.tasks[processId];
+//	PROCESS_SET_BLOCKED((*p_Task));
+//	os_process_table.tasks[processId]=*p_Task;
+//
+//	disable_protection();
 	return 0;
 }
 
-s16 create(void (*task)(void), void (*error_hook)(void),
-		E_TaskPriority priority, E_TaskType task_type) {
-	u8 taskIndex = 1;
-	boolean is_found = FALSE;
-	struct S_ProcessData ls_Task;
-	mem_fill(&ls_Task, 0, sizeof(struct S_ProcessData));
-	PROCESS_SET_READY(ls_Task);
-	switch (priority) {
-	case TASK_HIGH_PRIO:
-		PROCESS_SET_HIGH_PRIO(ls_Task);
-		break;
-	case TASK_LOW_PRIO:
-		PROCESS_SET_LOW_PRIO(ls_Task);
-		break;
-	}
-	switch (task_type) {
-	case ONE_SHOT:
-		PROCESS_SET_ONE_SHOT(ls_Task);
-		break;
-	case CYCLIC_5MS:
-		PROCESS_SET_CYCLIC_5MS(ls_Task);
-		break;
-	case CYCLIC_10MS:
-		PROCESS_SET_CYCLIC_10MS(ls_Task);
-		break;
-	case CYCLIC_20MS:
-		PROCESS_SET_CYCLIC_20MS(ls_Task);
-		break;
-	}
-#ifndef USE_MEMORY_PROTECTION
-	PROCESS_SET_NO_MPU(ls_Task);
-#endif
-	ls_Task.task = task;
-	ls_Task.error_hook = error_hook;
-	for (taskIndex = 1; taskIndex < AVAILABLE_PROCESS_NUMBER; taskIndex++) {
-		if (PROCESS_IS_BLOCKED(rs_TaskStruct[taskIndex]) == TRUE) {
-			is_found = TRUE;
-			break;
-
-		}
-	}
-	if (is_found == TRUE) {
-		PROCESS_ID(ls_Task, taskIndex);
-		rs_TaskStruct[taskIndex] = ls_Task;
-		return taskIndex;
-	}
-	if ((AVAILABLE_PROCESS_NUMBER - 1) == u8_task_stack_top) {
-		return -1;
-	}
-
-	u8_task_stack_top++;
-	PROCESS_ID(ls_Task, u8_task_stack_top);
-	rs_TaskStruct[u8_task_stack_top] = ls_Task;
-	return u8_task_stack_top;
-}
 
 void kernel_ProcessErrorHook(u8 processId) {
 	/*prevent task from executing*/
-	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
+	//PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
 	/*call Kernel ErrorHook*/
 	kernel_ErrorHook();
 }
@@ -161,8 +132,13 @@ boolean kernel_ProcessIsValid(u8 processId) {
 	return TRUE;
 }
 
-void kernel_TerminateProcess(u8 processId){
-	PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
+void kernel_TerminateProcess(u8 processId) {
+	enable_protection();
+	os_process_t *p_Task=&os_process_table.tasks[processId];
+
+	PROCESS_SET_READY((*p_Task));
+	os_process_table.tasks[processId]=*p_Task;
+	disable_protection();
 }
 
 void kernel_IdleTask(void){
@@ -174,11 +150,12 @@ void kernel_IdleTask(void){
 int main(void)
 {
 	/*initialize MCU*/
-	arch_Init();
 	enable_protection();
 	kernel_Init();
 	KERNEL_DISABLE_SW_INTR();
 	initApp();
+
+	arch_Init();
 	KERNEL_ENABLE_SW_INTR();
 	disable_protection();
 	kernel_IdleTask();

@@ -14,9 +14,6 @@
  * ##			Type Definitions					   ##
  * ######################################################
  * */
-#define KERNEL_CONTEXT_SAVE() STORE_REGISTERS_PSP_ASM()
-#define KERNEL_CONTEXT_RESTORE() LOAD_REGISTERS_PSP_ASM()
-
 #define KERNEL_DISABLE_SW_INTR()				\
 	enable_protection();						\
 	u32_KernelStatus&=~KERNEL_SCHEDULER_FLAG;	\
@@ -34,6 +31,7 @@
 #define PROCESS_SET_RUNNING(process)			((process.processData.task_state)=0x00u)
 #define PROCESS_SET_READY(process)				((process.processData.task_state)=0x01u)
 #define PROCESS_SET_BLOCKED(process)			((process.processData.task_state)=0x02u)
+#define PROCESS_SET_IDLE(process)				((process.processData.task_state)=0x03u)
 
 #define PROCESS_SET_HIGH_PRIO(process)			((process.processData.task_priority)=0x00u)
 #define PROCESS_SET_LOW_PRIO(process)		  	((process.processData.task_priority)=0x01u)
@@ -41,7 +39,6 @@
 #define PROCESS_SET_MPU(process)				((process.processData.task_mpu)=0x00u)
 #define PROCESS_SET_NO_MPU(process)				((process.processData.task_mpu)=0x01u)
 
-#define PROCESS_SET_ONE_SHOT(process)			((process.processData.task_type)=0x00u)
 #define PROCESS_SET_CYCLIC_5MS(process)			((process.processData.task_type)=0x01u)
 #define PROCESS_SET_CYCLIC_10MS(process)		((process.processData.task_type)=0x02u)
 #define PROCESS_SET_CYCLIC_20MS(process)		((process.processData.task_type)=0x03u)
@@ -54,6 +51,7 @@
 #define PROCESS_IS_RUNNING(process)				((process.processData.task_state)==0x00u)
 #define PROCESS_IS_READY(process)				((process.processData.task_state)==0x01u)
 #define PROCESS_IS_BLOCKED(process)				((process.processData.task_state)==0x02u)
+#define PROCESS_IS_IDLE(process)				((process.processData.task_state)==0x03u)
 
 #define PROCESS_IS_HIGH_PRIO(process)			((process.processData.task_priority)==0x00u)
 #define PROCESS_IS_LOW_PRIO(process)			((process.processData.task_priority)==0x01u)
@@ -63,7 +61,7 @@
 #define PROCESS_IS_CYCLIC_10MS(process)			((process.processData.task_type)==0x02u)
 #define PROCESS_IS_CYCLIC_20MS(process)			((process.processData.task_type)==0x03u)
 
-
+#define IS_PROCESS_TABLE_EMPTY() (u8_task_stack_top==0)
 
 /** Process states
  */
@@ -71,7 +69,7 @@ typedef enum {
 	RUNNING = 0x00,/**< A process in <b>RUNNING</b> state cannot be activated by scheduler*/
 	READY,/**< A process in <b>READY</b> state will be activated by scheduler*/
 	BLOCKED,/**< A process in <b>BLOCKED</b> state is marked for deletion*/
-
+	IDLE
 } E_ProcessStates;
 
 /** Task priorities
@@ -87,7 +85,7 @@ typedef enum {
 } E_MemoryProtection;
 
 typedef enum {
-	ONE_SHOT, CYCLIC_5MS = 0x05, CYCLIC_10MS = 0x0A, CYCLIC_20MS = 0x14,
+	CYCLIC_5MS = 0x05, CYCLIC_10MS = 0x0A, CYCLIC_20MS = 0x14,
 } E_TaskType;
 typedef struct
 {
@@ -100,36 +98,41 @@ typedef struct
 	unsigned int task_valid:8;
 }u32_process;
 
-struct S_ProcessData {
-	void *base_address;
-	u32 memory_length;
-	ptr_u32 sp;
-	ptr_u32 stk_end;
-	u32_process processData;
-	struct S_MainStkCtxt s_MainStkCtxt;
-	struct S_TaskStkCtxt s_TaskStkCtxt;
+typedef struct {
+	volatile u32 sp;
 	void (*task)(void);
 	void (*error_hook)(void);
+	volatile u32_process processData;
+}os_process_t;
+
+struct S_ProcessTable{
+	os_process_t tasks[AVAILABLE_PROCESS_NUMBER];
+	volatile u32 currentTask;
+	u8 size;
 };
+
+
+typedef u16 os_error_t ;
+
+typedef u32 os_stack;
 /*
  * ######################################################
  * ##			Variable Definitions				   ##
  * ######################################################
  * */
-_public volatile u8 u8_task_stack_top;
-_public volatile u8 u8_RunningProcess;
-_public volatile struct S_ProcessData rs_TaskStruct[AVAILABLE_PROCESS_NUMBER];
+_public volatile os_process_t *os_curr_process;
+_public volatile os_process_t *os_next_process;
+_public volatile struct S_ProcessTable os_process_table;
 /*
  * ######################################################
  * ##			Function Definitions				   ##
  * ######################################################
  * */
 _public void kernel_ErrorHook(void);
-
 _public boolean kernel_ProcessIsValid(u8 processId);
 
-_public s16 kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
-		E_TaskPriority priority, E_TaskType task_type);
+_public os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
+		E_TaskPriority priority, E_TaskType task_type,os_stack *p_stack,u32 stack_size);
 _public s16 kernel_KillProcess(u8 processId);
 _public void kernel_TerminateProcess(u8 processId);
 
