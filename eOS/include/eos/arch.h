@@ -14,6 +14,7 @@
  * */
 #include "configuration.h"
 #include "stdtypes.h"
+#include "kernel.h"
 
 /*
  * ######################################################
@@ -34,9 +35,8 @@ _public ptr_u32 stack;
  * ##			Function Definitions				   ##
  * ######################################################
  * */
+_public EOS_ISR(SysTick_Handler);
 _public void arch_Init(void);
 _public void arch_IssueSwInterrupt(void);
-
-EOS_ISR(SysTick_Handler);
 _public void arch_Init(void);
 #endif /* ARCH_CORTEX_M_ARCH_H_ */

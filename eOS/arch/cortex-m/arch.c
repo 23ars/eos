@@ -27,7 +27,7 @@ volatile u8 u8_schd_counter = 0;
  * ##			Function Definitions				   ##
  * ######################################################
  * */
-EOS_ISR(SysTick_Handler);
+
 //EOS_NAKED_ISR(PendSV_Handler);
 
 /*
@@ -47,7 +47,7 @@ void arch_Init(void) {
 	__set_BASEPRI(0);
 	/*set PendSV to the lowest priority*/
 	NVIC_SetPriority(PendSV_IRQn, 0xFF);
-	/*set first task as current task*/
+
 	os_curr_process=&os_process_table.tasks[os_process_table.currentTask];
 	/*Set PSP to the top of task's stack*/
 	__set_PSP(os_curr_process->sp+64);
@@ -55,40 +55,19 @@ void arch_Init(void) {
 	__set_CONTROL(0x03);
 	/*Execute ISB after changing controll (recommended)*/
 	__ISB();
-
+	PROCESS_SET_RUNNING((*os_curr_process));
 	(os_curr_process->task)();
+
 }
 
+
+
 void arch_IssueSwInterrupt(void) {
+	u32_KernelStatus ^= KERNEL_SCHEDULER_FLAG;
 	SCB->ICSR |= SCB_ICSR_PENDSVSET_Msk;
 }
 
-EOS_ISR(SysTick_Handler) {
 
-	os_curr_process=&os_process_table.tasks[os_process_table.currentTask];
-	PROCESS_SET_IDLE((*os_curr_process));
-	os_process_table.currentTask++;
-
-	if(os_process_table.currentTask>=os_process_table.size){
-		os_process_table.currentTask=0;
-	}
-
-	os_next_process=&os_process_table.tasks[os_process_table.currentTask];
-	PROCESS_SET_RUNNING((*os_next_process));
-
-	/*Trigger PendSV which performs the actual context switch*/
-
-	if (u32_KernelStatus & KERNEL_SCHEDULER_FLAG)
-	{
-		enable_protection();
-		u32_KernelStatus ^= KERNEL_SCHEDULER_FLAG;
-		disable_protection();
-		arch_IssueSwInterrupt();
-	}
-
-
-
-}
 
 //EOS_NAKED_ISR(PendSV_Handler) {
 

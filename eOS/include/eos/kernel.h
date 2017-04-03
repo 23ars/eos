@@ -31,7 +31,7 @@
 #define PROCESS_SET_RUNNING(process)			((process.processData.task_state)=0x00u)
 #define PROCESS_SET_READY(process)				((process.processData.task_state)=0x01u)
 #define PROCESS_SET_BLOCKED(process)			((process.processData.task_state)=0x02u)
-#define PROCESS_SET_IDLE(process)				((process.processData.task_state)=0x03u)
+
 
 #define PROCESS_SET_HIGH_PRIO(process)			((process.processData.task_priority)=0x00u)
 #define PROCESS_SET_LOW_PRIO(process)		  	((process.processData.task_priority)=0x01u)
@@ -63,6 +63,10 @@
 
 #define IS_PROCESS_TABLE_EMPTY() (u8_task_stack_top==0)
 
+
+typedef u16 os_error_t ;
+
+typedef u32 os_stack;
 /** Process states
  */
 typedef enum {
@@ -103,6 +107,7 @@ typedef struct {
 	void (*task)(void);
 	void (*error_hook)(void);
 	volatile u32_process processData;
+	os_stack stack[PROCESS_STACK_SIZE];
 }os_process_t;
 
 struct S_ProcessTable{
@@ -112,9 +117,7 @@ struct S_ProcessTable{
 };
 
 
-typedef u16 os_error_t ;
 
-typedef u32 os_stack;
 /*
  * ######################################################
  * ##			Variable Definitions				   ##
@@ -132,8 +135,8 @@ _public void kernel_ErrorHook(void);
 _public boolean kernel_ProcessIsValid(u8 processId);
 
 _public os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
-		E_TaskPriority priority, E_TaskType task_type,os_stack *p_stack,u32 stack_size);
+		E_TaskPriority priority, E_TaskType task_type);
 _public s16 kernel_KillProcess(u8 processId);
-_public void kernel_TerminateProcess(u8 processId);
+_public void kernel_TerminateProcess(void);
 
 #endif /*INCLUDE_EOS_KERNEL_H_*/

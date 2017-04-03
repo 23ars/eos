@@ -33,6 +33,8 @@ volatile struct S_ProcessTable os_process_table;
 _private void kernel_Init(void);
 _private void kernel_ProcessErrorHook(u8 processId);
 _private void kernel_IdleTask(void);
+_private void kernel_BackgroundProcess(void);
+_private void kerkel_RestartProcess(void);
 /*
  * ######################################################
  * ##			Function Implementations			   ##
@@ -51,22 +53,32 @@ void kernel_Init(void)
 {
 	/*set kernel status to 0*/
 	u32_KernelStatus=KERNEL_SCHEDULER_FLAG;
-	/*initialize processes*/
-	/*init scheduler*/
-	sched_Init();
 	/*set internal process (error hook for kernel)*/
 	mem_fill(&os_process_table, 0,
 			sizeof(struct S_ProcessTable));
 	/*clean errors*/
 	errno=EOK;
+	kernel_CreateProcess(&kernel_BackgroundProcess, &kernel_ErrorHook, TASK_LOW_PRIO, CYCLIC_20MS);
 }
+
+void kernel_BackgroundProcess(void)
+{
+	__asm volatile("NOP");
+}
+
+void kernel_RestartProcess(void)
+{
+	//memset stack and add again task handler & error hook?
+	os_process_table.tasks[os_process_table.currentTask].sp=(u32)(os_process_table.tasks[os_process_table.currentTask].stack+PROCESS_STACK_SIZE-16);
+}
+
 os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
-		E_TaskPriority priority, E_TaskType task_type,os_stack *p_stack,u32 stack_size) {
+		E_TaskPriority priority, E_TaskType task_type) {
 	os_process_t *p_Task=&os_process_table.tasks[os_process_table.size];
 	u8 processId=os_process_table.size;
 	p_Task->task=task;
-	p_Task->sp=(u32)(p_stack+stack_size-16);
-
+	p_Task->error_hook=error_hook;
+	p_Task->sp=(u32)(p_Task->stack+PROCESS_STACK_SIZE-16);
 	switch (priority) {
 		case TASK_HIGH_PRIO:
 			PROCESS_SET_HIGH_PRIO((*p_Task));
@@ -89,9 +101,9 @@ os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
 #ifndef USE_MEMORY_PROTECTION
 	PROCESS_SET_NO_MPU((*p_Task));
 #endif
-	p_stack[stack_size-1] = 0x01000000;
-	p_stack[stack_size-2] = (u32)task;
-	p_stack[stack_size-3] = (u32)&kernel_TerminateProcess;
+	p_Task->stack[PROCESS_STACK_SIZE-1] = 0x01000000;
+	p_Task->stack[PROCESS_STACK_SIZE-2] = (u32)task;
+	p_Task->stack[PROCESS_STACK_SIZE-3] = (u32)&kernel_TerminateProcess;
 
 
 	os_process_table.size++;
@@ -100,30 +112,13 @@ os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
 }
 
 s16 kernel_KillProcess(u8 processId) {
-
-	if (processId == 0) {
-		/*cannot kill reserved process*/
-		errno = ERSPR;
-		return -1;
-	}
-	if (AVAILABLE_PROCESS_NUMBER < processId) {
-		errno = EIDNR;
-		return -1;
-	}
-//	enable_protection();
-//	os_process_t *p_Task=&os_process_table.tasks[processId];
-//	PROCESS_SET_BLOCKED((*p_Task));
-//	os_process_table.tasks[processId]=*p_Task;
-//
-//	disable_protection();
+	NOT_USED(processId);
 	return 0;
 }
 
 
 void kernel_ProcessErrorHook(u8 processId) {
-	/*prevent task from executing*/
-	//PROCESS_SET_BLOCKED(rs_TaskStruct[processId]);
-	/*call Kernel ErrorHook*/
+	NOT_USED(processId);
 	kernel_ErrorHook();
 }
 
@@ -132,13 +127,11 @@ boolean kernel_ProcessIsValid(u8 processId) {
 	return TRUE;
 }
 
-void kernel_TerminateProcess(u8 processId) {
-	enable_protection();
-	os_process_t *p_Task=&os_process_table.tasks[processId];
-
-	PROCESS_SET_READY((*p_Task));
-	os_process_table.tasks[processId]=*p_Task;
-	disable_protection();
+void kernel_TerminateProcess() {
+	kernel_RestartProcess();
+	while(1){
+		__asm volatile("NOP");
+	}
 }
 
 void kernel_IdleTask(void){
@@ -154,9 +147,9 @@ int main(void)
 	kernel_Init();
 	KERNEL_DISABLE_SW_INTR();
 	initApp();
-
 	arch_Init();
 	KERNEL_ENABLE_SW_INTR();
+	sched_Init();
 	disable_protection();
 	kernel_IdleTask();
     return 0;

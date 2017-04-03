@@ -24,5 +24,4 @@ _public volatile u8 u8_schd_counter;
  * ######################################################
  * */
 _public void sched_Init(void);
-_public void sched_ScheduleNextTask(void);
 #endif 

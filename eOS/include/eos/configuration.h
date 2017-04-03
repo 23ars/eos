@@ -20,4 +20,8 @@
 //#define USE_MPU
 #endif
 
+#ifndef PROCESS_STACK_SIZE
+#define PROCESS_STACK_SIZE 128
+#endif
+
 #endif /* INCLUDE_EOS_CONFIGURATION_H_ */
