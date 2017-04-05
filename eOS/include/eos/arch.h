@@ -36,6 +36,7 @@ _public ptr_u32 stack;
  * ######################################################
  * */
 _public EOS_ISR(SysTick_Handler);
+//_public EOS_NAKED_ISR(PendSV_Handler);
 _public void arch_Init(void);
 _public void arch_IssueSwInterrupt(void);
 _public void arch_Init(void);

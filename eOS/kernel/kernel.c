@@ -68,8 +68,11 @@ void kernel_BackgroundProcess(void)
 
 void kernel_RestartProcess(void)
 {
-	//memset stack and add again task handler & error hook?
-	os_process_table.tasks[os_process_table.currentTask].sp=(u32)(os_process_table.tasks[os_process_table.currentTask].stack+PROCESS_STACK_SIZE-16);
+
+//	os_process_table.tasks[os_process_table.currentTask].sp=(u32)(os_process_table.tasks[os_process_table.currentTask].stack+PROCESS_STACK_SIZE-16);
+//	(os_process_table.tasks[os_process_table.currentTask].task)();
+
+
 }
 
 os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),

@@ -28,7 +28,7 @@ volatile u8 u8_schd_counter = 0;
  * ######################################################
  * */
 
-//EOS_NAKED_ISR(PendSV_Handler);
+
 
 /*
  * ######################################################
@@ -69,17 +69,3 @@ void arch_IssueSwInterrupt(void) {
 
 
 
-//EOS_NAKED_ISR(PendSV_Handler) {
-
-
-//	KERNEL_CONTEXT_SAVE();
-//	enable_protection();
-//	sched_ScheduleNextTask();
-//	u32_KernelStatus ^= KERNEL_SCHEDULER_FLAG;
-//	disable_protection();
-//	/*issue new Sw Interrupt to kernel*/
-//	if(u8_RunningProcess!=0){
-//		(*rs_TaskStruct[u8_RunningProcess].task)();
-//	}
-//	KERNEL_CONTEXT_RESTORE();
-//}
