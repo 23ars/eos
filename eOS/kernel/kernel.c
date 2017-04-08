@@ -68,9 +68,16 @@ void kernel_BackgroundProcess(void)
 
 void kernel_RestartProcess(void)
 {
+	//rearm cyclic task
+	if(PROCESS_IS_DEFAULT((*os_next_process))==FALSE){
+		os_next_process->stack[PROCESS_STACK_SIZE-1]=0x01000000;
+		PROCESS_SET_READY((*os_curr_process));
+	}
 
-//	os_process_table.tasks[os_process_table.currentTask].sp=(u32)(os_process_table.tasks[os_process_table.currentTask].stack+PROCESS_STACK_SIZE-16);
-//	(os_process_table.tasks[os_process_table.currentTask].task)();
+	os_next_process->stack[PROCESS_STACK_SIZE-1] = 0x01000000;
+	os_next_process->stack[PROCESS_STACK_SIZE-2] = (u32)os_next_process->task;
+	os_next_process->stack[PROCESS_STACK_SIZE-3] = (u32)&kernel_TerminateProcess;
+
 
 
 }
@@ -91,6 +98,9 @@ os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
 			break;
 		}
 		switch (task_type) {
+		case DEFAULT:
+			PROCESS_SET_DEFAULT((*p_Task));
+			break;
 		case CYCLIC_5MS:
 			PROCESS_SET_CYCLIC_5MS((*p_Task));
 			break;
@@ -110,6 +120,7 @@ os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
 
 
 	os_process_table.size++;
+	PROCESS_SET_VALID((*p_Task));
 	PROCESS_SET_READY((*p_Task));
 	return processId;
 }
@@ -125,10 +136,6 @@ void kernel_ProcessErrorHook(u8 processId) {
 	kernel_ErrorHook();
 }
 
-boolean kernel_ProcessIsValid(u8 processId) {
-	NOT_USED(processId);
-	return TRUE;
-}
 
 void kernel_TerminateProcess() {
 	kernel_RestartProcess();

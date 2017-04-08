@@ -34,7 +34,8 @@
 static inline void READ_STACK_CTX(void)
 {
 	__asm volatile(
-				"MRS 	r0,psp		\n\t"
+			"cpsid i			\n\t"
+			"MRS 	r0,psp		\n\t"
 
 		);
 }
@@ -57,11 +58,8 @@ static inline void READ_REGISTERS(void)
 
 static inline void SAVE_CURRENT_TASK(void)
 {
-	//"MSR psp, %0\n\t" : : "r" (ptr)
 	__asm volatile(
-			"ldr	r2, =os_curr_process		\n\t");
-
-	__asm volatile(
+			"ldr	r2, =os_curr_process		\n\t"
 			"ldr	r1, [r2]	\n\t"			//load content from address from r2 in r1
 			"str	r0, [r1]	\n\t"			//store content of r0 at address from r1.
 			);//Save current task's SP
@@ -69,11 +67,8 @@ static inline void SAVE_CURRENT_TASK(void)
 
 static inline void LOAD_NEXT_TASK(void)
 {
-
 	__asm volatile(
-			"ldr	r2, =os_next_process		\n\t");
-
-	__asm volatile(
+				"ldr	r2, =os_next_process		\n\t"
 				"ldr	r1, [r2]	\n\t"			//load content from address r2 in r1
 				"ldr	r0, [r1]	\n\t"			//load in r0 content from address r1
 		);//Load next task
@@ -99,17 +94,12 @@ static inline void WRITE_STACK_CTX(void)
 			);//WRITE_STACK_CTX
 }
 
-static inline void CONFIGURE_THREAD_MODE(void)
-{
-	__asm volatile(
-				"ldr	r0,=0xFFFFFFFD		\n\t"
-				);//EXC_RETURN - Thread mode with PSP
-
-}
 
 static inline void BRANCH(void)
 {
 	__asm volatile(
+			"ldr	r0,=0xFFFFFFFD			\n\t"
+			"cpsie i						\n\t"
 			"bx	r0							\n\t	//branch indirect"
 	);//BRANCH
 }

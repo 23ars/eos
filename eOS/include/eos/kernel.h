@@ -39,6 +39,7 @@
 #define PROCESS_SET_MPU(process)				((process.processData.task_mpu)=0x00u)
 #define PROCESS_SET_NO_MPU(process)				((process.processData.task_mpu)=0x01u)
 
+#define PROCESS_SET_DEFAULT(process)			((process.processData.task_type)=0x00u)
 #define PROCESS_SET_CYCLIC_5MS(process)			((process.processData.task_type)=0x01u)
 #define PROCESS_SET_CYCLIC_10MS(process)		((process.processData.task_type)=0x02u)
 #define PROCESS_SET_CYCLIC_20MS(process)		((process.processData.task_type)=0x03u)
@@ -51,12 +52,11 @@
 #define PROCESS_IS_RUNNING(process)				((process.processData.task_state)==0x00u)
 #define PROCESS_IS_READY(process)				((process.processData.task_state)==0x01u)
 #define PROCESS_IS_BLOCKED(process)				((process.processData.task_state)==0x02u)
-#define PROCESS_IS_IDLE(process)				((process.processData.task_state)==0x03u)
 
 #define PROCESS_IS_HIGH_PRIO(process)			((process.processData.task_priority)==0x00u)
 #define PROCESS_IS_LOW_PRIO(process)			((process.processData.task_priority)==0x01u)
 
-#define PROCESS_IS_ONE_SHOT(process)			((process.processData.task_type)==0x00u)
+#define PROCESS_IS_DEFAULT(process)				((process.processData.task_type)==0x00u)
 #define PROCESS_IS_CYCLIC_5MS(process)			((process.processData.task_type)==0x01u)
 #define PROCESS_IS_CYCLIC_10MS(process)			((process.processData.task_type)==0x02u)
 #define PROCESS_IS_CYCLIC_20MS(process)			((process.processData.task_type)==0x03u)
@@ -73,7 +73,6 @@ typedef enum {
 	RUNNING = 0x00,/**< A process in <b>RUNNING</b> state cannot be activated by scheduler*/
 	READY,/**< A process in <b>READY</b> state will be activated by scheduler*/
 	BLOCKED,/**< A process in <b>BLOCKED</b> state is marked for deletion*/
-	IDLE
 } E_ProcessStates;
 
 /** Task priorities
@@ -89,6 +88,7 @@ typedef enum {
 } E_MemoryProtection;
 
 typedef enum {
+	DEFAULT,
 	CYCLIC_5MS = 0x05, CYCLIC_10MS = 0x0A, CYCLIC_20MS = 0x14,
 } E_TaskType;
 typedef struct
@@ -132,7 +132,6 @@ _public volatile struct S_ProcessTable os_process_table;
  * ######################################################
  * */
 _public void kernel_ErrorHook(void);
-_public boolean kernel_ProcessIsValid(u8 processId);
 
 _public os_error_t kernel_CreateProcess(void (*task)(void), void (*error_hook)(void),
 		E_TaskPriority priority, E_TaskType task_type);
